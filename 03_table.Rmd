@@ -81,7 +81,7 @@ esttab, cells("b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))") ///
 
 Export:
 ```{stata tabexport, eval= F}
-esttab using "${word}/03_tab1.rtf", cells("b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))") ///
+esttab using "${res}/03_tab1.rtf", cells("b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))") ///
 	nonumber nomtitle noobs ///
 	varlabels(`e(labels)') ///
 	varwidth(40) ///
@@ -229,7 +229,7 @@ esttab ., cell(b(fmt(%13.2fc))) ///
 
 
 ```{stata svytab2, eval = F}
-esttab using "${word}/svytab.rtf", cell(b(fmt(%13.2fc))) ///
+esttab using "${res}/svytab.rtf", cell(b(fmt(%13.2fc))) ///
     nostar nostar unstack ///
 		nonumber nomtitles collabels(none)  ///
 		varlabels(`e(labels)') eqlabels(`e(eqlabels)', lhs("Ausbildungsabs.")) ///
@@ -237,7 +237,7 @@ esttab using "${word}/svytab.rtf", cell(b(fmt(%13.2fc))) ///
 		varwidth(40) ///
 		replace
 	
-esttab . using "${tex}/svy_desc.tex",  cell(b(fmt(%13.2fc))) ///
+esttab . using "${res}/svy_desc.tex",  cell(b(fmt(%13.2fc))) ///
 		nostar nostar unstack ///
 		nonumber nomtitles collabels(none)  ///
 		varlabels(`e(labels)') eqlabels(`e(eqlabels)', lhs("Ausbildungsabs."))  ///

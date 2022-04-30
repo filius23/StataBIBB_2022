@@ -32,7 +32,7 @@ library(ggthemes)
 # Herzlich Willkommen {-}
 
 
-Hier entsteht das Begleitskript für die Weiterbildung **Stata – Erzeugen von Deskriptions- und Regressionstabellen** am BIBB von Andreas Filser am 19.03.2022
+Hier entsteht das Begleitskript für die Weiterbildung **Stata – Erzeugen von Deskriptions- und Regressionstabellen** am BIBB von Andreas Filser am 19.05.2022
 
 ```{r index_illustration, echo = F,out.width = "80%",fig.height= 3, fig.align="center"}
 knitr::include_graphics("pics/01_titel.png")

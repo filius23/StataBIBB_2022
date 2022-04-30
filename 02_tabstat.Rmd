@@ -178,14 +178,14 @@ esttab, ///
 ## export 
 
 ```{stata export, eval = F}
-esttab using "${word}/tab1.rtf", ///
+esttab using "${res}/tab1.rtf", ///
 	cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))")  ///
 	nonumber nomtitle nonote noobs label ///
 	collabels("Mean" "SD" "Min" "Max" "N") ///
 	coeflabel(F518_SUF "Bruttoverdienst") ///
 	replace
    
-esttab using "${tex}/tab1.tex", ///
+esttab using "${res}/tab1.tex", ///
 	cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))")  ///
 	nonumber nomtitle nonote noobs label ///
 	collabels("Mean" "SD" "Min" "Max" "N") ///
@@ -569,9 +569,13 @@ The number 5.139 in `%12.2f` format displays as
 ```{stata}
 help format
 	dis strlen("10789.1234")
-	display %10.2f 	10789.1234 // 0 Nachkommastellen
-	display %10.0f 	10789.1234 // 2 Nachkommastellen
-	display %11.5f 	10789.1234 // 0 hinzugefügt!
+```
+
+
+```{stata, eval = F}
+display %10.2f 	10789.1234 // 0 Nachkommastellen
+display %10.0f 	10789.1234 // 2 Nachkommastellen
+display %11.5f 	10789.1234 // 0 am Ende hinzugefügt
 ```
 
 ### %w.dfc
@@ -585,6 +589,15 @@ Mit `%`*w*`**,**`*d*`fc` können wir das Format für Dezimal- und Tausendertrenn
 
 *Beispiele*: mit `fc` werden Tausendertrenner eingefügt
 ```{stata}
-	display %10.2fc 	10789.1234
-	display %10,2fc 	10789.1234 // , und . tauschen -> "dt Format"
+display %10.2fc 	10789.1234
+display %10.2fc 	10789.1234
 ```
+
+
+```{stata, eval =F}
+display %10,2fc 	10789.1234 // , und . tauschen -> "dt Format"
+```
+```{stata,eval =F}
+10.789,12
+```
+
