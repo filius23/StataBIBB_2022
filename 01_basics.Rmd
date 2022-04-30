@@ -65,6 +65,7 @@ Das Grundprinzip ist dann immer:
 
 (@) Auswertungsbefehl
 (@) Tabelle mit `esttab` erstellen
+(@) Tabelle exportieren (durch Anpassung des `esttab`-Befehls)
 
 
 Die Matrizen können wir mit `matrix list`, die `Skalare` mit `scalar list` + Name aufrufen, unter `e(b)` sind beispielsweise die Koeffizienten abgelegt:
@@ -103,7 +104,8 @@ Grundsätzlich sind aber die Ergebnisse aus `e()` und `r()` alle in Tabellen mit
 knitr::include_graphics("pics/01_pfade.png")
 ```
 
-## Übung
+
+## Übung {#init}
 
 + Generieren Sie einmal `BIBBBAuA_2018_suf1.0_clean.dta` mit Hilfe von `00_init.do` für die weiteren Aufgaben.
 + Testen Sie einmal `return list` und `erturn list` nach `reg F518_SUF zpalter` bzw.  `su zpalter`

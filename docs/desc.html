@@ -495,14 +495,22 @@ Bruttoverdienst          3,532.11     3,530.93            1       72,000       1
 </div>
 <div id="export" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> export<a href="desc.html#export" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb17-1"><a href="desc.html#cb17-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">&quot;${word}/tab1.rtf&quot;</span>, <span class="co">///</span></span>
+<p>Bisher bewegen wir uns aber immer noch im Ausgabe-Fenster von Stata.
+Um die Tabelle nun zu exportieren, hängen wir ein <code>using</code>-Statement an <code>esttab</code>.
+Für das Ausgabeformat hängen wir einfach die gewünschte Dateiendung an:</p>
+<ul>
+<li><code>.rtf</code> für eine Datei, die mit Word geöffnet und weiterverarbeitet werden kann</li>
+<li><code>.tex</code> für eine Latex-Datei</li>
+<li><code>.csv</code> für eine Excel-Datei (mehr zum Excel-Export <a href="misc.html#misc">hier</a>)</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb17-1"><a href="desc.html#cb17-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">&quot;${res}/tab1.rtf&quot;</span>, <span class="co">///</span></span>
 <span id="cb17-2"><a href="desc.html#cb17-2" aria-hidden="true" tabindex="-1"></a>    cells(<span class="st">&quot;mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))&quot;</span>)  <span class="co">///</span></span>
 <span id="cb17-3"><a href="desc.html#cb17-3" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle nonote <span class="kw">noobs</span> <span class="kw">label</span> <span class="co">///</span></span>
 <span id="cb17-4"><a href="desc.html#cb17-4" aria-hidden="true" tabindex="-1"></a>    collabels(<span class="st">&quot;Mean&quot;</span> <span class="st">&quot;SD&quot;</span> <span class="st">&quot;Min&quot;</span> <span class="st">&quot;Max&quot;</span> <span class="st">&quot;N&quot;</span>) <span class="co">///</span></span>
 <span id="cb17-5"><a href="desc.html#cb17-5" aria-hidden="true" tabindex="-1"></a>    coeflabel(F518_SUF <span class="st">&quot;Bruttoverdienst&quot;</span>) <span class="co">///</span></span>
 <span id="cb17-6"><a href="desc.html#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span></span>
 <span id="cb17-7"><a href="desc.html#cb17-7" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb17-8"><a href="desc.html#cb17-8" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">&quot;${tex}/tab1.tex&quot;</span>, <span class="co">///</span></span>
+<span id="cb17-8"><a href="desc.html#cb17-8" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">&quot;${res}/tab1.tex&quot;</span>, <span class="co">///</span></span>
 <span id="cb17-9"><a href="desc.html#cb17-9" aria-hidden="true" tabindex="-1"></a>    cells(<span class="st">&quot;mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))&quot;</span>)  <span class="co">///</span></span>
 <span id="cb17-10"><a href="desc.html#cb17-10" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle nonote <span class="kw">noobs</span> <span class="kw">label</span> <span class="co">///</span></span>
 <span id="cb17-11"><a href="desc.html#cb17-11" aria-hidden="true" tabindex="-1"></a>    collabels(<span class="st">&quot;Mean&quot;</span> <span class="st">&quot;SD&quot;</span> <span class="st">&quot;Min&quot;</span> <span class="st">&quot;Max&quot;</span> <span class="st">&quot;N&quot;</span>) <span class="co">///</span></span>

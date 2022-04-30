@@ -18,11 +18,9 @@ estimates clear
 
 * ------------------------------ *
 * Pfade setzen
-if ("`c(username)'" == "Filser") {
-	glo pfad 		"D:\oCloud\Home-Cloud\Lehre\BIBB\StataBIBB3"		// Projekt/Kursordner
-}
 * hier statt meinem den eigenen Projektordner angeben
-* glo pfad 		""		// Projekt/Kursordner
+glo pfad 		"D:\oCloud\Home-Cloud\Lehre\BIBB\StataBIBB_2022"		// Projekt/Kursordner
+
 
 glo data		"${pfad}/data"		// wo liegen die Datensätze?
 glo res		"${pfad}/res"		// Ergebnis-Ordner
