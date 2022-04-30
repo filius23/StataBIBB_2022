@@ -1,0 +1,107 @@
+# Weitere Optionen {#misc} 
+
+```{r setup7, echo = F, message=F, warning = F}
+.libPaths("D:/R-library4")
+knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(dpi=800)
+# knitr::opts_chunk$set(collectcode = T)
+library(Statamarkdown)
+library(tidyverse)
+library(kableExtra)
+# stataexe <- "C:/Program Files (x86)/Stata13/StataSE-64.exe"
+stataexe <- "C:/Program Files/Stata16/StataSE-64.exe"
+knitr::opts_chunk$set(engine.path=list(stata=stataexe))
+# baua <- readstata13::read.dta13("D:/Datenspeicher/BIBB_BAuA/BIBBBAuA_2018_suf1.0.dta",convert.factors = F)
+```
+
+
+## `estimates store` auch bei `estpost`
+
+Wir können auch die estimates aus einem `estpost` speichern, um sie später wieder aufzurufen - auch nach einem Befehl, der eigentlich `e()` überschreibt.
+
+```{stata, eval = F}
+estpost correlate zpalter F518_SUF F200, matrix
+estimates store m1
+xi: reg az i.S1
+est store m2
+
+esttab m1, not unstack compress noobs nonumber nomtitles ///
+		 varlabels(zpalter "(1) Alter" F518_SUF "(2) Bruttoeinkommen" F200 "(3) Wochenarbeitszeit") ///
+		 eqlabels("(1) Alter" "(2) Bruttoeinkommen" "(3) Wochenarbeitszeit") ///
+    collabels(none) ///
+		 varwidth(22) ///
+		 modelwidth(22)
+```
+
+
+```{stata, echo = F}
+quietly{
+  use "./data/BIBBBAuA_2018_short.dta", clear
+  set linesize 200
+  estpost correlate zpalter F518_SUF F200, matrix
+  estimates store m1
+  xi: reg az i.S1
+  est store m2
+}
+esttab m1, cell(b(fmt(5) star)) not unstack compress noobs nonumber nomtitles ///
+		 varlabels(zpalter "(1) Alter" F518_SUF "(2) Bruttoeinkommen" F200 "(3) Wochenarbeitszeit") ///
+		 eqlabels("(1) Alter" "(2) Bruttoeinkommen" "(3) Wochenarbeitszeit") ///
+     collabels(none) ///
+		 varwidth(22) ///
+		 modelwidth(22)
+```
+
+
+## Excel-Export
+
+
+Für den Excel-Export können wir einfach `using ...csv` nutzen. Für deutschsprachige Systeme empfiehlt sich dabei aber, statt `,` ein `;` als Spaltentrenner zu verwenden. Das können wir mit der Option `scsv` erreichen.
+
+- `csv` als Dateiendung produziert eine csv-Datei, die mit Excel geöffnet werden kann
+- `nostar` empfiehlt sich für den Excel-Export, da Sternchen in Excel häufig zu Problemen führen
+- `scsv`  `;` anstelle von `,` als Spaltenseparator
+
+```{stata, eval = F}
+esttab mod* using "${results}\tabelle1.csv", cells("b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))") scsv
+```
+
+
+
+<!-- ## Formatierungsoptionen -->
+
+<!--  + `alignment(string)  set alignment within columns (LaTeX, HTML, RTF)` -->
+
+<!-- In LaTeX mode string should be a LaTeX column specifier.  -->
+<!-- The default is to center the columns.  -->
+<!-- To produce right-aligned columns, for example, type alignment(r).  -->
+<!-- If the table contains multiple columns per model/equation, the alignment specification should define all columns.  -->
+<!-- For example, if the wide option is specified, you could type alignment(cr) to, say, center the point estimates and right-align the t-statistics. Note that more sophisticated column definitions are often needed to produce appealing results.  -->
+<!-- In particular, LaTeX's dcolumn package proves useful to align columns on the decimal point. -->
+
+
+<!-- In RTF mode string should be one of l, c, r, and j.  -->
+<!-- The default is to center the columns. To produce right-aligned columns, for example, type alignment(r).  -->
+<!-- The same alignment is used for all columns if the table contains multiple columns per model/equation in the RTF mode. -->
+
+
+<!-- + `fragment`  -->
+
+<!-- ## Schriftart -->
+<!-- `fonttbl(string)    set custom font table (RTF)` -->
+
+
+<!-- `title({\b Table 1.} {\i This is the 1{\super st} table})` -->
+<!-- [Formatierung anpassen](http://repec.org/bocode/e/estout/esttab011d.do) -->
+
+<!--   fonttbl(string) defines a custom font table in RTF. The default is -->
+<!--         "\f0\fnil Times New Roman;". For example, typing -->
+
+<!--             . esttab using example.rtf, ti("\f1 The Auto Data") /// -->
+<!--                 fonttbl(\f0\fnil Times New Roman;\f1\fnil Arial;) -->
+
+<!--         would add a title in Arial. -->
+
+<!-- ## any matrix -->
+
+
+<!-- [esttab any matrix](http://repec.org/bocode/e/estout/advanced.html#advanced905) -->
