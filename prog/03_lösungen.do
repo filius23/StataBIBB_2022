@@ -58,7 +58,7 @@ esttab, cell(colpct(fmt(%13.3fc))) unstack noobs collabels(none) nonumber nomtit
 			note("Und hier eine Notiz") // notiz
 			
 			
-esttab using "${word}/tab2.rtf", cell(colpct(fmt(%13.3fc))) unstack noobs collabels(none) nonumber nomtitles ///
+esttab using "${res}/tab2.rtf", cell(colpct(fmt(%13.3fc))) unstack noobs collabels(none) nonumber nomtitles ///
 		  varlabels(`e(labels)') varwidth(40) ///
 		  eqlabels(, lhs("Wohnortgröße"))  ///
 		  modelwidth(20) /// spaltenbreite

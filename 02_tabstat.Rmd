@@ -177,6 +177,14 @@ esttab, ///
 
 ## export 
 
+Bisher bewegen wir uns aber immer noch im Ausgabe-Fenster von Stata.
+Um die Tabelle nun zu exportieren, hängen wir ein `using`-Statement an `esttab`.
+Für das Ausgabeformat hängen wir einfach die gewünschte Dateiendung an:
+
++ `.rtf` für eine Datei, die mit Word geöffnet und weiterverarbeitet werden kann
++ `.tex` für eine Latex-Datei
++ `.csv` für eine Excel-Datei (mehr zum Excel-Export [hier](#misc))
+
 ```{stata export, eval = F}
 esttab using "${res}/tab1.rtf", ///
 	cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))")  ///

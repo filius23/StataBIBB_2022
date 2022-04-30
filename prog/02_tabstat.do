@@ -60,14 +60,14 @@ esttab, ///
 	
 	
 * export -------	
-esttab using "${word}/tab1.rtf", ///
+esttab using "${res}/tab1.rtf", ///
 	cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))")  ///
 	nonumber nomtitle nonote noobs label ///
 	collabels("Mean" "SD" "Min" "Max" "N") ///
 	coeflabel(F518_SUF "Bruttoverdienst") ///
 	replace
    
-esttab using "${tex}/tab1.tex", ///
+esttab using "${res}/tab1.tex", ///
 	cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))")  ///
 	nonumber nomtitle nonote noobs label ///
 	collabels("Mean" "SD" "Min" "Max" "N") ///
@@ -101,7 +101,7 @@ esttab, cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min max count(fmt(%13.0fc)) m
 		coeflabel(F518_SUF "Bruttoverdienst") 
 
 	
-esttab  using "${tex}/desc_miss.tex", ///
+esttab  using "${res}/desc_miss.tex", ///
 		cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min max count(fmt(%13.0fc)) miss(fmt(%13.0fc))") noobs ///
 		nomtitle nonumber label collabels("Mean" "SD" "Min" "Max" "N" "Missings")  ///
 		booktabs replace
@@ -214,7 +214,7 @@ esttab, cells("mean(fmt(%10.1fc)) sd(fmt(%13.3fc) par)") nostar  nonumber unstac
      
    
 *export zu rtf
-esttab using "${word}/Gruppenvergleich.rtf", cells(mean(fmt(%10.1fc)) sd(fmt(%13.3fc) par)) nostar  nonumber unstack ///
+esttab using "${res}/Gruppenvergleich.rtf", cells(mean(fmt(%10.1fc)) sd(fmt(%13.3fc) par)) nostar  nonumber unstack ///
   nomtitle nonote noobs label  ///
    collabels(none) gap   ///
    eqlabels("Männer" "Frauen") /// 

@@ -86,7 +86,7 @@ esttab, cell(b) unstack noobs collabels(none) nonumber nomtitles ///
 			
 * export
 loc x "eingefügtem Text"
-esttab using "${word}/crosstab.rtf", cell(b) unstack noobs collabels(none) nonumber nomtitles ///
+esttab using "${res}/crosstab.rtf", cell(b) unstack noobs collabels(none) nonumber nomtitles ///
 			varlabels(`e(labels)') ///
 			eqlabels(, lhs("Ausbildungsabs."))  ///
 			varwidth(40) ///
@@ -95,7 +95,7 @@ esttab using "${word}/crosstab.rtf", cell(b) unstack noobs collabels(none) nonum
 			note("Und hier eine Notiz sogar mit: `x'") /// notiz
 			replace
 
-esttab using "${tex}/crosstab.tex", cell(b) unstack noobs collabels(none) nonumber nomtitles ///
+esttab using "${res}/crosstab.tex", cell(b) unstack noobs collabels(none) nonumber nomtitles ///
 		varlabels(`e(labels)') /// 
 		eqlabels(, lhs("Ausbildungsabs.")) ///
 		mgroups("Gender" "", pattern(0 1 0) prefix(\multicolumn{2}{c}{) suffix(}) span erepeat(\cmidrule(lr){2-3})) /// Überschrift über spalten
@@ -116,7 +116,7 @@ esttab ., cell(b(fmt(%13.0fc))) ///
 		mgroups("Gender", pattern(0 1 0 1) span ) ///
 		varwidth(40) 
 		
-esttab using "${word}/svytab.rtf", cell(b(fmt(%13.0fc))) ///
+esttab using "${res}/svytab.rtf", cell(b(fmt(%13.0fc))) ///
     nostar nostar unstack ///
 		nonumber nomtitles collabels(none)  ///
 		varlabels(`e(labels)') eqlabels(`e(eqlabels)', lhs("Ausbildungsabs.")) ///
@@ -124,7 +124,7 @@ esttab using "${word}/svytab.rtf", cell(b(fmt(%13.0fc))) ///
 		varwidth(40) ///
 		replace
 	
-esttab . using "${tex}/svy_desc.tex",  cell(b(fmt(%13.0fc))) ///
+esttab . using "${res}/svy_desc.tex",  cell(b(fmt(%13.0fc))) ///
 		nostar nostar unstack ///
 		nonumber nomtitles collabels(none)  ///
 		varlabels(`e(labels)') eqlabels(`e(eqlabels)', lhs("Ausbildungsabs."))  ///
