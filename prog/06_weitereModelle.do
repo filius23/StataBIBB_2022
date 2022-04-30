@@ -51,8 +51,8 @@ esttab pred_mod2, cells("b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fm
 * ------------------ *
 * mixed
 xtmixed F518_SUF i.S1 ||Bula:
-esttab mmodel 
 est store mmodel
+esttab mmodel 
 esttab mmodel ,	transform(ln*: exp(@) exp(@)) 
 	 
 * ICC
@@ -60,7 +60,6 @@ xtmixed F518_SUF i.S1 ||Bula:
 est store m1
 estat icc
 return list
-est restore m1
 estadd scalar icc2 = r(icc2) 
 esttab m1, se wide transform(ln*: exp(@) exp(@)) ///
     varwidth(13) scalars(icc2)	 
