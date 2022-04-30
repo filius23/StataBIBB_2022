@@ -248,13 +248,13 @@ Dabei sind Exportbefehle für (fast) alle gängigen Deskriptionen und Regression
 Außerdem können damit Tabellen sowohl in Word-, Latex- und auch Excel-Formate exportiert werden - auch hier ist (fast) die gleiche Syntaxlogik verwendbar.
 Darüber hinaus bietet <code>esttab</code> die Möglichkeit einiger Formatierungseinstellungen.</p>
 <p>Um <code>estout</code>/<code>esttab</code> zu verwenden, müssen wir es zunächst installieren:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb2-1"><a href="base.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install estout, <span class="kw">replace</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="base.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install estout, <span class="kw">replace</span></span></code></pre></div>
 <p>Dies sind die aktuellen Versionen:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb3-1"><a href="base.html#cb3-1" aria-hidden="true" tabindex="-1"></a>which estout <span class="co">// check versions</span></span>
-<span id="cb3-2"><a href="base.html#cb3-2" aria-hidden="true" tabindex="-1"></a>*! <span class="kw">version</span> 3.24  30apr2021  Ben Jann</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb4-1"><a href="base.html#cb4-1" aria-hidden="true" tabindex="-1"></a>which esttab <span class="co">// check version</span></span>
-<span id="cb4-2"><a href="base.html#cb4-2" aria-hidden="true" tabindex="-1"></a>*! <span class="kw">version</span> 2.1.0  19may2021  Ben Jann</span>
-<span id="cb4-3"><a href="base.html#cb4-3" aria-hidden="true" tabindex="-1"></a>*! wrapper <span class="kw">for</span> estout</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb2-1"><a href="base.html#cb2-1" aria-hidden="true" tabindex="-1"></a>which estout <span class="co">// check versions</span></span>
+<span id="cb2-2"><a href="base.html#cb2-2" aria-hidden="true" tabindex="-1"></a>*! <span class="kw">version</span> 3.24  30apr2021  Ben Jann</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb3-1"><a href="base.html#cb3-1" aria-hidden="true" tabindex="-1"></a>which esttab <span class="co">// check version</span></span>
+<span id="cb3-2"><a href="base.html#cb3-2" aria-hidden="true" tabindex="-1"></a>*! <span class="kw">version</span> 2.1.0  19may2021  Ben Jann</span>
+<span id="cb3-3"><a href="base.html#cb3-3" aria-hidden="true" tabindex="-1"></a>*! wrapper <span class="kw">for</span> estout</span></code></pre></div>
 <p>Mit <code>estout</code>/<code>esttab</code> können wir Tabellen mit zusammenfassenden Statistiken und Regressionsergebnissen zu erstellen, die leicht in oder importiert werden können oder in Word verwendet werden können.
 Für die Latex-Verion ergibt sich der Vorteil, dass das ganze System dynamisch ist.
 Wenn wir etwas in unserem Do-File ändern (z. B. eine bestimmte Gruppe weglassen, eine neue Variabe aufnehmen), dann werden die Ergebnisse automatisch in LaTeX aktualisiert.
@@ -265,8 +265,8 @@ Ich stelle daher <a href="https://www.overleaf.com/read/cfjbtghnxrcn">hier</a> e
 <h2><span class="header-section-number">1.1</span> Grundlagen: <code>e()</code> und <code>r()</code><a href="base.html#grundlagen-e-und-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Grundsätzlich baut <code>esttab</code> auf die Postestimates <code>e()</code> auf.
 Bei jedem Befehl werden im Hintergrund Werte in Matrizen und Skalere (also Zahlen) abgelegt, bspw. bei einem Regressionsmodell. Mit <code>ereturn list</code> können wir uns eine Liste der Postestimates ausgeben lassen:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb5-1"><a href="base.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">reg</span> F518_SUF zpalter</span>
-<span id="cb5-2"><a href="base.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ereturn</span> <span class="ot">list</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb4-1"><a href="base.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">reg</span> F518_SUF zpalter</span>
+<span id="cb4-2"><a href="base.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ereturn</span> <span class="ot">list</span></span></code></pre></div>
 <pre><code>scalars:
                   e(N) =  16543
                e(df_m) =  1
@@ -305,15 +305,15 @@ functions:
 <li>Tabelle mit <code>esttab</code> erstellen</li>
 </ol>
 <p>Die Matrizen können wir mit <code>matrix list</code>, die <code>Skalare</code> mit <code>scalar list</code> + Name aufrufen, unter <code>e(b)</code> sind beispielsweise die Koeffizienten abgelegt:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb7-1"><a href="base.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span> <span class="ot">list</span> <span class="fu">e</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb6-1"><a href="base.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span> <span class="ot">list</span> <span class="fu">e</span>(b)</span></code></pre></div>
 <pre><code>e(b)[1,2]
       zpalter      _cons
 y1  24.622534  2381.2797</code></pre>
 <p>Bei vielen deskriptiven Befehlen werden die Kennzahlen hingegen als <em>results</em> in <code>r()</code> abgelegt.
 An die Werte in <code>r()</code> kommen wird mit <code>return list</code>, <code>ereturn list</code> für <code>e()</code> ist dahingegen leer:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb9-1"><a href="base.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> su F518_SUF</span>
-<span id="cb9-2"><a href="base.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ereturn</span> <span class="ot">list</span></span>
-<span id="cb9-3"><a href="base.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> <span class="ot">list</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb8-1"><a href="base.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> su F518_SUF</span>
+<span id="cb8-2"><a href="base.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ereturn</span> <span class="ot">list</span></span>
+<span id="cb8-3"><a href="base.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> <span class="ot">list</span></span></code></pre></div>
 <pre><code>scalars:
                   r(N) =  16635
               r(sum_w) =  16635
@@ -328,7 +328,7 @@ Grundsätzlich sind aber die Ergebnisse aus <code>e()</code> und <code>r()</code
 </div>
 <div id="kurs-setup" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Kurs-Setup<a href="base.html#kurs-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<pre><code>Error in knitr::include_graphics(&quot;pics/01_pfade.png&quot;): Cannot find the file(s): &quot;pics/01_pfade.png&quot;</code></pre>
+<p><img src="pics/01_pfade.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="übung" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> Übung<a href="base.html#übung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
