@@ -30,8 +30,8 @@ glo prog		"${pfad}/prog"		// wo liegen die doFiles?
 * ----------------------------- *
 *  Ordner erstellen wenn nicht bereits vorhanden
 foreach dir1 in data res prog {
-	capture cd 	"${`dir1'}"
-	if _rc!=0  {
+	capture cd 	"${`dir1'}" // existiert Ordner?
+	if _rc!=0  {				// wenn nicht existent -> erstellen
 		mkdir ${`dir1'}
 		display "${`dir1'} erstellt"
 	} 
