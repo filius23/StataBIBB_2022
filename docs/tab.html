@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 tabulate | Stata: Erzeugen von Deskriptions- und Regressionstabellen</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 tabulate | Stata: Erzeugen von Deskriptions- und Regressionstabellen" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Andreas Filser" />
 
 
-<meta name="date" content="2022-04-30" />
+<meta name="date" content="2022-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,8 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -138,86 +136,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Stata @ BIBB</a></li>
 
 <li class="divider"></li>
-<li><a href="index.html#herzlich-willkommen">Herzlich Willkommen<span></span></a></li>
-<li class="chapter" data-level="1" data-path="base.html"><a href="base.html"><i class="fa fa-check"></i><b>1</b> Tabellenexport mit Stata: Grundlagen &amp; Pakete<span></span></a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen</a></li>
+<li class="chapter" data-level="1" data-path="base.html"><a href="base.html"><i class="fa fa-check"></i><b>1</b> Tabellenexport mit Stata: Grundlagen &amp; Pakete</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="base.html"><a href="base.html#grundlagen-e-und-r"><i class="fa fa-check"></i><b>1.1</b> Grundlagen: <code>e()</code> und <code>r()</code><span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="base.html"><a href="base.html#kurs-setup"><i class="fa fa-check"></i><b>1.2</b> Kurs-Setup<span></span></a></li>
-<li class="chapter" data-level="1.3" data-path="base.html"><a href="base.html#übung"><i class="fa fa-check"></i><b>1.3</b> Übung<span></span></a></li>
+<li class="chapter" data-level="1.1" data-path="base.html"><a href="base.html#grundlagen-e-und-r"><i class="fa fa-check"></i><b>1.1</b> Grundlagen: <code>e()</code> und <code>r()</code></a></li>
+<li class="chapter" data-level="1.2" data-path="base.html"><a href="base.html#kurs-setup"><i class="fa fa-check"></i><b>1.2</b> Kurs-Setup</a></li>
+<li class="chapter" data-level="1.3" data-path="base.html"><a href="base.html#init"><i class="fa fa-check"></i><b>1.3</b> Übung</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="desc.html"><a href="desc.html"><i class="fa fa-check"></i><b>2</b> Deskriptionen<span></span></a>
+<li class="chapter" data-level="2" data-path="desc.html"><a href="desc.html"><i class="fa fa-check"></i><b>2</b> Deskriptionen</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="desc.html"><a href="desc.html#summary"><i class="fa fa-check"></i><b>2.1</b> <code>summary</code><span></span></a></li>
-<li class="chapter" data-level="2.2" data-path="desc.html"><a href="desc.html#tabstat"><i class="fa fa-check"></i><b>2.2</b> <code>tabstat</code><span></span></a></li>
-<li class="chapter" data-level="2.3" data-path="desc.html"><a href="desc.html#export"><i class="fa fa-check"></i><b>2.3</b> export<span></span></a></li>
-<li class="chapter" data-level="2.4" data-path="desc.html"><a href="desc.html#zusätzliche-kennzahlen-hinzufügen"><i class="fa fa-check"></i><b>2.4</b> Zusätzliche Kennzahlen hinzufügen<span></span></a></li>
-<li class="chapter" data-level="2.5" data-path="desc.html"><a href="desc.html#mehrere-variablen"><i class="fa fa-check"></i><b>2.5</b> mehrere Variablen<span></span></a></li>
-<li class="chapter" data-level="2.6" data-path="desc.html"><a href="desc.html#gruppenvergleich"><i class="fa fa-check"></i><b>2.6</b> Gruppenvergleich<span></span></a></li>
-<li class="chapter" data-level="2.7" data-path="desc.html"><a href="desc.html#übungen"><i class="fa fa-check"></i><b>2.7</b> Übungen<span></span></a>
+<li class="chapter" data-level="2.1" data-path="desc.html"><a href="desc.html#summary"><i class="fa fa-check"></i><b>2.1</b> <code>summary</code></a></li>
+<li class="chapter" data-level="2.2" data-path="desc.html"><a href="desc.html#tabstat"><i class="fa fa-check"></i><b>2.2</b> <code>tabstat</code></a></li>
+<li class="chapter" data-level="2.3" data-path="desc.html"><a href="desc.html#export"><i class="fa fa-check"></i><b>2.3</b> export</a></li>
+<li class="chapter" data-level="2.4" data-path="desc.html"><a href="desc.html#zusätzliche-kennzahlen-hinzufügen"><i class="fa fa-check"></i><b>2.4</b> Zusätzliche Kennzahlen hinzufügen</a></li>
+<li class="chapter" data-level="2.5" data-path="desc.html"><a href="desc.html#mehrere-variablen"><i class="fa fa-check"></i><b>2.5</b> mehrere Variablen</a></li>
+<li class="chapter" data-level="2.6" data-path="desc.html"><a href="desc.html#gruppenvergleich"><i class="fa fa-check"></i><b>2.6</b> Gruppenvergleich</a></li>
+<li class="chapter" data-level="2.7" data-path="desc.html"><a href="desc.html#übungen"><i class="fa fa-check"></i><b>2.7</b> Übungen</a>
 <ul>
-<li class="chapter" data-level="2.7.1" data-path="desc.html"><a href="desc.html#tabst1"><i class="fa fa-check"></i><b>2.7.1</b> Übung<span></span></a></li>
-<li class="chapter" data-level="2.7.2" data-path="desc.html"><a href="desc.html#tabst2"><i class="fa fa-check"></i><b>2.7.2</b> Übung<span></span></a></li>
-<li class="chapter" data-level="2.7.3" data-path="desc.html"><a href="desc.html#tabst3"><i class="fa fa-check"></i><b>2.7.3</b> Übung<span></span></a></li>
-<li class="chapter" data-level="2.7.4" data-path="desc.html"><a href="desc.html#tabst4"><i class="fa fa-check"></i><b>2.7.4</b> Übung<span></span></a></li>
+<li class="chapter" data-level="2.7.1" data-path="desc.html"><a href="desc.html#tabst1"><i class="fa fa-check"></i><b>2.7.1</b> Übung</a></li>
+<li class="chapter" data-level="2.7.2" data-path="desc.html"><a href="desc.html#tabst2"><i class="fa fa-check"></i><b>2.7.2</b> Übung</a></li>
+<li class="chapter" data-level="2.7.3" data-path="desc.html"><a href="desc.html#tabst3"><i class="fa fa-check"></i><b>2.7.3</b> Übung</a></li>
+<li class="chapter" data-level="2.7.4" data-path="desc.html"><a href="desc.html#tabst4"><i class="fa fa-check"></i><b>2.7.4</b> Übung</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="desc.html"><a href="desc.html#format"><i class="fa fa-check"></i><b>2.8</b> Mehr zu <code>format</code><span></span></a>
+<li class="chapter" data-level="2.8" data-path="desc.html"><a href="desc.html#format"><i class="fa fa-check"></i><b>2.8</b> Mehr zu <code>format</code></a>
 <ul>
-<li class="chapter" data-level="2.8.1" data-path="desc.html"><a href="desc.html#w.df"><i class="fa fa-check"></i><b>2.8.1</b> %w.df<span></span></a></li>
-<li class="chapter" data-level="2.8.2" data-path="desc.html"><a href="desc.html#w.dfc"><i class="fa fa-check"></i><b>2.8.2</b> %w.dfc<span></span></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="tab.html"><a href="tab.html"><i class="fa fa-check"></i><b>3</b> <code>tabulate</code><span></span></a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="tab.html"><a href="tab.html#tab-x-one-way-frequency-table"><i class="fa fa-check"></i><b>3.1</b> <code>tab x</code>: One-way frequency table<span></span></a></li>
-<li class="chapter" data-level="3.2" data-path="tab.html"><a href="tab.html#tab-var1-var2-kontingenz-kreuztabelle"><i class="fa fa-check"></i><b>3.2</b> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle<span></span></a></li>
-<li class="chapter" data-level="3.3" data-path="tab.html"><a href="tab.html#gewichtete-tabelle-mit-svy"><i class="fa fa-check"></i><b>3.3</b> Gewichtete Tabelle mit <code>svy</code><span></span></a></li>
-<li class="chapter" data-level="3.4" data-path="tab.html"><a href="tab.html#übungen-1"><i class="fa fa-check"></i><b>3.4</b> Übungen<span></span></a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="tab.html"><a href="tab.html#table1"><i class="fa fa-check"></i><b>3.4.1</b> Übung<span></span></a></li>
-<li class="chapter" data-level="3.4.2" data-path="tab.html"><a href="tab.html#table2"><i class="fa fa-check"></i><b>3.4.2</b> Übung<span></span></a></li>
+<li class="chapter" data-level="2.8.1" data-path="desc.html"><a href="desc.html#w.df"><i class="fa fa-check"></i><b>2.8.1</b> %w.df</a></li>
+<li class="chapter" data-level="2.8.2" data-path="desc.html"><a href="desc.html#w.dfc"><i class="fa fa-check"></i><b>2.8.2</b> %w.dfc</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="cormat.html"><a href="cormat.html"><i class="fa fa-check"></i><b>4</b> Korrelationsmatrix<span></span></a>
+<li class="chapter" data-level="3" data-path="tab.html"><a href="tab.html"><i class="fa fa-check"></i><b>3</b> <code>tabulate</code></a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="cormat.html"><a href="cormat.html#corr-x"><i class="fa fa-check"></i><b>4.1</b> <code>corr x</code><span></span></a></li>
-<li class="chapter" data-level="4.2" data-path="cormat.html"><a href="cormat.html#spearmans-rho"><i class="fa fa-check"></i><b>4.2</b> Spearman’s Rho:<span></span></a></li>
-<li class="chapter" data-level="4.3" data-path="cormat.html"><a href="cormat.html#ttest"><i class="fa fa-check"></i><b>4.3</b> <code>ttest</code><span></span></a></li>
-<li class="chapter" data-level="4.4" data-path="cormat.html"><a href="cormat.html#übungen-2"><i class="fa fa-check"></i><b>4.4</b> Übungen<span></span></a>
+<li class="chapter" data-level="3.1" data-path="tab.html"><a href="tab.html#tab-x-one-way-frequency-table"><i class="fa fa-check"></i><b>3.1</b> <code>tab x</code>: One-way frequency table</a></li>
+<li class="chapter" data-level="3.2" data-path="tab.html"><a href="tab.html#tab-var1-var2-kontingenz-kreuztabelle"><i class="fa fa-check"></i><b>3.2</b> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle</a></li>
+<li class="chapter" data-level="3.3" data-path="tab.html"><a href="tab.html#gewichtete-tabelle-mit-svy"><i class="fa fa-check"></i><b>3.3</b> Gewichtete Tabelle mit <code>svy</code></a></li>
+<li class="chapter" data-level="3.4" data-path="tab.html"><a href="tab.html#übungen-1"><i class="fa fa-check"></i><b>3.4</b> Übungen</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="cormat.html"><a href="cormat.html#corr1"><i class="fa fa-check"></i><b>4.4.1</b> Übung<span></span></a></li>
-<li class="chapter" data-level="4.4.2" data-path="cormat.html"><a href="cormat.html#ttest1"><i class="fa fa-check"></i><b>4.4.2</b> Übung<span></span></a></li>
+<li class="chapter" data-level="3.4.1" data-path="tab.html"><a href="tab.html#table1"><i class="fa fa-check"></i><b>3.4.1</b> Übung</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tab.html"><a href="tab.html#table2"><i class="fa fa-check"></i><b>3.4.2</b> Übung</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>5</b> Regressionstabellen<span></span></a>
+<li class="chapter" data-level="4" data-path="cormat.html"><a href="cormat.html"><i class="fa fa-check"></i><b>4</b> Korrelationsmatrix</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="reg.html"><a href="reg.html#regression"><i class="fa fa-check"></i><b>5.1</b> <code>regression</code><span></span></a></li>
-<li class="chapter" data-level="5.2" data-path="reg.html"><a href="reg.html#eine-tabelle-ein-modell"><i class="fa fa-check"></i><b>5.2</b> Eine Tabelle, ein Modell<span></span></a>
+<li class="chapter" data-level="4.1" data-path="cormat.html"><a href="cormat.html#corr-x"><i class="fa fa-check"></i><b>4.1</b> <code>corr x</code></a></li>
+<li class="chapter" data-level="4.2" data-path="cormat.html"><a href="cormat.html#spearmans-rho"><i class="fa fa-check"></i><b>4.2</b> Spearman’s Rho:</a></li>
+<li class="chapter" data-level="4.3" data-path="cormat.html"><a href="cormat.html#ttest"><i class="fa fa-check"></i><b>4.3</b> <code>ttest</code></a></li>
+<li class="chapter" data-level="4.4" data-path="cormat.html"><a href="cormat.html#übungen-2"><i class="fa fa-check"></i><b>4.4</b> Übungen</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="reg.html"><a href="reg.html#neben--statt-untereinander"><i class="fa fa-check"></i><b>5.2.1</b> Neben- statt untereinander<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="reg.html"><a href="reg.html#kategoriale-unabhängige-variable"><i class="fa fa-check"></i><b>5.3</b> kategoriale unabhängige Variable<span></span></a></li>
-<li class="chapter" data-level="5.4" data-path="reg.html"><a href="reg.html#mehrere-regressionsmodelle-nebeneinander"><i class="fa fa-check"></i><b>5.4</b> mehrere Regressionsmodelle nebeneinander<span></span></a></li>
-<li class="chapter" data-level="5.5" data-path="reg.html"><a href="reg.html#nur-ein-koeffizient"><i class="fa fa-check"></i><b>5.5</b> Nur ein Koeffizient<span></span></a></li>
-<li class="chapter" data-level="5.6" data-path="reg.html"><a href="reg.html#mgroups"><i class="fa fa-check"></i><b>5.6</b> mehrere Modellgruppen<span></span></a></li>
-<li class="chapter" data-level="5.7" data-path="reg.html"><a href="reg.html#einmal-mit-allem"><i class="fa fa-check"></i><b>5.7</b> Einmal mit allem<span></span></a></li>
-<li class="chapter" data-level="5.8" data-path="reg.html"><a href="reg.html#übungen-3"><i class="fa fa-check"></i><b>5.8</b> Übungen<span></span></a>
-<ul>
-<li class="chapter" data-level="5.8.1" data-path="reg.html"><a href="reg.html#reg1"><i class="fa fa-check"></i><b>5.8.1</b> Übung<span></span></a></li>
-<li class="chapter" data-level="5.8.2" data-path="reg.html"><a href="reg.html#reg2"><i class="fa fa-check"></i><b>5.8.2</b> Übung<span></span></a></li>
-<li class="chapter" data-level="5.8.3" data-path="reg.html"><a href="reg.html#reg3"><i class="fa fa-check"></i><b>5.8.3</b> Übung<span></span></a></li>
-<li class="chapter" data-level="5.8.4" data-path="reg.html"><a href="reg.html#reg4"><i class="fa fa-check"></i><b>5.8.4</b> Übung<span></span></a></li>
-<li class="chapter" data-level="5.8.5" data-path="reg.html"><a href="reg.html#reg5"><i class="fa fa-check"></i><b>5.8.5</b> Übung<span></span></a></li>
+<li class="chapter" data-level="4.4.1" data-path="cormat.html"><a href="cormat.html#corr1"><i class="fa fa-check"></i><b>4.4.1</b> Übung</a></li>
+<li class="chapter" data-level="4.4.2" data-path="cormat.html"><a href="cormat.html#ttest1"><i class="fa fa-check"></i><b>4.4.2</b> Übung</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ml_log.html"><a href="ml_log.html"><i class="fa fa-check"></i><b>6</b> Multilevel- und logit Modelle<span></span></a>
+<li class="chapter" data-level="5" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>5</b> Regressionstabellen</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="ml_log.html"><a href="ml_log.html#logit"><i class="fa fa-check"></i><b>6.1</b> <code>logit</code><span></span></a></li>
-<li class="chapter" data-level="6.2" data-path="ml_log.html"><a href="ml_log.html#mehrebenenmodelle"><i class="fa fa-check"></i><b>6.2</b> Mehrebenenmodelle<span></span></a></li>
+<li class="chapter" data-level="5.1" data-path="reg.html"><a href="reg.html#regression"><i class="fa fa-check"></i><b>5.1</b> <code>regression</code></a></li>
+<li class="chapter" data-level="5.2" data-path="reg.html"><a href="reg.html#eine-tabelle-ein-modell"><i class="fa fa-check"></i><b>5.2</b> Eine Tabelle, ein Modell</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="reg.html"><a href="reg.html#neben--statt-untereinander"><i class="fa fa-check"></i><b>5.2.1</b> Neben- statt untereinander</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="misc.html"><a href="misc.html"><i class="fa fa-check"></i><b>7</b> Weitere Optionen<span></span></a>
+<li class="chapter" data-level="5.3" data-path="reg.html"><a href="reg.html#kategoriale-unabhängige-variable"><i class="fa fa-check"></i><b>5.3</b> kategoriale unabhängige Variable</a></li>
+<li class="chapter" data-level="5.4" data-path="reg.html"><a href="reg.html#mehrere-regressionsmodelle-nebeneinander"><i class="fa fa-check"></i><b>5.4</b> mehrere Regressionsmodelle nebeneinander</a></li>
+<li class="chapter" data-level="5.5" data-path="reg.html"><a href="reg.html#nur-ein-koeffizient"><i class="fa fa-check"></i><b>5.5</b> Nur ein Koeffizient</a></li>
+<li class="chapter" data-level="5.6" data-path="reg.html"><a href="reg.html#mgroups"><i class="fa fa-check"></i><b>5.6</b> mehrere Modellgruppen</a></li>
+<li class="chapter" data-level="5.7" data-path="reg.html"><a href="reg.html#einmal-mit-allem"><i class="fa fa-check"></i><b>5.7</b> Einmal mit allem</a></li>
+<li class="chapter" data-level="5.8" data-path="reg.html"><a href="reg.html#übungen-3"><i class="fa fa-check"></i><b>5.8</b> Übungen</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="misc.html"><a href="misc.html#estimates-store-auch-bei-estpost"><i class="fa fa-check"></i><b>7.1</b> <code>estimates store</code> auch bei <code>estpost</code><span></span></a></li>
-<li class="chapter" data-level="7.2" data-path="misc.html"><a href="misc.html#excel-export"><i class="fa fa-check"></i><b>7.2</b> Excel-Export<span></span></a></li>
+<li class="chapter" data-level="5.8.1" data-path="reg.html"><a href="reg.html#reg1"><i class="fa fa-check"></i><b>5.8.1</b> Übung</a></li>
+<li class="chapter" data-level="5.8.2" data-path="reg.html"><a href="reg.html#reg2"><i class="fa fa-check"></i><b>5.8.2</b> Übung</a></li>
+<li class="chapter" data-level="5.8.3" data-path="reg.html"><a href="reg.html#reg3"><i class="fa fa-check"></i><b>5.8.3</b> Übung</a></li>
+<li class="chapter" data-level="5.8.4" data-path="reg.html"><a href="reg.html#reg4"><i class="fa fa-check"></i><b>5.8.4</b> Übung</a></li>
+<li class="chapter" data-level="5.8.5" data-path="reg.html"><a href="reg.html#reg5"><i class="fa fa-check"></i><b>5.8.5</b> Übung</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ml_log.html"><a href="ml_log.html"><i class="fa fa-check"></i><b>6</b> Multilevel- und logit Modelle</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ml_log.html"><a href="ml_log.html#logit"><i class="fa fa-check"></i><b>6.1</b> <code>logit</code></a></li>
+<li class="chapter" data-level="6.2" data-path="ml_log.html"><a href="ml_log.html#mehrebenenmodelle"><i class="fa fa-check"></i><b>6.2</b> Mehrebenenmodelle</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="misc.html"><a href="misc.html"><i class="fa fa-check"></i><b>7</b> Weitere Optionen</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="misc.html"><a href="misc.html#estimates-store-auch-bei-estpost"><i class="fa fa-check"></i><b>7.1</b> <code>estimates store</code> auch bei <code>estpost</code></a></li>
+<li class="chapter" data-level="7.2" data-path="misc.html"><a href="misc.html#excel-export"><i class="fa fa-check"></i><b>7.2</b> Excel-Export</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -246,19 +244,19 @@ Auch diese können wir mit <code>esttab</code> exportieren.
 Außerdem können wir auch gewichtete Tabellen exportieren.</p>
 <div id="tab-x-one-way-frequency-table" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> <code>tab x</code>: One-way frequency table<a href="tab.html#tab-x-one-way-frequency-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb55"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb55-1"><a href="tab.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202</span></code></pre></div>
-<pre><code>                         HÃ¶chster Ausbi |      Freq.     Percent        Cum.
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="tab.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202</span></code></pre></div>
+<pre><code>                         Höchster Ausbi |      Freq.     Percent        Cum.
 ----------------------------------------+-----------------------------------
                    Ohne Berufsabschluss |      1,091        5.46        5.46
 duale o. schulische Berufsausbildung/ei |      9,297       46.56       52.03
 Aufstiegsfortbildung (Meister, Technike |      1,725        8.64       60.67
-Fachhochschule, UniversitÃ¤t/ geh., hÃ¶he |      7,854       39.33      100.00
+Fachhochschule, Universität/ geh., höhe |      7,854       39.33      100.00
 ----------------------------------------+-----------------------------------
                                   Total |     19,967      100.00</code></pre>
 <p>Auch hier benötigen wir <code>estpost</code>, um dann die <code>esttab</code>-Tabelle zu erstellen:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb57-1"><a href="tab.html#cb57-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabulate</span> m1202</span>
-<span id="cb57-2"><a href="tab.html#cb57-2" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">&quot;b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))&quot;</span>) <span class="co">///</span></span>
-<span id="cb57-3"><a href="tab.html#cb57-3" aria-hidden="true" tabindex="-1"></a>       nonumber nomtitle <span class="kw">noobs</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb3-1"><a href="tab.html#cb3-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabulate</span> m1202</span>
+<span id="cb3-2"><a href="tab.html#cb3-2" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">&quot;b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))&quot;</span>) <span class="co">///</span></span>
+<span id="cb3-3"><a href="tab.html#cb3-3" aria-hidden="true" tabindex="-1"></a>       nonumber nomtitle <span class="kw">noobs</span></span></code></pre></div>
 <pre><code>       m1202 |      e(b)     e(pct)  e(cumpct) 
 -------------+---------------------------------
            1 |      1091   5.464016   5.464016 
@@ -284,33 +282,33 @@ Total               19967          100
 <li><code>varlabels()</code> <span class="math inline">\(\Rightarrow\)</span> Labels verwenden</li>
 <li><code>varwidth(40)</code> <span class="math inline">\(\Rightarrow\)</span> Breite anpassen sodass ganzes Label sichtbar</li>
 </ul>
-<div class="sourceCode" id="cb59"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb59-1"><a href="tab.html#cb59-1" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">&quot;b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))&quot;</span>) <span class="co">///   </span></span>
-<span id="cb59-2"><a href="tab.html#cb59-2" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle <span class="kw">noobs</span> <span class="co">///</span></span>
-<span id="cb59-3"><a href="tab.html#cb59-3" aria-hidden="true" tabindex="-1"></a>    varlabels(<span class="ot">`e(labels)&#39;</span>) <span class="co">///  </span></span>
-<span id="cb59-4"><a href="tab.html#cb59-4" aria-hidden="true" tabindex="-1"></a>    varwidth(40) </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb5-1"><a href="tab.html#cb5-1" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">&quot;b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))&quot;</span>) <span class="co">///   </span></span>
+<span id="cb5-2"><a href="tab.html#cb5-2" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle <span class="kw">noobs</span> <span class="co">///</span></span>
+<span id="cb5-3"><a href="tab.html#cb5-3" aria-hidden="true" tabindex="-1"></a>    varlabels(<span class="ot">`e(labels)&#39;</span>) <span class="co">///  </span></span>
+<span id="cb5-4"><a href="tab.html#cb5-4" aria-hidden="true" tabindex="-1"></a>    varwidth(40) </span></code></pre></div>
 <pre><code>                                                 freq          pct       cumpct
 -------------------------------------------------------------------------------
 Ohne Berufsabschluss                             1091            5            5
 duale o. schulische Berufsausbildung/ein         9297           47           52
 Aufstiegsfortbildung (Meister, Techniker         1725            9           61
-Fachhochschule, UniversitÃ¤t/ geh., hÃ¶her         7854           39          100
+Fachhochschule, Universität/ geh., höher         7854           39          100
 Total                                           19967          100             
 -------------------------------------------------------------------------------</code></pre>
 <p>Export:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb61-1"><a href="tab.html#cb61-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">&quot;${word}/03_tab1.rtf&quot;</span>, cells(<span class="st">&quot;b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))&quot;</span>) <span class="co">///</span></span>
-<span id="cb61-2"><a href="tab.html#cb61-2" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle <span class="kw">noobs</span> <span class="co">///</span></span>
-<span id="cb61-3"><a href="tab.html#cb61-3" aria-hidden="true" tabindex="-1"></a>    varlabels(<span class="ot">`e(labels)&#39;</span>) <span class="co">///</span></span>
-<span id="cb61-4"><a href="tab.html#cb61-4" aria-hidden="true" tabindex="-1"></a>    varwidth(40) <span class="co">///</span></span>
-<span id="cb61-5"><a href="tab.html#cb61-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span> </span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb7-1"><a href="tab.html#cb7-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">&quot;${res}/03_tab1.rtf&quot;</span>, cells(<span class="st">&quot;b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))&quot;</span>) <span class="co">///</span></span>
+<span id="cb7-2"><a href="tab.html#cb7-2" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle <span class="kw">noobs</span> <span class="co">///</span></span>
+<span id="cb7-3"><a href="tab.html#cb7-3" aria-hidden="true" tabindex="-1"></a>    varlabels(<span class="ot">`e(labels)&#39;</span>) <span class="co">///</span></span>
+<span id="cb7-4"><a href="tab.html#cb7-4" aria-hidden="true" tabindex="-1"></a>    varwidth(40) <span class="co">///</span></span>
+<span id="cb7-5"><a href="tab.html#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span> </span></code></pre></div>
 <hr />
 <p><strong><a href="tab.html#table1">Übung 1</a></strong></p>
 <hr />
 </div>
 <div id="tab-var1-var2-kontingenz-kreuztabelle" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle<a href="tab.html#tab-var1-var2-kontingenz-kreuztabelle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb62"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb62-1"><a href="tab.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202 S1</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb8-1"><a href="tab.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202 S1</span></code></pre></div>
 <pre><code>                      |      Geschlecht
-       HÃ¶chster Ausbi |  mÃ¤nnlich   weiblich |     Total
+       Höchster Ausbi |  männlich   weiblich |     Total
 ----------------------+----------------------+----------
  Ohne Berufsabschluss |       594        497 |     1,091 
 duale o. schulische B |     4,371      4,926 |     9,297 
@@ -325,13 +323,13 @@ Fachhochschule, Unive |     4,015      3,839 |     7,854
 <li><code>colpct</code> <span class="math inline">\(\Rightarrow\)</span> Spaltenprozente</li>
 <li><code>rowpct</code> <span class="math inline">\(\Rightarrow\)</span> Zeilenprozente</li>
 </ul>
-<div class="sourceCode" id="cb64"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb64-1"><a href="tab.html#cb64-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabulate</span> m1202 S1</span>
-<span id="cb64-2"><a href="tab.html#cb64-2" aria-hidden="true" tabindex="-1"></a>esttab, cell(b(fmt(%13.0fc))) unstack <span class="kw">noobs</span> nonumber nomtitles <span class="co">///</span></span>
-<span id="cb64-3"><a href="tab.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  collabels(<span class="kw">none</span>)  varlabels(<span class="ot">`e(labels)&#39;</span>) varwidth(40)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb10-1"><a href="tab.html#cb10-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabulate</span> m1202 S1</span>
+<span id="cb10-2"><a href="tab.html#cb10-2" aria-hidden="true" tabindex="-1"></a>esttab, cell(b(fmt(%13.0fc))) unstack <span class="kw">noobs</span> nonumber nomtitles <span class="co">///</span></span>
+<span id="cb10-3"><a href="tab.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  collabels(<span class="kw">none</span>)  varlabels(<span class="ot">`e(labels)&#39;</span>) varwidth(40)</span></code></pre></div>
 <pre><code>S1           |                                            
        m1202 |      e(b)     e(pct)  e(colpct)  e(rowpct) 
 -------------+--------------------------------------------
-mÃ¤nnlich     |                                            
+männlich     |                                            
            1 |       594   2.974909   5.908684   54.44546 
            2 |      4371   21.89112   43.47956   47.01517 
            3 |      1073   5.373867   10.67343    62.2029 
@@ -356,46 +354,46 @@ row labels saved in macro e(labels)
 
 
 -------------------------------------------------------------------------------
-                                             mÃ¤nnlich     weiblich        Total
+                                             männlich     weiblich        Total
 -------------------------------------------------------------------------------
 Ohne Berufsabschluss                              594          497        1,091
 duale o. schulische Berufsausbildung/ein        4,371        4,926        9,297
 Aufstiegsfortbildung (Meister, Techniker        1,073          652        1,725
-Fachhochschule, UniversitÃ¤t/ geh., hÃ¶her        4,015        3,839        7,854
+Fachhochschule, Universität/ geh., höher        4,015        3,839        7,854
 Total                                          10,053        9,914       19,967
 -------------------------------------------------------------------------------</code></pre>
 <p>Dazu noch die Labels und mit <code>mgroups</code> eine Spaltenüberschrift:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb66-1"><a href="tab.html#cb66-1" aria-hidden="true" tabindex="-1"></a>esttab, cell(b(fmt(%13.0fc))) unstack <span class="kw">noobs</span> collabels(<span class="kw">none</span>) nonumber nomtitles <span class="co">///</span></span>
-<span id="cb66-2"><a href="tab.html#cb66-2" aria-hidden="true" tabindex="-1"></a>            varlabels(<span class="ot">`e(labels)&#39;</span>) <span class="co">///</span></span>
-<span id="cb66-3"><a href="tab.html#cb66-3" aria-hidden="true" tabindex="-1"></a>            eqlabels(, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>))  <span class="co">///</span></span>
-<span id="cb66-4"><a href="tab.html#cb66-4" aria-hidden="true" tabindex="-1"></a>            varwidth(40) <span class="co">/// </span></span>
-<span id="cb66-5"><a href="tab.html#cb66-5" aria-hidden="true" tabindex="-1"></a>            mgroups(<span class="st">&quot;Gender&quot;</span> <span class="st">&quot;&quot;</span>, pattern(1 0 1))</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb12-1"><a href="tab.html#cb12-1" aria-hidden="true" tabindex="-1"></a>esttab, cell(b(fmt(%13.0fc))) unstack <span class="kw">noobs</span> collabels(<span class="kw">none</span>) nonumber nomtitles <span class="co">///</span></span>
+<span id="cb12-2"><a href="tab.html#cb12-2" aria-hidden="true" tabindex="-1"></a>            varlabels(<span class="ot">`e(labels)&#39;</span>) <span class="co">///</span></span>
+<span id="cb12-3"><a href="tab.html#cb12-3" aria-hidden="true" tabindex="-1"></a>            eqlabels(, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>))  <span class="co">///</span></span>
+<span id="cb12-4"><a href="tab.html#cb12-4" aria-hidden="true" tabindex="-1"></a>            varwidth(40) <span class="co">/// </span></span>
+<span id="cb12-5"><a href="tab.html#cb12-5" aria-hidden="true" tabindex="-1"></a>            mgroups(<span class="st">&quot;Gender&quot;</span> <span class="st">&quot;&quot;</span>, pattern(1 0 1))</span></code></pre></div>
 <pre><code>                                               Gender                          
-Ausbildungsabs.                              mÃ¤nnlich     weiblich        Total
+Ausbildungsabs.                              männlich     weiblich        Total
 -------------------------------------------------------------------------------
 Ohne Berufsabschluss                              594          497        1,091
 duale o. schulische Berufsausbildung/ein        4,371        4,926        9,297
 Aufstiegsfortbildung (Meister, Techniker        1,073          652        1,725
-Fachhochschule, UniversitÃ¤t/ geh., hÃ¶her        4,015        3,839        7,854
+Fachhochschule, Universität/ geh., höher        4,015        3,839        7,854
 Total                                          10,053        9,914       19,967
 -------------------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb68-1"><a href="tab.html#cb68-1" aria-hidden="true" tabindex="-1"></a>loc x <span class="st">&quot;eingefügtem Text&quot;</span></span>
-<span id="cb68-2"><a href="tab.html#cb68-2" aria-hidden="true" tabindex="-1"></a>esttab, cell(b) unstack <span class="kw">noobs</span> collabels(<span class="kw">none</span>) nonumber nomtitles <span class="co">///</span></span>
-<span id="cb68-3"><a href="tab.html#cb68-3" aria-hidden="true" tabindex="-1"></a>            varlabels(<span class="ot">`e(labels)&#39;</span>) <span class="co">///</span></span>
-<span id="cb68-4"><a href="tab.html#cb68-4" aria-hidden="true" tabindex="-1"></a>            eqlabels(, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>))  <span class="co">///</span></span>
-<span id="cb68-5"><a href="tab.html#cb68-5" aria-hidden="true" tabindex="-1"></a>            varwidth(40) <span class="co">///</span></span>
-<span id="cb68-6"><a href="tab.html#cb68-6" aria-hidden="true" tabindex="-1"></a>            mgroups(<span class="st">&quot;Gender&quot;</span> <span class="st">&quot;&quot;</span>, pattern(1 0 1)) <span class="co">/// Überschrift über spalten</span></span>
-<span id="cb68-7"><a href="tab.html#cb68-7" aria-hidden="true" tabindex="-1"></a>            <span class="bn">title</span>(<span class="st">&quot;Hier kann ein Titel stehen&quot;</span>) <span class="co">/// titel</span></span>
-<span id="cb68-8"><a href="tab.html#cb68-8" aria-hidden="true" tabindex="-1"></a>            <span class="kw">note</span>(<span class="st">&quot;Und hier eine Notiz sogar mit: `x&#39;&quot;</span>) <span class="co">// notiz</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb14-1"><a href="tab.html#cb14-1" aria-hidden="true" tabindex="-1"></a>loc x <span class="st">&quot;eingefügtem Text&quot;</span></span>
+<span id="cb14-2"><a href="tab.html#cb14-2" aria-hidden="true" tabindex="-1"></a>esttab, cell(b) unstack <span class="kw">noobs</span> collabels(<span class="kw">none</span>) nonumber nomtitles <span class="co">///</span></span>
+<span id="cb14-3"><a href="tab.html#cb14-3" aria-hidden="true" tabindex="-1"></a>            varlabels(<span class="ot">`e(labels)&#39;</span>) <span class="co">///</span></span>
+<span id="cb14-4"><a href="tab.html#cb14-4" aria-hidden="true" tabindex="-1"></a>            eqlabels(, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>))  <span class="co">///</span></span>
+<span id="cb14-5"><a href="tab.html#cb14-5" aria-hidden="true" tabindex="-1"></a>            varwidth(40) <span class="co">///</span></span>
+<span id="cb14-6"><a href="tab.html#cb14-6" aria-hidden="true" tabindex="-1"></a>            mgroups(<span class="st">&quot;Gender&quot;</span> <span class="st">&quot;&quot;</span>, pattern(1 0 1)) <span class="co">/// Überschrift über spalten</span></span>
+<span id="cb14-7"><a href="tab.html#cb14-7" aria-hidden="true" tabindex="-1"></a>            <span class="bn">title</span>(<span class="st">&quot;Hier kann ein Titel stehen&quot;</span>) <span class="co">/// titel</span></span>
+<span id="cb14-8"><a href="tab.html#cb14-8" aria-hidden="true" tabindex="-1"></a>            <span class="kw">note</span>(<span class="st">&quot;Und hier eine Notiz sogar mit: `x&#39;&quot;</span>) <span class="co">// notiz</span></span></code></pre></div>
 <pre><code>Hier kann ein Titel stehen
 -------------------------------------------------------------------------------
                                                Gender                          
-Ausbildungsabs.                              mÃ¤nnlich     weiblich        Total
+Ausbildungsabs.                              männlich     weiblich        Total
 -------------------------------------------------------------------------------
 Ohne Berufsabschluss                              594          497         1091
 duale o. schulische Berufsausbildung/ein         4371         4926         9297
 Aufstiegsfortbildung (Meister, Techniker         1073          652         1725
-Fachhochschule, UniversitÃ¤t/ geh., hÃ¶her         4015         3839         7854
+Fachhochschule, Universität/ geh., höher         4015         3839         7854
 Total                                           10053         9914        19967
 -------------------------------------------------------------------------------
 Und hier eine Notiz sogar mit: eingefügtem Text</code></pre>
@@ -405,39 +403,39 @@ Und hier eine Notiz sogar mit: eingefügtem Text</code></pre>
 </div>
 <div id="gewichtete-tabelle-mit-svy" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Gewichtete Tabelle mit <code>svy</code><a href="tab.html#gewichtete-tabelle-mit-svy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb70"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb70-1"><a href="tab.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="kw">svyset</span> <span class="dt">_n</span> [<span class="kw">pweight</span>=gew2018]</span>
-<span id="cb70-2"><a href="tab.html#cb70-2" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">svy</span>: <span class="kw">tabulate</span>  m1202 S1 , <span class="ot">row</span> <span class="kw">percent</span> <span class="fu">count</span></span></code></pre></div>
-<div class="sourceCode" id="cb71"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb71-1"><a href="tab.html#cb71-1" aria-hidden="true" tabindex="-1"></a>esttab ., cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
-<span id="cb71-2"><a href="tab.html#cb71-2" aria-hidden="true" tabindex="-1"></a>    nostar nostar unstack <span class="co">///</span></span>
-<span id="cb71-3"><a href="tab.html#cb71-3" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
-<span id="cb71-4"><a href="tab.html#cb71-4" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)&#39;</span>) eqlabels(<span class="ot">`e(eqlabels)&#39;</span>, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>)) <span class="co">///</span></span>
-<span id="cb71-5"><a href="tab.html#cb71-5" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">&quot;Gender&quot;</span>, pattern(0 1 0 1) span ) <span class="co">///</span></span>
-<span id="cb71-6"><a href="tab.html#cb71-6" aria-hidden="true" tabindex="-1"></a>        varwidth(40)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb16-1"><a href="tab.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">svyset</span> <span class="dt">_n</span> [<span class="kw">pweight</span>=gew2018]</span>
+<span id="cb16-2"><a href="tab.html#cb16-2" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">svy</span>: <span class="kw">tabulate</span>  m1202 S1 , <span class="ot">row</span> <span class="kw">percent</span> <span class="fu">count</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb17-1"><a href="tab.html#cb17-1" aria-hidden="true" tabindex="-1"></a>esttab ., cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
+<span id="cb17-2"><a href="tab.html#cb17-2" aria-hidden="true" tabindex="-1"></a>    nostar nostar unstack <span class="co">///</span></span>
+<span id="cb17-3"><a href="tab.html#cb17-3" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
+<span id="cb17-4"><a href="tab.html#cb17-4" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)&#39;</span>) eqlabels(<span class="ot">`e(eqlabels)&#39;</span>, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>)) <span class="co">///</span></span>
+<span id="cb17-5"><a href="tab.html#cb17-5" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">&quot;Gender&quot;</span>, pattern(0 1 0 1) span ) <span class="co">///</span></span>
+<span id="cb17-6"><a href="tab.html#cb17-6" aria-hidden="true" tabindex="-1"></a>        varwidth(40)</span></code></pre></div>
 <pre><code>                                         Gender                                
-Ausbildungsabs.                              mÃ¤nnlich     weiblich        Total
+Ausbildungsabs.                              männlich     weiblich        Total
 -------------------------------------------------------------------------------
 Ohne Berufsabschluss                           594.00       497.00     1,091.00
 duale o. schulische Berufsausbildung/ein     4,371.00     4,926.00     9,297.00
 Aufstiegsfortbildung (Meister, Techniker     1,073.00       652.00     1,725.00
-Fachhochschule, UniversitÃ¤t/ geh., hÃ¶her     4,015.00     3,839.00     7,854.00
+Fachhochschule, Universität/ geh., höher     4,015.00     3,839.00     7,854.00
 Total                                       10,053.00     9,914.00    19,967.00
 -------------------------------------------------------------------------------
 N                                               19967                          
 -------------------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb73-1"><a href="tab.html#cb73-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">&quot;${word}/svytab.rtf&quot;</span>, cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
-<span id="cb73-2"><a href="tab.html#cb73-2" aria-hidden="true" tabindex="-1"></a>    nostar nostar unstack <span class="co">///</span></span>
-<span id="cb73-3"><a href="tab.html#cb73-3" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
-<span id="cb73-4"><a href="tab.html#cb73-4" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)&#39;</span>) eqlabels(<span class="ot">`e(eqlabels)&#39;</span>, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>)) <span class="co">///</span></span>
-<span id="cb73-5"><a href="tab.html#cb73-5" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">&quot;Gender&quot;</span>, pattern(0 1) span ) <span class="co">///</span></span>
-<span id="cb73-6"><a href="tab.html#cb73-6" aria-hidden="true" tabindex="-1"></a>        varwidth(40) <span class="co">///</span></span>
-<span id="cb73-7"><a href="tab.html#cb73-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">replace</span></span>
-<span id="cb73-8"><a href="tab.html#cb73-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb73-9"><a href="tab.html#cb73-9" aria-hidden="true" tabindex="-1"></a>esttab . <span class="kw">using</span> <span class="st">&quot;${tex}/svy_desc.tex&quot;</span>,  cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
-<span id="cb73-10"><a href="tab.html#cb73-10" aria-hidden="true" tabindex="-1"></a>        nostar nostar unstack <span class="co">///</span></span>
-<span id="cb73-11"><a href="tab.html#cb73-11" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
-<span id="cb73-12"><a href="tab.html#cb73-12" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)&#39;</span>) eqlabels(<span class="ot">`e(eqlabels)&#39;</span>, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>))  <span class="co">///</span></span>
-<span id="cb73-13"><a href="tab.html#cb73-13" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">&quot;Gender&quot;</span>, pattern(0 1 0 1) <span class="kw">prefix</span>(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) <span class="co">///</span></span>
-<span id="cb73-14"><a href="tab.html#cb73-14" aria-hidden="true" tabindex="-1"></a>        booktabs <span class="kw">replace</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb19-1"><a href="tab.html#cb19-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">&quot;${res}/svytab.rtf&quot;</span>, cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
+<span id="cb19-2"><a href="tab.html#cb19-2" aria-hidden="true" tabindex="-1"></a>    nostar nostar unstack <span class="co">///</span></span>
+<span id="cb19-3"><a href="tab.html#cb19-3" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
+<span id="cb19-4"><a href="tab.html#cb19-4" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)&#39;</span>) eqlabels(<span class="ot">`e(eqlabels)&#39;</span>, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>)) <span class="co">///</span></span>
+<span id="cb19-5"><a href="tab.html#cb19-5" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">&quot;Gender&quot;</span>, pattern(0 1) span ) <span class="co">///</span></span>
+<span id="cb19-6"><a href="tab.html#cb19-6" aria-hidden="true" tabindex="-1"></a>        varwidth(40) <span class="co">///</span></span>
+<span id="cb19-7"><a href="tab.html#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">replace</span></span>
+<span id="cb19-8"><a href="tab.html#cb19-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-9"><a href="tab.html#cb19-9" aria-hidden="true" tabindex="-1"></a>esttab . <span class="kw">using</span> <span class="st">&quot;${res}/svy_desc.tex&quot;</span>,  cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
+<span id="cb19-10"><a href="tab.html#cb19-10" aria-hidden="true" tabindex="-1"></a>        nostar nostar unstack <span class="co">///</span></span>
+<span id="cb19-11"><a href="tab.html#cb19-11" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
+<span id="cb19-12"><a href="tab.html#cb19-12" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)&#39;</span>) eqlabels(<span class="ot">`e(eqlabels)&#39;</span>, lhs(<span class="st">&quot;Ausbildungsabs.&quot;</span>))  <span class="co">///</span></span>
+<span id="cb19-13"><a href="tab.html#cb19-13" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">&quot;Gender&quot;</span>, pattern(0 1 0 1) <span class="kw">prefix</span>(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) <span class="co">///</span></span>
+<span id="cb19-14"><a href="tab.html#cb19-14" aria-hidden="true" tabindex="-1"></a>        booktabs <span class="kw">replace</span></span></code></pre></div>
 <ul>
 <li><code>e(b)</code> = cell percentages</li>
 <li><code>e(se)</code> = standard errors of cell percentages</li>
@@ -538,7 +536,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
