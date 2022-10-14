@@ -11,13 +11,13 @@ book:
   date: last-modified
   chapters:
     - index.qmd
-    - 01_basics.Rmd
-    - 02_tabstat.Rmd 
-    - 03_table.Rmd 
-    - 04_corrmat.Rmd 
-    - 05_reg.Rmd 
-    - 06_mixed_logit.Rmd 
-    - 07_misc.Rmd
+    - 01_basics.qmd
+    - 02_tabstat.qmd 
+    - 03_table.qmd 
+    - 04_corrmat.qmd 
+    - 05_reg.qmd 
+    - 06_mixed_logit.qmd 
+    - 07_misc.qmd
   language: de-DE
   always_allow_html: true
   downloads: [pdf]
@@ -31,7 +31,7 @@ book:
       
 
 
-bibliography: references.bib
+bibliography: packages.bib
 
 format:
   html:

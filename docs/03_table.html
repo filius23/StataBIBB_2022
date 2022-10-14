@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R am BIBB - 4&nbsp; tabulate</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04_corrmat.html" rel="next">
+<link href="./02_tabstat.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R am BIBB</a> 
+        <div class="sidebar-tools-main">
+    <a href="./R-am-BIBB.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stata: Erzeugen von Deskriptions- und Regressionstabellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tabellenexport mit Stata: Grundlagen &amp; Pakete</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_tabstat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Deskriptionen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_table.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_corrmat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Korrelationsmatrix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_reg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regressionstabellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_mixed_logit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel- und logit Modelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_misc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Weitere Optionen</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#tab-x-one-way-frequency-table" id="toc-tab-x-one-way-frequency-table" class="nav-link active" data-scroll-target="#tab-x-one-way-frequency-table"> <span class="header-section-number">4.1</span> <code>tab x</code>: One-way frequency table</a></li>
+  <li><a href="#tab-var1-var2-kontingenz-kreuztabelle" id="toc-tab-var1-var2-kontingenz-kreuztabelle" class="nav-link" data-scroll-target="#tab-var1-var2-kontingenz-kreuztabelle"> <span class="header-section-number">4.2</span> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle</a></li>
+  <li><a href="#gewichtete-tabelle-mit-svy" id="toc-gewichtete-tabelle-mit-svy" class="nav-link" data-scroll-target="#gewichtete-tabelle-mit-svy"> <span class="header-section-number">4.3</span> Gewichtete Tabelle mit <code>svy</code></a></li>
+  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"> <span class="header-section-number">4.4</span> Übungen</a>
+  <ul class="collapse">
+  <li><a href="#table1" id="toc-table1" class="nav-link" data-scroll-target="#table1"> <span class="header-section-number">4.4.1</span> Übung</a></li>
+  <li><a href="#table2" id="toc-table2" class="nav-link" data-scroll-target="#table2"> <span class="header-section-number">4.4.2</span> Übung</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="tab" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<p>Mit <code>table</code> können wir sowohl uni- als auch bivariate Häufigkeitsauszählungen erstellen. Auch diese können wir mit <code>esttab</code> exportieren. Außerdem können wir auch gewichtete Tabellen exportieren.</p>
+<section id="tab-x-one-way-frequency-table" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="tab-x-one-way-frequency-table"><span class="header-section-number">4.1</span> <code>tab x</code>: One-way frequency table</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. tabulate m1202
+## 
+##                          Höchster Ausbi |      Freq.     Percent        Cum.
+## ----------------------------------------+-----------------------------------
+##                    Ohne Berufsabschluss |      1,091        5.46        5.46
+## duale o. schulische Berufsausbildung/ei |      9,297       46.56       52.03
+## Aufstiegsfortbildung (Meister, Technike |      1,725        8.64       60.67
+## Fachhochschule, Universität/ geh., höhe |      7,854       39.33      100.00
+## ----------------------------------------+-----------------------------------
+##                                   Total |     19,967      100.00</code></pre>
+</div>
+<p>Auch hier benötigen wir <code>estpost</code>, um dann die <code>esttab</code>-Tabelle zu erstellen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabulate</span> m1202</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))"</span>) <span class="co">///</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       nonumber nomtitle <span class="kw">noobs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. estpost tabulate m1202
+## 
+##        m1202 |      e(b)     e(pct)  e(cumpct) 
+## -------------+---------------------------------
+##            1 |      1091   5.464016   5.464016 
+##            2 |      9297   46.56183   52.02584 
+##            3 |      1725   8.639255    60.6651 
+##            4 |      7854    39.3349        100 
+## -------------+---------------------------------
+##        Total |     19967        100            
+## 
+## row labels saved in macro e(labels)
+## 
+## . esttab, cells("b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))") ///
+## &gt;        nonumber nomtitle noobs
+## 
+## ---------------------------------------------------
+##                      freq          pct       cumpct
+## ---------------------------------------------------
+## 1                    1091            5            5
+## 2                    9297           47           52
+## 3                    1725            9           61
+## 4                    7854           39          100
+## Total               19967          100             
+## ---------------------------------------------------</code></pre>
+</div>
+<ul>
+<li><code>varlabels()</code> <span class="math inline">\(\Rightarrow\)</span> Labels verwenden</li>
+<li><code>varwidth(40)</code> <span class="math inline">\(\Rightarrow\)</span> Breite anpassen sodass ganzes Label sichtbar</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))"</span>) <span class="co">///   </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle <span class="kw">noobs</span> <span class="co">///</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    varlabels(<span class="ot">`e(labels)'</span>) <span class="co">///  </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    varwidth(40) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, cells("b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))") ///
+## &gt;        nonumber nomtitle noobs ///
+## &gt;         varlabels(`e(labels)') ///      
+## &gt;         varwidth(40) 
+## 
+## -------------------------------------------------------------------------------
+##                                                  freq          pct       cumpct
+## -------------------------------------------------------------------------------
+## Ohne Berufsabschluss                             1091            5            5
+## duale o. schulische Berufsausbildung/ein         9297           47           52
+## Aufstiegsfortbildung (Meister, Techniker         1725            9           61
+## Fachhochschule, Universität/ geh., höher         7854           39          100
+## Total                                           19967          100             
+## -------------------------------------------------------------------------------</code></pre>
+</div>
+<p>Export:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">"${res}/03_tab1.rtf"</span>, cells(<span class="st">"b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))"</span>) <span class="co">///</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle <span class="kw">noobs</span> <span class="co">///</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    varlabels(<span class="ot">`e(labels)'</span>) <span class="co">///</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    varwidth(40) <span class="co">///</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p><strong><a href="#table1">Übung 1</a></strong></p>
+<hr>
+</section>
+<section id="tab-var1-var2-kontingenz-kreuztabelle" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="tab-var1-var2-kontingenz-kreuztabelle"><span class="header-section-number">4.2</span> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202 S1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. tabulate m1202 S1
+## 
+##                       |      Geschlecht
+##        Höchster Ausbi |  männlich   weiblich |     Total
+## ----------------------+----------------------+----------
+##  Ohne Berufsabschluss |       594        497 |     1,091 
+## duale o. schulische B |     4,371      4,926 |     9,297 
+## Aufstiegsfortbildung  |     1,073        652 |     1,725 
+## Fachhochschule, Unive |     4,015      3,839 |     7,854 
+## ----------------------+----------------------+----------
+##                 Total |    10,053      9,914 |    19,967</code></pre>
+</div>
+<p><code>estpost</code> gibt uns hier vier Kennzahlen:</p>
+<ul>
+<li><code>b</code> <span class="math inline">\(\Rightarrow\)</span> abs. Häufigkeiten</li>
+<li><code>pct</code> <span class="math inline">\(\Rightarrow\)</span> rel. Häufigkeiten</li>
+<li><code>colpct</code> <span class="math inline">\(\Rightarrow\)</span> Spaltenprozente</li>
+<li><code>rowpct</code> <span class="math inline">\(\Rightarrow\)</span> Zeilenprozente</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabulate</span> m1202 S1</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>esttab, cell(b(fmt(%13.0fc))) unstack <span class="kw">noobs</span> nonumber nomtitles <span class="co">///</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  collabels(<span class="kw">none</span>)  varlabels(<span class="ot">`e(labels)'</span>) varwidth(40)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. estpost tabulate m1202 S1
+## 
+## S1           |                                            
+##        m1202 |      e(b)     e(pct)  e(colpct)  e(rowpct) 
+## -------------+--------------------------------------------
+## männlich     |                                            
+##            1 |       594   2.974909   5.908684   54.44546 
+##            2 |      4371   21.89112   43.47956   47.01517 
+##            3 |      1073   5.373867   10.67343    62.2029 
+##            4 |      4015   20.10818   39.93833   51.12045 
+##        Total |     10053   50.34807        100   50.34807 
+## -------------+--------------------------------------------
+## weiblich     |                                            
+##            1 |       497   2.489107   5.013113   45.55454 
+##            2 |      4926   24.67071   49.68731   52.98483 
+##            3 |       652   3.265388   6.576558    37.7971 
+##            4 |      3839   19.22672   38.72302   48.87955 
+##        Total |      9914   49.65193        100   49.65193 
+## -------------+--------------------------------------------
+## Total        |                                            
+##            1 |      1091   5.464016   5.464016        100 
+##            2 |      9297   46.56183   46.56183        100 
+##            3 |      1725   8.639255   8.639255        100 
+##            4 |      7854    39.3349    39.3349        100 
+##        Total |     19967        100        100        100 
+## 
+## row labels saved in macro e(labels)
+## 
+## . esttab, cell(b(fmt(%13.0fc))) unstack noobs nonumber nomtitles ///
+## &gt;   collabels(none) varlabels(`e(labels)') varwidth(40)
+## 
+## -------------------------------------------------------------------------------
+##                                              männlich     weiblich        Total
+## -------------------------------------------------------------------------------
+## Ohne Berufsabschluss                              594          497        1,091
+## duale o. schulische Berufsausbildung/ein        4,371        4,926        9,297
+## Aufstiegsfortbildung (Meister, Techniker        1,073          652        1,725
+## Fachhochschule, Universität/ geh., höher        4,015        3,839        7,854
+## Total                                          10,053        9,914       19,967
+## -------------------------------------------------------------------------------</code></pre>
+</div>
+<p>Dazu noch die Labels und mit <code>mgroups</code> eine Spaltenüberschrift:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>esttab, cell(b(fmt(%13.0fc))) unstack <span class="kw">noobs</span> collabels(<span class="kw">none</span>) nonumber nomtitles <span class="co">///</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>            varlabels(<span class="ot">`e(labels)'</span>) <span class="co">///</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>            eqlabels(, lhs(<span class="st">"Ausbildungsabs."</span>))  <span class="co">///</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>            varwidth(40) <span class="co">/// </span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>            mgroups(<span class="st">"Gender"</span> <span class="st">""</span>, pattern(1 0 1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, cell(b(fmt(%13.0fc))) unstack noobs collabels(none) nonumber nomtitles ///
+## &gt;                         varlabels(`e(labels)') ///
+## &gt;                         eqlabels(, lhs("Ausbildungsabs."))  ///
+## &gt;                         varwidth(40) ///
+## &gt;                         mgroups("Gender" "", pattern(1 0 1))
+## 
+## -------------------------------------------------------------------------------
+##                                                Gender                          
+## Ausbildungsabs.                              männlich     weiblich        Total
+## -------------------------------------------------------------------------------
+## Ohne Berufsabschluss                              594          497        1,091
+## duale o. schulische Berufsausbildung/ein        4,371        4,926        9,297
+## Aufstiegsfortbildung (Meister, Techniker        1,073          652        1,725
+## Fachhochschule, Universität/ geh., höher        4,015        3,839        7,854
+## Total                                          10,053        9,914       19,967
+## -------------------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>loc x <span class="st">"eingefügtem Text"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>esttab, cell(b) unstack <span class="kw">noobs</span> collabels(<span class="kw">none</span>) nonumber nomtitles <span class="co">///</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>            varlabels(<span class="ot">`e(labels)'</span>) <span class="co">///</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>            eqlabels(, lhs(<span class="st">"Ausbildungsabs."</span>))  <span class="co">///</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>            varwidth(40) <span class="co">///</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>            mgroups(<span class="st">"Gender"</span> <span class="st">""</span>, pattern(1 0 1)) <span class="co">/// Überschrift über spalten</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>            <span class="bn">title</span>(<span class="st">"Hier kann ein Titel stehen"</span>) <span class="co">/// titel</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>            <span class="kw">note</span>(<span class="st">"Und hier eine Notiz sogar mit: `x'"</span>) <span class="co">// notiz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. loc x "eingefügtem Text"
+## 
+## . esttab, cell(b) unstack noobs collabels(none) nonumber nomtitles ///
+## &gt;                         varlabels(`e(labels)') ///
+## &gt;                         eqlabels(, lhs("Ausbildungsabs."))  ///
+## &gt;                         varwidth(40) ///
+## &gt;                         mgroups("Gender" "", pattern(1 0 1)) /// Überschrift über spalten
+## &gt;                         title("Hier kann ein Titel stehen") /// titel
+## &gt;                         note("Und hier eine Notiz sogar mit: `x'") // notiz
+## 
+## Hier kann ein Titel stehen
+## -------------------------------------------------------------------------------
+##                                                Gender                          
+## Ausbildungsabs.                              männlich     weiblich        Total
+## -------------------------------------------------------------------------------
+## Ohne Berufsabschluss                              594          497         1091
+## duale o. schulische Berufsausbildung/ein         4371         4926         9297
+## Aufstiegsfortbildung (Meister, Techniker         1073          652         1725
+## Fachhochschule, Universität/ geh., höher         4015         3839         7854
+## Total                                           10053         9914        19967
+## -------------------------------------------------------------------------------
+## Und hier eine Notiz sogar mit: eingefügtem Text</code></pre>
+</div>
+<hr>
+<p><strong><a href="#table2">Übung 2</a></strong></p>
+<hr>
+</section>
+<section id="gewichtete-tabelle-mit-svy" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="gewichtete-tabelle-mit-svy"><span class="header-section-number">4.3</span> Gewichtete Tabelle mit <code>svy</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">svyset</span> <span class="dt">_n</span> [<span class="kw">pweight</span>=gew2018]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">svy</span>: <span class="kw">tabulate</span>  m1202 S1 , <span class="ot">row</span> <span class="kw">percent</span> <span class="fu">count</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>esttab ., cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    nostar nostar unstack <span class="co">///</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)'</span>) eqlabels(<span class="ot">`e(eqlabels)'</span>, lhs(<span class="st">"Ausbildungsabs."</span>)) <span class="co">///</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">"Gender"</span>, pattern(0 1 0 1) span ) <span class="co">///</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        varwidth(40)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab ., cell(b(fmt(%13.2fc))) ///
+## &gt;     nostar nostar unstack ///
+## &gt;                 nonumber nomtitles collabels(none)  ///
+## &gt;                 varlabels(`e(labels)') eqlabels(`e(eqlabels)', lhs("Ausbildungsabs.")) ///
+## &gt;                 mgroups("Gender", pattern(0 1 0 1) span ) ///
+## &gt;                 varwidth(40)
+## 
+## -------------------------------------------------------------------------------
+##                                          Gender                                
+## Ausbildungsabs.                              männlich     weiblich        Total
+## -------------------------------------------------------------------------------
+## Ohne Berufsabschluss                           594.00       497.00     1,091.00
+## duale o. schulische Berufsausbildung/ein     4,371.00     4,926.00     9,297.00
+## Aufstiegsfortbildung (Meister, Techniker     1,073.00       652.00     1,725.00
+## Fachhochschule, Universität/ geh., höher     4,015.00     3,839.00     7,854.00
+## Total                                       10,053.00     9,914.00    19,967.00
+## -------------------------------------------------------------------------------
+## N                                               19967                          
+## -------------------------------------------------------------------------------</code></pre>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">"${res}/svytab.rtf"</span>, cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    nostar nostar unstack <span class="co">///</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)'</span>) eqlabels(<span class="ot">`e(eqlabels)'</span>, lhs(<span class="st">"Ausbildungsabs."</span>)) <span class="co">///</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">"Gender"</span>, pattern(0 1) span ) <span class="co">///</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        varwidth(40) <span class="co">///</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">replace</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>esttab . <span class="kw">using</span> <span class="st">"${res}/svy_desc.tex"</span>,  cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        nostar nostar unstack <span class="co">///</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        nonumber nomtitles collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        varlabels(<span class="ot">`e(labels)'</span>) eqlabels(<span class="ot">`e(eqlabels)'</span>, lhs(<span class="st">"Ausbildungsabs."</span>))  <span class="co">///</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        mgroups(<span class="st">"Gender"</span>, pattern(0 1 0 1) <span class="kw">prefix</span>(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) <span class="co">///</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        booktabs <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>e(b)</code> = cell percentages</li>
+<li><code>e(se)</code> = standard errors of cell percentages</li>
+<li><code>e(lb)</code> = lower 95% confidence bounds for cell percentages</li>
+<li><code>e(ub)</code> = upper 95% confidence bounds for cell percentages</li>
+<li><code>e(cell)</code> = cell percentages</li>
+<li><code>e(row)</code> = row percentages</li>
+<li><code>e(col)</code> = column percentages</li>
+<li><code>e(count)</code> = weighted counts</li>
+<li><code>e(obs)</code> = number of observations</li>
+</ul>
+</section>
+<section id="übungen" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="übungen"><span class="header-section-number">4.4</span> Übungen</h2>
+<section id="table1" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="table1"><span class="header-section-number">4.4.1</span> Übung</h3>
+<ul>
+<li>Erstellen Sie eine Häufigkeitstabelle für von <code>gkpol</code>.</li>
+<li>Lassen Sie sich die Labels für <code>gkpol</code> anzeigen und passen Sie die Tabelle nach Ihren Vorstellungen an.Wie würden Sie die kumulierten Anteile aus Ihrer Tabelle ausblenden?</li>
+<li>Passen Sie die Labels für die Spalten (bspw. <code>N</code> statt <code>freq</code> und <code>%</code> statt <code>pct</code>) an und blenden Sie die kumulierte relative Häufigkeit aus.</li>
+</ul>
+</section>
+<section id="table2" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="table2"><span class="header-section-number">4.4.2</span> Übung</h3>
+<ul>
+<li>Erstellen Sie eine Kreuztabelle für <code>gkpol</code> und <code>mobil</code>.</li>
+<li>Passen Sie die Beschriftung der Tabelle nach Ihren Vorstellungen an.</li>
+<li>Was müssten Sie ändern, um die Zeilen- oder Spaltenprozente anzeigen zu lassen?</li>
+<li>Fügen Sie auch eine Notiz ein und einen Titel ein</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./02_tabstat.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Deskriptionen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04_corrmat.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Korrelationsmatrix</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+  </div>
+</footer>
+
+
+
+</body></html>

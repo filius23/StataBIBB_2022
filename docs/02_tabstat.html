@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R am BIBB - 3&nbsp; Deskriptionen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03_table.html" rel="next">
+<link href="./01_basics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Deskriptionen</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R am BIBB</a> 
+        <div class="sidebar-tools-main">
+    <a href="./R-am-BIBB.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stata: Erzeugen von Deskriptions- und Regressionstabellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tabellenexport mit Stata: Grundlagen &amp; Pakete</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_tabstat.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Deskriptionen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_table.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_corrmat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Korrelationsmatrix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_reg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regressionstabellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_mixed_logit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel- und logit Modelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_misc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Weitere Optionen</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"> <span class="header-section-number">3.1</span> <code>summary</code></a></li>
+  <li><a href="#tabstat" id="toc-tabstat" class="nav-link" data-scroll-target="#tabstat"> <span class="header-section-number">3.2</span> <code>tabstat</code></a></li>
+  <li><a href="#export" id="toc-export" class="nav-link" data-scroll-target="#export"> <span class="header-section-number">3.3</span> export</a></li>
+  <li><a href="#zusätzliche-kennzahlen-hinzufügen" id="toc-zusätzliche-kennzahlen-hinzufügen" class="nav-link" data-scroll-target="#zusätzliche-kennzahlen-hinzufügen"> <span class="header-section-number">3.4</span> Zusätzliche Kennzahlen hinzufügen</a></li>
+  <li><a href="#mehrere-variablen" id="toc-mehrere-variablen" class="nav-link" data-scroll-target="#mehrere-variablen"> <span class="header-section-number">3.5</span> mehrere Variablen</a></li>
+  <li><a href="#gruppenvergleich" id="toc-gruppenvergleich" class="nav-link" data-scroll-target="#gruppenvergleich"> <span class="header-section-number">3.6</span> Gruppenvergleich</a></li>
+  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"> <span class="header-section-number">3.7</span> Übungen</a>
+  <ul class="collapse">
+  <li><a href="#tabst1" id="toc-tabst1" class="nav-link" data-scroll-target="#tabst1"> <span class="header-section-number">3.7.1</span> Übung</a></li>
+  <li><a href="#tabst2" id="toc-tabst2" class="nav-link" data-scroll-target="#tabst2"> <span class="header-section-number">3.7.2</span> Übung</a></li>
+  <li><a href="#tabst3" id="toc-tabst3" class="nav-link" data-scroll-target="#tabst3"> <span class="header-section-number">3.7.3</span> Übung</a></li>
+  <li><a href="#tabst4" id="toc-tabst4" class="nav-link" data-scroll-target="#tabst4"> <span class="header-section-number">3.7.4</span> Übung</a></li>
+  </ul></li>
+  <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format"> <span class="header-section-number">3.8</span> Mehr zu <code>format</code></a>
+  <ul class="collapse">
+  <li><a href="#w.df" id="toc-w.df" class="nav-link" data-scroll-target="#w.df"> <span class="header-section-number">3.8.1</span> %w.df</a></li>
+  <li><a href="#w.dfc" id="toc-w.dfc" class="nav-link" data-scroll-target="#w.dfc"> <span class="header-section-number">3.8.2</span> %w.dfc</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="desc" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Deskriptionen</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<section id="summary" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.1</span> <code>summary</code></h2>
+<p>Hier ein Bespielbefehl für die Berechnung des arith. Mittels, des Medians, der Varianz und des Varianzkoeffizienten mit <code>tabstat</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> zpalter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . set linesize. qui use "./data/BIBBBAuA_2018_short.dta", clear
+## 
+## . summarize zpalter
+## 
+##     Variable |        Obs        Mean    Std. Dev.       Min        Max
+## -------------+---------------------------------------------------------
+##      zpalter |     19,836    47.19228    11.33762         15         87</code></pre>
+</div>
+</section>
+<section id="tabstat" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="tabstat"><span class="header-section-number">3.2</span> <code>tabstat</code></h2>
+<p>Mit <code>tabstat</code> können wir eine ganze Reihe statistischer Kennzahlen für metrische/kontinuierliche Merkmale berechnen. Die Syntax hat dabei das folgende Format: <code>tabstat varlist, s(*option*) c(stat|var)</code></p>
+<p>Hier eine Übersicht der Kennzahlen:</p>
+<div class="cell" data-ft.align="center">
+<div class="cell-output-display">
+
+<table class="table table-condensed" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Option </th>
+   <th style="text-align:left;"> Kennzahl </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> mean </td>
+   <td style="text-align:left;"> arithm. Mittel </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> median </td>
+   <td style="text-align:left;"> Median </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> count </td>
+   <td style="text-align:left;"> Anzahl der Beobachtungen ohne Missings </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> n </td>
+   <td style="text-align:left;"> entspricht count </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> sum </td>
+   <td style="text-align:left;"> Summe der Ausprägungen </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> max </td>
+   <td style="text-align:left;"> Maximum </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> min </td>
+   <td style="text-align:left;"> Minimum </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> range </td>
+   <td style="text-align:left;"> Spannweite = max - min </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> variance </td>
+   <td style="text-align:left;"> Varianz </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> sd </td>
+   <td style="text-align:left;"> Standardabweichung </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> cv </td>
+   <td style="text-align:left;"> Variationskoefficient (sd/mean) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> skewness </td>
+   <td style="text-align:left;"> Schiefe </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> kurtosis </td>
+   <td style="text-align:left;"> Wölbung </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> pX </td>
+   <td style="text-align:left;"> X. Perzentil (5,10,25,50,75,90,95,99) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> iqr </td>
+   <td style="text-align:left;"> Interquartilsdistanz = p75 - p25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-family: monospace;"> q </td>
+   <td style="text-align:left;"> Entspricht p25 p50 p75 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Hier ein Bespielbefehl für die Berechnung des arith. Mittels, des Medians, der Varianz und des Varianzkoeffizienten mit <code>tabstat</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabstat</span> zpalter, <span class="fu">s</span>(<span class="kw">mean</span> <span class="kw">median</span> <span class="kw">var</span> cv) c(stat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . set linesize. qui use "./data/BIBBBAuA_2018_short.dta", clear
+## 
+## . tabstat zpalter, s(mean sd min max n) c(stat)
+## 
+##     variable |      mean        sd       min       max         N
+## -------------+--------------------------------------------------
+##      zpalter |  47.19228  11.33762        15        87     19836
+## ----------------------------------------------------------------</code></pre>
+</div>
+<p>Für Deskriptionsbefehle müssen wir immer zuerst ein <code>estpost</code> voranstellen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabstat</span> F518_SUF, c(stat) stat(<span class="kw">mean</span> <span class="fu">sd</span> <span class="fu">min</span> <span class="fu">max</span> n)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"mean sd min max count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . set linesize. qui use "./data/BIBBBAuA_2018_short.dta", clear
+## 
+## . estpost tabstat F518_SUF, c(stat) stat(mean sd min max n)
+## 
+## Summary statistics: mean sd min max count
+##      for variables: F518_SUF
+## 
+##              |   e(mean)      e(sd)     e(min)     e(max)   e(count) 
+## -------------+-------------------------------------------------------
+##     F518_SUF |  3532.109   3530.928          1      72000      16635 
+## 
+## . esttab, cells("mean sd min max count")
+## 
+## -----------------------------------------------------------------------------
+##                       (1)                                                    
+##                                                                              
+##                      mean           sd          min          max        count
+## -----------------------------------------------------------------------------
+## F518_SUF         3532.109     3530.928            1        72000        16635
+## -----------------------------------------------------------------------------
+## N                   16635                                                    
+## -----------------------------------------------------------------------------</code></pre>
+</div>
+<p>Wenn wir jetzt den Median hinzufügen möchten, brauchen wir ein neues <code>estpost</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"mean p50 sd min max count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . set linesize . qui use "./data/BIBBBAuA_2018_short.dta", clear
+## 
+## . qui estpost tabstat F518_SUF, c(stat) stat(mean sd min max n)
+## 
+## . esttab, cells("mean p50 sd min max count")
+## 
+## ------------------------------------------------------------------------------------------
+##                       (1)                                                                 
+##                                                                                           
+##                      mean          p50           sd          min          max        count
+## ------------------------------------------------------------------------------------------
+## F518_SUF         3532.109                  3530.928            1        72000        16635
+## ------------------------------------------------------------------------------------------
+## N                   16635                                                                 
+## ------------------------------------------------------------------------------------------</code></pre>
+</div>
+<p><code>tabstat</code> mit <code>p50</code> für Median:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabstat</span> F518_SUF, c(stat) stat(<span class="kw">mean</span> p50 <span class="fu">sd</span> <span class="fu">min</span> <span class="fu">max</span> n)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"mean p50 sd min max count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . set linesize . qui use "./data/BIBBBAuA_2018_short.dta", clear
+## 
+## . estpost tabstat F518_SUF, c(stat) stat(mean p50 sd min max n)
+## 
+## Summary statistics: mean p50 sd min max count
+##      for variables: F518_SUF
+## 
+##              |   e(mean)     e(p50)      e(sd)     e(min)     e(max)   e(count) 
+## -------------+------------------------------------------------------------------
+##     F518_SUF |  3532.109       3000   3530.928          1      72000      16635 
+## 
+## . esttab, cells("mean p50 sd min max count")
+## 
+## ------------------------------------------------------------------------------------------
+##                       (1)                                                                 
+##                                                                                           
+##                      mean          p50           sd          min          max        count
+## ------------------------------------------------------------------------------------------
+## F518_SUF         3532.109         3000     3530.928            1        72000        16635
+## ------------------------------------------------------------------------------------------
+## N                   16635                                                                 
+## ------------------------------------------------------------------------------------------</code></pre>
+</div>
+<p>So oder so sieht diese Tabelle sieht natürlich noch überhaupt nicht so aus, wie wir sie haben möchten. Um das anzupassen, stehen uns eine ganze Reihe an Formatierungsbefehlen zur Verfügung.</p>
+<ul>
+<li><code>nonumber</code> <span class="math inline">\(\Rightarrow\)</span> Zahl oben ausblenden</li>
+<li><code>nomtitle</code> <span class="math inline">\(\Rightarrow\)</span> Modelltitel oben ausblenden (hier die Leerzeile)</li>
+<li><code>noobs</code> <span class="math inline">\(\Rightarrow\)</span> Beobachtungszahl unten ausblenden</li>
+<li><code>label</code> <span class="math inline">\(\Rightarrow\)</span> Variablenlaben verwenden</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>esttab, <span class="co">///</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    cells(<span class="st">"mean p50 sd min max count"</span>) <span class="co">///</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle <span class="kw">noobs</span> <span class="kw">label</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, ///
+## &gt;         cells("mean p50 sd min max count") ///
+## &gt;         nonumber nomtitle noobs label
+## 
+## --------------------------------------------------------------------------------------------------
+##                              mean          p50           sd          min          max        count
+## --------------------------------------------------------------------------------------------------
+## Wie hoch ist Ih          3532.109         3000     3530.928            1        72000        16635
+## --------------------------------------------------------------------------------------------------</code></pre>
+</div>
+<p>Das label ist hier allerdings abgeschnitten, wäre aber die Frageformulierung. Stattdessen hätten wir gernen einen Variablennamen, dazu können wir mit <code>coeflabel()</code> den Variablennamen und in <code>""</code> ein Label angeben. Außerdem wollen wir die Spalten ansprechender beschriften, dazu geben wir mit <code>collabels</code> ebenfalls in <code>""</code> der Reihe nach Werte an:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>esttab, <span class="co">///</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    cells(<span class="st">"mean sd min max count"</span>) <span class="co">///</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle nonote <span class="kw">noobs</span> <span class="kw">label</span> <span class="co">///</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    collabels(<span class="st">"Mean"</span> <span class="st">"SD"</span> <span class="st">"Median"</span> <span class="st">"Min"</span> <span class="st">"Max"</span> <span class="st">"N"</span>) <span class="co">///</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, ///
+## &gt;         cells("mean p50 sd min max count") ///
+## &gt;                 nonumber nomtitle nonote noobs label ///
+## &gt;         collabels("Mean" "SD" "Median" "Min" "Max" "N") ///
+## &gt;         coeflabel(F518_SUF "Bruttoverdienst")
+## 
+## --------------------------------------------------------------------------------------------------
+##                              Mean           SD       Median          Min          Max            N
+## --------------------------------------------------------------------------------------------------
+## Bruttoverdienst          3532.109         3000     3530.928            1        72000        16635
+## --------------------------------------------------------------------------------------------------</code></pre>
+</div>
+<p>Abschließend möchten wir noch die Kennzahlen formatieren. Dazu können wir auf die Zahlenformate in Stata zurückgreifen - <a href="#format">hier</a> eine kurze Erklärung dazu.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>esttab, <span class="co">///</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    cells(<span class="st">"mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%13.0fc)) max(fmt(%13.0fc)) count(fmt(%6.0fc))"</span>)  <span class="co">///</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle nonote <span class="kw">noobs</span> <span class="kw">label</span> <span class="co">///</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    collabels(<span class="st">"Mean"</span> <span class="st">"SD"</span> <span class="st">"Min"</span> <span class="st">"Max"</span> <span class="st">"N"</span>) <span class="co">///</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, ///
+## &gt;         cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%13.0fc)) max(fmt(%13.0fc)) count(fmt(%6.0fc))")  ///
+## &gt;         nonumber nomtitle nonote noobs label ///
+## &gt;         collabels("Mean" "SD" "Min" "Max" "N") ///
+## &gt;         coeflabel(F518_SUF "Bruttoverdienst")
+## 
+## -------------------------------------------------------------------------------------
+##                              Mean           SD          Min          Max            N
+## -------------------------------------------------------------------------------------
+## Bruttoverdienst          3,532.11     3,530.93            1       72,000       16,635
+## -------------------------------------------------------------------------------------</code></pre>
+</div>
+<hr>
+<p><strong><a href="#tabst1">Übung 1</a></strong></p>
+<hr>
+</section>
+<section id="export" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="export"><span class="header-section-number">3.3</span> export</h2>
+<p>Bisher bewegen wir uns aber immer noch im Ausgabe-Fenster von Stata. Um die Tabelle nun zu exportieren, hängen wir ein <code>using</code>-Statement an <code>esttab</code>. Für das Ausgabeformat hängen wir einfach die gewünschte Dateiendung an:</p>
+<ul>
+<li><code>.rtf</code> für eine Datei, die mit Word geöffnet und weiterverarbeitet werden kann</li>
+<li><code>.tex</code> für eine Latex-Datei</li>
+<li><code>.csv</code> für eine Excel-Datei (mehr zum Excel-Export <a href="#misc">hier</a>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">"${res}/tab1.rtf"</span>, <span class="co">///</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    cells(<span class="st">"mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))"</span>)  <span class="co">///</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle nonote <span class="kw">noobs</span> <span class="kw">label</span> <span class="co">///</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    collabels(<span class="st">"Mean"</span> <span class="st">"SD"</span> <span class="st">"Min"</span> <span class="st">"Max"</span> <span class="st">"N"</span>) <span class="co">///</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span>) <span class="co">///</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">"${res}/tab1.tex"</span>, <span class="co">///</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    cells(<span class="st">"mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min(fmt(%4.0fc)) max(fmt(%4.0fc)) count(fmt(%4.0fc))"</span>)  <span class="co">///</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    nonumber nomtitle nonote <span class="kw">noobs</span> <span class="kw">label</span> <span class="co">///</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    collabels(<span class="st">"Mean"</span> <span class="st">"SD"</span> <span class="st">"Min"</span> <span class="st">"Max"</span> <span class="st">"N"</span>) <span class="co">///</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span>)  <span class="co">///</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span> booktabs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="zusätzliche-kennzahlen-hinzufügen" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="zusätzliche-kennzahlen-hinzufügen"><span class="header-section-number">3.4</span> Zusätzliche Kennzahlen hinzufügen</h2>
+<p>Gelegentlich möchten wir aber unserer Tabelle auch noch weitere Kennzahlen hinzufügen, bspw. aus <code>mdesc</code> oder <code>fastgini</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install mdesc</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install fastgini</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dazu können wir die <code>estadd</code>-Funktion nutzen. Um eine neue Spalte mit der gewünschten Kennzahl zu erhalten, müssen wir <code>estadd matrix</code> verwenden. Deswegen müssen wir ein klein bisschen in die <code>matrix</code>-Welt von Stata eintauchen, um die Werte richtig hinzufügen zu können.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mdesc F518_SUF</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> <span class="ot">list</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>mat miss = <span class="fu">r</span>(miss)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>mat colname miss = F518_SUF</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">list</span> miss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. mdesc F518_SUF
+## 
+##     Variable    |     Missing          Total     Percent Missing
+## ----------------+-----------------------------------------------
+##        F518_SUF |       3,377         20,012          16.87
+## ----------------+-----------------------------------------------
+## 
+## . return list
+## 
+## scalars:
+##             r(percent) =  16.87487507495502
+##               r(total) =  20012
+##                r(miss) =  3377
+## 
+## macros:
+##           r(miss_vars) : "F518_SUF"
+## 
+## . mat miss = r(miss)
+## 
+## . mat colname miss = F518_SUF
+## 
+## . mat list miss
+## 
+## symmetric miss[1,1]
+##     F518_SUF
+## r1      3377</code></pre>
+</div>
+<p>Die so formatierte <span class="math inline">\(1x1\)</span> <code>matrix</code> können wir jetzt in unsere Tabelle einfügen, indem wir <code>estadd matrix miss</code> angeben:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>estadd mat miss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. estadd mat miss
+## 
+## added matrix:
+##                e(miss) :  1 x 1</code></pre>
+</div>
+<p>Anschließend können wir die Tabelle mit <code>esttab</code> erstellen und die Information aus <code>mdesc</code> unter dem Namen der hinzugefügten <code>matrix</code> aufrufen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min max count(fmt(%13.0fc)) miss(fmt(%13.0fc))"</span>) <span class="co">///</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>        <span class="kw">noobs</span> nomtitle nonumber <span class="kw">label</span> collabels(<span class="st">"Mean"</span> <span class="st">"SD"</span> <span class="st">"Min"</span> <span class="st">"Max"</span> <span class="st">"N"</span> <span class="st">"Missings"</span>) <span class="co">///</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min max count(fmt(%13.0fc)) miss(fmt(%13.0fc))") noobs ///
+## &gt;                 nomtitle nonumber label collabels("Mean" "SD" "Min" "Max" "N" "Missings") ///
+## &gt;     coeflabel(F518_SUF "Bruttoverdienst") 
+## 
+## --------------------------------------------------------------------------------------------------
+##                              Mean           SD          Min          Max            N     Missings
+## --------------------------------------------------------------------------------------------------
+## Bruttoverdienst          3,532.11     3,530.93         1.00    72,000.00       16,635        3,377
+## --------------------------------------------------------------------------------------------------</code></pre>
+</div>
+<hr>
+<p><strong><a href="#tabst2">Übung 2</a></strong></p>
+<hr>
+</section>
+<section id="mehrere-variablen" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="mehrere-variablen"><span class="header-section-number">3.5</span> mehrere Variablen</h2>
+<p>Wir können natürlich auch mehrere Variablen in <code>tabstat</code> und damit in <code>esttab</code> aufnehmen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabstat</span> zpalter F518_SUF, c(stat) stat(<span class="kw">mean</span> <span class="fu">sd</span> <span class="fu">min</span> <span class="fu">max</span> n)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min max count(fmt(%13.0fc))"</span>) <span class="kw">noobs</span> <span class="co">///</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>        nomtitle nonumber <span class="kw">label</span> collabels(<span class="st">"Mean"</span> <span class="st">"SD"</span> <span class="st">"Min"</span> <span class="st">"Max"</span> <span class="st">"N"</span>) <span class="co">///</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span> zpalter <span class="st">"Alter"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet.   esttab, cells("mean(fmt(%13.2fc)) sd(fmt(%13.2fc)) min max count(fmt(%13.0fc))") noobs ///
+## &gt;                 nomtitle nonumber label collabels("Mean" "SD" "Min" "Max" "N") ///
+## &gt;                 coeflabel(F518_SUF "Bruttoverdienst" zpalter "Alter") 
+## 
+## -------------------------------------------------------------------------------------
+##                              Mean           SD          Min          Max            N
+## -------------------------------------------------------------------------------------
+## Alter                       47.19        11.34        15.00        87.00       19,836
+## Bruttoverdienst          3,532.11     3,530.93         1.00    72,000.00       16,635
+## -------------------------------------------------------------------------------------</code></pre>
+</div>
+<p>Etwas tricky wird’s aber, wenn wir auch hier eigene Kennzahlen miteinfügen möchten. Die <code>r()</code>-Skalare für <code>mdesc</code> (und auch <code>fastgini</code>) geben uns nämlich nur den Wert für die <em>letzte</em> Variable aus:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mdesc zpalter F518_SUF</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> <span class="ot">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. mdesc zpalter F518_SUF
+## 
+##     Variable    |     Missing          Total     Percent Missing
+## ----------------+-----------------------------------------------
+##         zpalter |         176         20,012           0.88
+##        F518_SUF |       3,377         20,012          16.87
+## ----------------+-----------------------------------------------
+## 
+## . return list
+## 
+## scalars:
+##             r(percent) =  16.87487507495502
+##               r(total) =  20012
+##                r(miss) =  3377
+## 
+## macros:
+##           r(miss_vars) : "zpalter F518_SUF"</code></pre>
+</div>
+<p>Daher müssen wir uns hier mit einer Schleife helfen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>* <span class="fu">matrix</span> vorbereiten</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    glo x = <span class="st">"zpalter F518_SUF"</span> <span class="co">// auszuwertende Variablen</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    glo len: <span class="fu">word</span> <span class="fu">count</span> <span class="ot">${x}</span>    <span class="co">// wie viele sind es?</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    mat m1 = <span class="fu">J</span>(1,<span class="ot">${len}</span>,.)     <span class="co">// entsprechend lange Matrix erstellen J(Zeilen,Spalten,Inhalt)</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    mat colname m1 = <span class="ot">${x}</span>       <span class="co">// spalten schon mal richtig benennen</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    mat <span class="ot">list</span> m1                 <span class="co">// ansehen</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>* Schleife über die angegebenen Variablen</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    forval <span class="fu">y</span> = 1/<span class="ot">$len</span> {</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>        loc v: dis  <span class="fu">word</span>(<span class="st">"${x}"</span>,<span class="ot">`y'</span>) <span class="co">// y.tes Wort aus x in v ablegen</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">display</span> <span class="st">"`v'"</span>               <span class="co">// zur Kontrolle: v anzeigen</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>        mdesc <span class="ot">`v'</span>                   <span class="co">// missings in v berechnen</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>        loc res_mat = <span class="fu">r</span>(miss)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>        mat m1[1,<span class="ot">`y'</span>] = <span class="ot">`res_mat'</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    mat <span class="ot">l</span> m1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. * matrix vorbereiten
+## .         glo x = "zpalter F518_SUF" // auszuwertende Variablen
+## 
+## .         glo len: word count ${x}        // wie viele sind es?
+## 
+## .         mat m1 = J(1,${len},.)     // entsprechend lange Matrix erstellen J(Zeilen,Spalten,Inhalt)
+## 
+## .         mat colname m1 = ${x}           // spalten schon mal richtig benennen
+## 
+## .         mat list m1                                     // ansehen
+## 
+## m1[1,2]
+##      zpalter  F518_SUF
+## r1         .         .
+## 
+## . 
+## . * Schleife über die angegebenen Variablen
+## .         forval y = 1/$len {
+##   2.                 loc v: dis      word("${x}",`y') // y.tes Wort aus x in v ablegen
+##   3.                 display "`v'"                           // zur Kontrolle: v anzeigen
+##   4.                 mdesc `v'                                       // missings in v berechnen
+##   5.                 loc res_mat = r(miss)
+##   6.                 mat m1[1,`y'] = `res_mat'
+##   7.         }
+## zpalter
+## 
+##     Variable    |     Missing          Total     Percent Missing
+## ----------------+-----------------------------------------------
+##         zpalter |         176         20,012           0.88
+## ----------------+-----------------------------------------------
+## F518_SUF
+## 
+##     Variable    |     Missing          Total     Percent Missing
+## ----------------+-----------------------------------------------
+##        F518_SUF |       3,377         20,012          16.87
+## ----------------+-----------------------------------------------
+## 
+## .         mat l m1
+## 
+## m1[1,2]
+##      zpalter  F518_SUF
+## r1       176      3377</code></pre>
+</div>
+<p>…und dann können wir wieder zur gewohnten Routine zurück. <code>estpost</code> mit <code>quietly</code> unterdrückt den Output, den wir ja schon kennen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> estpost <span class="kw">tabstat</span> zpalter F518_SUF, c(stat) stat(<span class="kw">mean</span> <span class="fu">sd</span> <span class="fu">min</span> <span class="fu">max</span> n)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>estadd mat m1</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"count(fmt(%13.0fc)) m1(fmt(%13.0fc))"</span>)  <span class="kw">noobs</span> <span class="co">///</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        nomtitle nonumber <span class="kw">label</span> collabels(<span class="st">"N"</span> <span class="st">"Missings"</span>) <span class="co">///</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span> zpalter <span class="st">"Alter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, cells("count(fmt(%13.0fc)) m1(fmt(%13.0fc))")  noobs ///
+## &gt;                 nomtitle nonumber label collabels("N" "Missings") ///
+## &gt;         coeflabel(F518_SUF "Bruttoverdienst" zpalter "Alter")
+## 
+## ----------------------------------------------
+##                                 N     Missings
+## ----------------------------------------------
+## Alter                      19,836          176
+## Bruttoverdienst            16,635        3,377
+## ----------------------------------------------</code></pre>
+</div>
+<hr>
+<p><strong><a href="#tabst3">Übung 3</a></strong></p>
+<hr>
+</section>
+<section id="gruppenvergleich" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="gruppenvergleich"><span class="header-section-number">3.6</span> Gruppenvergleich</h2>
+<p>Mit <code>by(S1)</code> bekommen wir einen Gruppenvergleich - hier zwischen Männern und Frauen. Die Option <code>nototal</code> unterdrückt dabei die <code>total</code>-Angabe</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabstat</span> zpalter F518_SUF, <span class="kw">by</span>(S1) c(stat) stat(<span class="kw">mean</span> <span class="fu">sd</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabstat</span> zpalter F518_SUF, <span class="kw">by</span>(S1) c(stat) stat(<span class="kw">mean</span> <span class="fu">sd</span>) <span class="kw">nototal</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. estpost tabstat zpalter F518_SUF, by(S1) c(stat) stat(mean sd)
+## 
+## Summary statistics: mean sd
+##      for variables: zpalter F518_SUF
+##   by categories of: S1
+## 
+##           S1 |   e(mean)      e(sd) 
+## -------------+----------------------
+## männlich     |                      
+##      zpalter |  46.49079   11.87744 
+##     F518_SUF |  4232.735   3951.324 
+## -------------+----------------------
+## weiblich     |                      
+##      zpalter |  47.90402   10.71604 
+##     F518_SUF |  2800.926   2852.935 
+## -------------+----------------------
+## Total        |                      
+##      zpalter |  47.19228   11.33762 
+##     F518_SUF |  3532.109   3530.928 
+## 
+## . estpost tabstat zpalter F518_SUF, by(S1) c(stat) stat(mean sd) nototal  
+## 
+## Summary statistics: mean sd
+##      for variables: zpalter F518_SUF
+##   by categories of: S1
+## 
+##           S1 |   e(mean)      e(sd) 
+## -------------+----------------------
+## männlich     |                      
+##      zpalter |  46.49079   11.87744 
+##     F518_SUF |  4232.735   3951.324 
+## -------------+----------------------
+## weiblich     |                      
+##      zpalter |  47.90402   10.71604 
+##     F518_SUF |  2800.926   2852.935</code></pre>
+</div>
+<p>Mit <code>par</code> bekommen wir den entsprechenden Wert in Klammern angezeigt:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="kw">mean</span>(fmt(%10.1fc)) <span class="fu">sd</span>(fmt(%13.3fc) par)) nostar  nonumber unstack <span class="co">///</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  nomtitle nonote <span class="kw">noobs</span>  <span class="co">///</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>   collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>   eqlabels(<span class="st">"Männer"</span> <span class="st">"Frauen"</span>) <span class="co">/// </span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>   nomtitles <span class="co">///</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>   coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span> zpalter <span class="st">"Alter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, cells(mean(fmt(%10.1fc)) sd(fmt(%13.3fc) par)) nostar  nonumber unstack ///
+## &gt;   nomtitle nonote noobs  ///
+## &gt;    collabels(none)  ///
+## &gt;    eqlabels("Männer" "Frauen") /// 
+## &gt;    nomtitles ///
+## &gt;    coeflabel(F518_SUF "Bruttoverdienst" zpalter "Alter")
+## 
+## --------------------------------------
+##                    Männer       Frauen
+## --------------------------------------
+## Alter                46.5         47.9
+##                  (11.877)     (10.716)
+## Bruttoverd~t      4,232.7      2,800.9
+##               (3,951.324)  (2,852.935)
+## --------------------------------------</code></pre>
+</div>
+<p>Um die in <code>cells()</code> angegebenen Werte in eine Zeile zu bringen, müssen wir sie in <code>""</code> setzen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"mean(fmt(%10.1fc)) sd(fmt(%13.3fc) par)"</span>) nostar  nonumber unstack <span class="co">///</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  nomtitle nonote <span class="kw">noobs</span> <span class="kw">label</span>  <span class="co">///</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>   collabels(<span class="kw">none</span>)  <span class="co">///</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>   eqlabels(<span class="st">"Männer"</span> <span class="st">"Frauen"</span>) <span class="co">/// </span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>   nomtitles <span class="co">///</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>   coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span> zpalter <span class="st">"Alter"</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, cells("mean(fmt(%10.1fc)) sd(fmt(%13.3fc) par)") nostar  nonumber unstack ///
+## &gt;   nomtitle nonote noobs label  ///
+## &gt;    collabels(none) gap   ///
+## &gt;    eqlabels("Männer" "Frauen") /// 
+## &gt;    nomtitles ///
+## &gt;    coeflabel(F518_SUF "Bruttoverdienst" zpalter "Alter")  
+## 
+## ------------------------------------------------------------------------
+##                            Männer                    Frauen             
+## ------------------------------------------------------------------------
+## Alter                        46.5     (11.877)         47.9     (10.716)
+## 
+## Bruttoverdienst           4,232.7  (3,951.324)      2,800.9  (2,852.935)
+## ------------------------------------------------------------------------</code></pre>
+</div>
+<p>Mit <code>collabels()</code> können wir die Werte auch beschriften.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>esttab, cells(<span class="st">"mean(fmt(%10.1fc)) sd(fmt(%13.3fc) par)"</span>) nostar  nonumber unstack <span class="co">///</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  nomtitle nonote <span class="kw">noobs</span> <span class="kw">label</span>  <span class="co">///</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>   collabels(<span class="st">"Mean"</span> <span class="st">"SD"</span> <span class="st">"Mean"</span> <span class="st">"SD"</span>) <span class="co">///</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>   eqlabels(<span class="st">"Männer"</span> <span class="st">"Frauen"</span>) <span class="co">/// </span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>   nomtitles <span class="co">///</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>   coeflabel(F518_SUF <span class="st">"Bruttoverdienst"</span> zpalter <span class="st">"Alter"</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code>## . quiet. esttab, cells("mean(fmt(%10.1fc)) sd(fmt(%13.3fc) par)") nostar  nonumber unstack ///
+## &gt;   nomtitle nonote noobs label  ///
+## &gt;    collabels("Mean" "SD" "Mean" "SD") ///
+## &gt;    eqlabels("Männer" "Frauen") /// 
+## &gt;    nomtitles ///
+## &gt;    coeflabel(F518_SUF "Bruttoverdienst" zpalter "Alter")   
+## 
+## ------------------------------------------------------------------------
+##                            Männer                    Frauen             
+##                              Mean           SD         Mean           SD
+## ------------------------------------------------------------------------
+## Alter                        46.5     (11.877)         47.9     (10.716)
+## Bruttoverdienst           4,232.7  (3,951.324)      2,800.9  (2,852.935)
+## ------------------------------------------------------------------------</code></pre>
+</div>
+<hr>
+<p><strong><a href="#tabst4">Übung 4</a></strong></p>
+<hr>
+</section>
+<section id="übungen" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.7</span> Übungen</h2>
+<section id="tabst1" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="tabst1"><span class="header-section-number">3.7.1</span> Übung</h3>
+<ul>
+<li>Erstellen Sie eine Überblickstabelle für <code>F200</code> (Wochenarbeitszeit) mit Min, Mean, SD, 1. Quartil (<code>p25</code>), Median, 3. Quartil (<code>p75</code>) und der Anzahl der Beobachtungen.</li>
+<li>Labeln Sie die Spalten mit den Kennzahlen und auch die Variable.</li>
+</ul>
+</section>
+<section id="tabst2" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="tabst2"><span class="header-section-number">3.7.2</span> Übung</h3>
+<ul>
+<li>Ergänzen Sie die Tabelle von Übung 1 <code>F200</code> um <code>fastgini</code> - so kommen Sie an die abgelegte Info:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install fastgini <span class="co">// falls nicht schon installiert</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>fastgini F518_SUF</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> <span class="ot">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tabst3" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="tabst3"><span class="header-section-number">3.7.3</span> Übung</h3>
+<ul>
+<li>Verändern Sie die oben gezeigte Schleife so, dass nicht mehr die <em>Anzahl</em>, sondern der <em>Anteil</em> der Missings eingefügt wird.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>mdesc zpalter F518_SUF</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> <span class="ot">list</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tabst4" class="level3" data-number="3.7.4">
+<h3 data-number="3.7.4" class="anchored" data-anchor-id="tabst4"><span class="header-section-number">3.7.4</span> Übung</h3>
+<ul>
+<li>Erweitern Sie den Gruppenvergleich um die Variablen <code>az</code> (Wochenarbeitszeit) und <code>F1104</code> (Jahr des Schulabschlusses)</li>
+<li>Wo könnten Sie die Nachkommastellen verändern? Verändern Sie die Anzeige für die Mittelwerte auf 3 Nachkommastellen</li>
+<li>Lassen Sie sich in auch den Median ausgeben. Legen Sie dafür 0 Nachkommastellen als Format fest. Denken Sie daran, <code>estpost</code> neu zu konfigurieren.</li>
+<li>Passen Sie die Syntax in <code>cells()</code> an, um die Werte neben- oder untereinander angezeigt zu bekommen.</li>
+</ul>
+</section>
+</section>
+<section id="format" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="format"><span class="header-section-number">3.8</span> Mehr zu <code>format</code></h2>
+<p>Hier eine kurze (unvollständige) Erklärung zu den <code>fmt()</code>-Optionen, mehr unter <code>help format</code> oder <strong><a href="https://wlm.userweb.mwn.de/Stata/wstatfor.htm">hier</a></strong></p>
+<section id="w.df" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="w.df"><span class="header-section-number">3.8.1</span> %w.df</h3>
+<ul>
+<li>Mit <code>w</code> geben wir die Gesamtbreite des Outputs an - die Vorzeichen und Dezimaltrenner mitgezählt</li>
+<li><code>d</code> gibt die Zahl der Dezimalstellen</li>
+<li>Grundsätzlich wird von “rechts” gezählt - The result is right-justified.</li>
+</ul>
+<p>Aus der Stata-Hilfe:</p>
+<p>The number 5.139 in <code>%12.2f</code> format displays as</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="sc">----+----</span><span class="dv">1</span><span class="sc">--</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>        <span class="fl">5.14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Beispiele</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">help</span> <span class="kw">format</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    dis <span class="fu">strlen</span>(<span class="st">"10789.1234"</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>## . <span class="kw">help</span> forrequest ignored because <span class="kw">of</span> batch <span class="kw">mode</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>## </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>## .         dis <span class="fu">strlen</span>(<span class="st">"10789.1234"</span>)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>## 10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> %10.2f  10789.1234 <span class="co">// 0 Nachkommastellen</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> %10.0f  10789.1234 <span class="co">// 2 Nachkommastellen</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> %11.5f  10789.1234 <span class="co">// 0 am Ende hinzugefügt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="w.dfc" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="w.dfc"><span class="header-section-number">3.8.2</span> %w.dfc</h3>
+<p>Analog zu <code>%w.df</code>, jedoch werden Kommata für bessere Lesbarkeit eingefügt. Auch die Kommata zählen für die Breite <code>w</code>.</p>
+<p>Während ``</p>
+<p>Mit <code>%</code><em>w</em><code>**,**</code><em>d</em><code>fc</code> können wir das Format für Dezimal- und Tausendertrenner ändern: Dezimalstellen werden mit einem <code>,</code> abgetrennt, 1000er mit <code>.</code></p>
+<p><em>Beispiele</em>: mit <code>fc</code> werden Tausendertrenner eingefügt</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> %10.2fc     10789.1234</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> %10.2fc     10789.1234</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>## . <span class="kw">display</span> %10.2fc         10789.1 10,789.12</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>## </span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>## . <span class="kw">display</span> %10.2fc         10789.1234</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>##  10,789.12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> %10,2fc     10789.1234 <span class="co">// , und . tauschen -&gt; "dt Format"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>10.789,12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./01_basics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tabellenexport mit Stata: Grundlagen &amp; Pakete</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03_table.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+  </div>
+</footer>
+
+
+
+</body></html>

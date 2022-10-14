@@ -1,6 +1,6 @@
 # Multilevel- und logit Modelle  {#ml_log} 
 
-```{r setup6, eval = F, message=F, warning = F}
+```{r setup6, message=F, warning = F}
 .libPaths("D:/R-library4")
 knitr::opts_chunk$set(collapse = TRUE)
 knitr::opts_chunk$set(dpi=800)
@@ -23,9 +23,7 @@ logit nt i.S1
 est store logm1
 esttab logm1, b se(%9.3f) 
 ```
-
-
-```{stata logit1T, echo = F}
+```{stata logit1Tb, echo = F}
 quietly{
   use "./data/BIBBBAuA_2018_short.dta", clear
   set linesize 200
@@ -71,7 +69,7 @@ quietly{
   est store logm2
   estadd lrtest logm1b
 }
-esttab logm?, b se(%9.3f) scalars("lrtest_chi2  LRTest Chi²" lrtest_df lrtest_p) 
+esttab logm*, b se(%9.3f) scalars("lrtest_chi2  LRTest Chi²" lrtest_df lrtest_p) 
 ```
 
 Mit `pr2` `aic` `bic` können wir Modellkennzahlen ausgeben lassen.

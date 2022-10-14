@@ -3,12 +3,9 @@ title: "Stata: Erzeugen von Deskriptions- und Regressionstabellen"
 subtitle: "Export in Word und Latex"
 author: "Andreas Filser"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
 ```{r setup, echo = F, message=F, warning = F}
@@ -50,7 +47,16 @@ knitr::include_graphics("pics/01_titel.png")
 <!-- ``` -->
 
 
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
 
+
+{{< fa calendar-alt >}} &nbsp; Freitag 21.10.2022
+
+{{< fa clock >}} &nbsp; 8:30 - 17:30 Uhr
+
+{{< fa location-dot >}} &nbsp; Webex
+
+:::
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
