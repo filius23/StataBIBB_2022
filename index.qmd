@@ -36,7 +36,7 @@ Melden Sie sich gerne bei Fragen oder Wünschen unter andreas.filser[at]uol.de
 
 :::
 
-```{r index_illustration, echo = F,out.width = "80%",fig.height= 3, fig.align="center"}
+```{r index_illustration, echo = F,out.width = "60%",fig.height= 3, fig.align="center"}
 knitr::include_graphics("pics/01_titel.png")
 ```
 
