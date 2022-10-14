@@ -1,0 +1,45 @@
+project:
+  type: book
+  output-dir: docs
+  output-file: docs
+  # output-dir: pdf_doc
+  # output-file: pdf_doc
+  # 
+book:
+  title: "R am BIBB"
+  author: "Andreas Filser"
+  date: last-modified
+  chapters:
+    - index.qmd
+    - 01_basics.Rmd
+    - 02_tabstat.Rmd 
+    - 03_table.Rmd 
+    - 04_corrmat.Rmd 
+    - 05_reg.Rmd 
+    - 06_mixed_logit.Rmd 
+    - 07_misc.Rmd
+  language: de-DE
+  always_allow_html: true
+  downloads: [pdf]
+  page-footer:
+   left: |
+      Alle Kursinhalte {{< fa brands creative-commons >}} 2022 von [Andreas Filser](https://afilser.netlify.app/)<br>
+      [CC Lizenz mit Namensnennung {{< fa brands creative-commons >}}
+      {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}](https://creativecommons.org/licenses/by-nc/4.0/)<br>
+      Erstellt mit {{< fa brands r-project >}}, Code [hier einsehbar {{< fa brands github >}}](https://github.com/filius23/BIBB_R)
+      
+      
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: flatly
+    page-layout: full
+    css: style.css
+  # pdf:
+  #   documentclass: scrreprt # kapitel02 kable
+
+execute:
+  freeze: auto
