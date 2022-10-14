@@ -99,6 +99,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -246,16 +248,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. tabulate m1202
-## 
-##                          Höchster Ausbi |      Freq.     Percent        Cum.
-## ----------------------------------------+-----------------------------------
-##                    Ohne Berufsabschluss |      1,091        5.46        5.46
-## duale o. schulische Berufsausbildung/ei |      9,297       46.56       52.03
-## Aufstiegsfortbildung (Meister, Technike |      1,725        8.64       60.67
-## Fachhochschule, Universität/ geh., höhe |      7,854       39.33      100.00
-## ----------------------------------------+-----------------------------------
-##                                   Total |     19,967      100.00</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         Höchster Ausbi |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                   Ohne Berufsabschluss |      1,091        5.46        5.46
+duale o. schulische Berufsausbildung/ei |      9,297       46.56       52.03
+Aufstiegsfortbildung (Meister, Technike |      1,725        8.64       60.67
+Fachhochschule, Universität/ geh., höhe |      7,854       39.33      100.00
+----------------------------------------+-----------------------------------
+                                  Total |     19,967      100.00</code></pre>
+</div>
 </div>
 <p>Auch hier benötigen wir <code>estpost</code>, um dann die <code>esttab</code>-Tabelle zu erstellen:</p>
 <div class="cell">
@@ -264,31 +266,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       nonumber nomtitle <span class="kw">noobs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. estpost tabulate m1202
-## 
-##        m1202 |      e(b)     e(pct)  e(cumpct) 
-## -------------+---------------------------------
-##            1 |      1091   5.464016   5.464016 
-##            2 |      9297   46.56183   52.02584 
-##            3 |      1725   8.639255    60.6651 
-##            4 |      7854    39.3349        100 
-## -------------+---------------------------------
-##        Total |     19967        100            
-## 
-## row labels saved in macro e(labels)
-## 
-## . esttab, cells("b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))") ///
-## &gt;        nonumber nomtitle noobs
-## 
-## ---------------------------------------------------
-##                      freq          pct       cumpct
-## ---------------------------------------------------
-## 1                    1091            5            5
-## 2                    9297           47           52
-## 3                    1725            9           61
-## 4                    7854           39          100
-## Total               19967          100             
-## ---------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>       m1202 |      e(b)     e(pct)  e(cumpct) 
+-------------+---------------------------------
+           1 |      1091   5.464016   5.464016 
+           2 |      9297   46.56183   52.02584 
+           3 |      1725   8.639255    60.6651 
+           4 |      7854    39.3349        100 
+-------------+---------------------------------
+       Total |     19967        100            
+
+row labels saved in macro e(labels)
+
+
+---------------------------------------------------
+                     freq          pct       cumpct
+---------------------------------------------------
+1                    1091            5            5
+2                    9297           47           52
+3                    1725            9           61
+4                    7854           39          100
+Total               19967          100             
+---------------------------------------------------</code></pre>
+</div>
 </div>
 <ul>
 <li><code>varlabels()</code> <span class="math inline">\(\Rightarrow\)</span> Labels verwenden</li>
@@ -301,20 +301,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    varwidth(40) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab, cells("b(label(freq)) pct(fmt(%13.0fc)) cumpct(fmt(%13.0fc))") ///
-## &gt;        nonumber nomtitle noobs ///
-## &gt;         varlabels(`e(labels)') ///      
-## &gt;         varwidth(40) 
-## 
-## -------------------------------------------------------------------------------
-##                                                  freq          pct       cumpct
-## -------------------------------------------------------------------------------
-## Ohne Berufsabschluss                             1091            5            5
-## duale o. schulische Berufsausbildung/ein         9297           47           52
-## Aufstiegsfortbildung (Meister, Techniker         1725            9           61
-## Fachhochschule, Universität/ geh., höher         7854           39          100
-## Total                                           19967          100             
-## -------------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                 freq          pct       cumpct
+-------------------------------------------------------------------------------
+Ohne Berufsabschluss                             1091            5            5
+duale o. schulische Berufsausbildung/ein         9297           47           52
+Aufstiegsfortbildung (Meister, Techniker         1725            9           61
+Fachhochschule, Universität/ geh., höher         7854           39          100
+Total                                           19967          100             
+-------------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <p>Export:</p>
 <div class="cell">
@@ -334,17 +330,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202 S1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. tabulate m1202 S1
-## 
-##                       |      Geschlecht
-##        Höchster Ausbi |  männlich   weiblich |     Total
-## ----------------------+----------------------+----------
-##  Ohne Berufsabschluss |       594        497 |     1,091 
-## duale o. schulische B |     4,371      4,926 |     9,297 
-## Aufstiegsfortbildung  |     1,073        652 |     1,725 
-## Fachhochschule, Unive |     4,015      3,839 |     7,854 
-## ----------------------+----------------------+----------
-##                 Total |    10,053      9,914 |    19,967</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      |      Geschlecht
+       Höchster Ausbi |  männlich   weiblich |     Total
+----------------------+----------------------+----------
+ Ohne Berufsabschluss |       594        497 |     1,091 
+duale o. schulische B |     4,371      4,926 |     9,297 
+Aufstiegsfortbildung  |     1,073        652 |     1,725 
+Fachhochschule, Unive |     4,015      3,839 |     7,854 
+----------------------+----------------------+----------
+                Total |    10,053      9,914 |    19,967 </code></pre>
+</div>
 </div>
 <p><code>estpost</code> gibt uns hier vier Kennzahlen:</p>
 <ul>
@@ -359,46 +355,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  collabels(<span class="kw">none</span>)  varlabels(<span class="ot">`e(labels)'</span>) varwidth(40)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. estpost tabulate m1202 S1
-## 
-## S1           |                                            
-##        m1202 |      e(b)     e(pct)  e(colpct)  e(rowpct) 
-## -------------+--------------------------------------------
-## männlich     |                                            
-##            1 |       594   2.974909   5.908684   54.44546 
-##            2 |      4371   21.89112   43.47956   47.01517 
-##            3 |      1073   5.373867   10.67343    62.2029 
-##            4 |      4015   20.10818   39.93833   51.12045 
-##        Total |     10053   50.34807        100   50.34807 
-## -------------+--------------------------------------------
-## weiblich     |                                            
-##            1 |       497   2.489107   5.013113   45.55454 
-##            2 |      4926   24.67071   49.68731   52.98483 
-##            3 |       652   3.265388   6.576558    37.7971 
-##            4 |      3839   19.22672   38.72302   48.87955 
-##        Total |      9914   49.65193        100   49.65193 
-## -------------+--------------------------------------------
-## Total        |                                            
-##            1 |      1091   5.464016   5.464016        100 
-##            2 |      9297   46.56183   46.56183        100 
-##            3 |      1725   8.639255   8.639255        100 
-##            4 |      7854    39.3349    39.3349        100 
-##        Total |     19967        100        100        100 
-## 
-## row labels saved in macro e(labels)
-## 
-## . esttab, cell(b(fmt(%13.0fc))) unstack noobs nonumber nomtitles ///
-## &gt;   collabels(none) varlabels(`e(labels)') varwidth(40)
-## 
-## -------------------------------------------------------------------------------
-##                                              männlich     weiblich        Total
-## -------------------------------------------------------------------------------
-## Ohne Berufsabschluss                              594          497        1,091
-## duale o. schulische Berufsausbildung/ein        4,371        4,926        9,297
-## Aufstiegsfortbildung (Meister, Techniker        1,073          652        1,725
-## Fachhochschule, Universität/ geh., höher        4,015        3,839        7,854
-## Total                                          10,053        9,914       19,967
-## -------------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>S1           |                                            
+       m1202 |      e(b)     e(pct)  e(colpct)  e(rowpct) 
+-------------+--------------------------------------------
+männlich     |                                            
+           1 |       594   2.974909   5.908684   54.44546 
+           2 |      4371   21.89112   43.47956   47.01517 
+           3 |      1073   5.373867   10.67343    62.2029 
+           4 |      4015   20.10818   39.93833   51.12045 
+       Total |     10053   50.34807        100   50.34807 
+-------------+--------------------------------------------
+weiblich     |                                            
+           1 |       497   2.489107   5.013113   45.55454 
+           2 |      4926   24.67071   49.68731   52.98483 
+           3 |       652   3.265388   6.576558    37.7971 
+           4 |      3839   19.22672   38.72302   48.87955 
+       Total |      9914   49.65193        100   49.65193 
+-------------+--------------------------------------------
+Total        |                                            
+           1 |      1091   5.464016   5.464016        100 
+           2 |      9297   46.56183   46.56183        100 
+           3 |      1725   8.639255   8.639255        100 
+           4 |      7854    39.3349    39.3349        100 
+       Total |     19967        100        100        100 
+
+row labels saved in macro e(labels)
+
+
+-------------------------------------------------------------------------------
+                                             männlich     weiblich        Total
+-------------------------------------------------------------------------------
+Ohne Berufsabschluss                              594          497        1,091
+duale o. schulische Berufsausbildung/ein        4,371        4,926        9,297
+Aufstiegsfortbildung (Meister, Techniker        1,073          652        1,725
+Fachhochschule, Universität/ geh., höher        4,015        3,839        7,854
+Total                                          10,053        9,914       19,967
+-------------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <p>Dazu noch die Labels und mit <code>mgroups</code> eine Spaltenüberschrift:</p>
 <div class="cell">
@@ -409,22 +403,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>            mgroups(<span class="st">"Gender"</span> <span class="st">""</span>, pattern(1 0 1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab, cell(b(fmt(%13.0fc))) unstack noobs collabels(none) nonumber nomtitles ///
-## &gt;                         varlabels(`e(labels)') ///
-## &gt;                         eqlabels(, lhs("Ausbildungsabs."))  ///
-## &gt;                         varwidth(40) ///
-## &gt;                         mgroups("Gender" "", pattern(1 0 1))
-## 
-## -------------------------------------------------------------------------------
-##                                                Gender                          
-## Ausbildungsabs.                              männlich     weiblich        Total
-## -------------------------------------------------------------------------------
-## Ohne Berufsabschluss                              594          497        1,091
-## duale o. schulische Berufsausbildung/ein        4,371        4,926        9,297
-## Aufstiegsfortbildung (Meister, Techniker        1,073          652        1,725
-## Fachhochschule, Universität/ geh., höher        4,015        3,839        7,854
-## Total                                          10,053        9,914       19,967
-## -------------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                               Gender                          
+Ausbildungsabs.                              männlich     weiblich        Total
+-------------------------------------------------------------------------------
+Ohne Berufsabschluss                              594          497        1,091
+duale o. schulische Berufsausbildung/ein        4,371        4,926        9,297
+Aufstiegsfortbildung (Meister, Techniker        1,073          652        1,725
+Fachhochschule, Universität/ geh., höher        4,015        3,839        7,854
+Total                                          10,053        9,914       19,967
+-------------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>loc x <span class="st">"eingefügtem Text"</span></span>
@@ -437,28 +426,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>            <span class="kw">note</span>(<span class="st">"Und hier eine Notiz sogar mit: `x'"</span>) <span class="co">// notiz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. loc x "eingefügtem Text"
-## 
-## . esttab, cell(b) unstack noobs collabels(none) nonumber nomtitles ///
-## &gt;                         varlabels(`e(labels)') ///
-## &gt;                         eqlabels(, lhs("Ausbildungsabs."))  ///
-## &gt;                         varwidth(40) ///
-## &gt;                         mgroups("Gender" "", pattern(1 0 1)) /// Überschrift über spalten
-## &gt;                         title("Hier kann ein Titel stehen") /// titel
-## &gt;                         note("Und hier eine Notiz sogar mit: `x'") // notiz
-## 
-## Hier kann ein Titel stehen
-## -------------------------------------------------------------------------------
-##                                                Gender                          
-## Ausbildungsabs.                              männlich     weiblich        Total
-## -------------------------------------------------------------------------------
-## Ohne Berufsabschluss                              594          497         1091
-## duale o. schulische Berufsausbildung/ein         4371         4926         9297
-## Aufstiegsfortbildung (Meister, Techniker         1073          652         1725
-## Fachhochschule, Universität/ geh., höher         4015         3839         7854
-## Total                                           10053         9914        19967
-## -------------------------------------------------------------------------------
-## Und hier eine Notiz sogar mit: eingefügtem Text</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hier kann ein Titel stehen
+-------------------------------------------------------------------------------
+                                               Gender                          
+Ausbildungsabs.                              männlich     weiblich        Total
+-------------------------------------------------------------------------------
+Ohne Berufsabschluss                              594          497         1091
+duale o. schulische Berufsausbildung/ein         4371         4926         9297
+Aufstiegsfortbildung (Meister, Techniker         1073          652         1725
+Fachhochschule, Universität/ geh., höher         4015         3839         7854
+Total                                           10053         9914        19967
+-------------------------------------------------------------------------------
+Und hier eine Notiz sogar mit: eingefügtem Text</code></pre>
+</div>
 </div>
 <hr>
 <p><strong><a href="#table2">Übung 2</a></strong></p>
@@ -479,25 +460,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        varwidth(40)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab ., cell(b(fmt(%13.2fc))) ///
-## &gt;     nostar nostar unstack ///
-## &gt;                 nonumber nomtitles collabels(none)  ///
-## &gt;                 varlabels(`e(labels)') eqlabels(`e(eqlabels)', lhs("Ausbildungsabs.")) ///
-## &gt;                 mgroups("Gender", pattern(0 1 0 1) span ) ///
-## &gt;                 varwidth(40)
-## 
-## -------------------------------------------------------------------------------
-##                                          Gender                                
-## Ausbildungsabs.                              männlich     weiblich        Total
-## -------------------------------------------------------------------------------
-## Ohne Berufsabschluss                           594.00       497.00     1,091.00
-## duale o. schulische Berufsausbildung/ein     4,371.00     4,926.00     9,297.00
-## Aufstiegsfortbildung (Meister, Techniker     1,073.00       652.00     1,725.00
-## Fachhochschule, Universität/ geh., höher     4,015.00     3,839.00     7,854.00
-## Total                                       10,053.00     9,914.00    19,967.00
-## -------------------------------------------------------------------------------
-## N                                               19967                          
-## -------------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                         Gender                                
+Ausbildungsabs.                              männlich     weiblich        Total
+-------------------------------------------------------------------------------
+Ohne Berufsabschluss                           594.00       497.00     1,091.00
+duale o. schulische Berufsausbildung/ein     4,371.00     4,926.00     9,297.00
+Aufstiegsfortbildung (Meister, Techniker     1,073.00       652.00     1,725.00
+Fachhochschule, Universität/ geh., höher     4,015.00     3,839.00     7,854.00
+Total                                       10,053.00     9,914.00    19,967.00
+-------------------------------------------------------------------------------
+N                                               19967                          
+-------------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="kw">using</span> <span class="st">"${res}/svytab.rtf"</span>, cell(b(fmt(%13.2fc))) <span class="co">///</span></span>
@@ -663,7 +638,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+    <div class="nav-footer-left">Alle Kursinhalte <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i></a><br> Erstellt mit <i class="fa-brands fa-r-project" aria-hidden="true"></i>, Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar <i class="fa-brands fa-github" aria-hidden="true"></i></a></div>   
   </div>
 </footer>
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R am BIBB - 8&nbsp; Weitere Optionen</title>
+<title>Tabellenexport mit Stata - 8&nbsp; Weitere Optionen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,6 +98,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -142,10 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R am BIBB</a> 
-        <div class="sidebar-tools-main">
-    <a href="./R-am-BIBB.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
-</div>
+      <a href="./">Tabellenexport mit Stata</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -248,20 +247,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>         modelwidth(22)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab m1, cell(b(fmt(5) star)) not unstack compress noobs nonumber nomtitles ///
-## &gt;                  varlabels(zpalter "(1) Alter" F518_SUF "(2) Bruttoeinkommen" F200 "(3) Wochenarbeitszeit") ///
-## &gt;                  eqlabels("(1) Alter" "(2) Bruttoeinkommen" "(3) Wochenarbeitszeit") ///
-## &gt;      collabels(none) ///
-## &gt;                  varwidth(22) ///
-## &gt;                  modelwidth(22)
-## 
-## ----------------------------------------------------------------------------------------------------
-##                                     (1) Alter       (2) Bruttoeinkommen     (3) Wochenarbeitszeit   
-## ----------------------------------------------------------------------------------------------------
-## (1) Alter                             1.00000                                                       
-## (2) Bruttoeinkommen                   0.07956***                1.00000                             
-## (3) Wochenarbeitszeit                -0.05579***                0.29245***                1.00000   
-## ----------------------------------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                    (1) Alter       (2) Bruttoeinkommen     (3) Wochenarbeitszeit   
+----------------------------------------------------------------------------------------------------
+(1) Alter                             1.00000                                                       
+(2) Bruttoeinkommen                   0.07956***                1.00000                             
+(3) Wochenarbeitszeit                -0.05579***                0.29245***                1.00000   
+----------------------------------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 </section>
 <section id="excel-export" class="level2" data-number="8.2">
@@ -416,7 +409,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+    <div class="nav-footer-left">Alle Kursinhalte <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i></a><br> Erstellt mit <i class="fa-brands fa-r-project" aria-hidden="true"></i>, Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar <i class="fa-brands fa-github" aria-hidden="true"></i></a></div>   
   </div>
 </footer>
 

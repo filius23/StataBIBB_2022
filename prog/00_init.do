@@ -19,7 +19,7 @@ estimates clear
 * ------------------------------ *
 * Pfade setzen
 * hier statt meinem den eigenen Projektordner angeben
-glo pfad 		"D:\oCloud\Home-Cloud\Lehre\BIBB\StataBIBB_2022"		// Projekt/Kursordner
+glo pfad 		"D:\oCloud\Home-Cloud\Lehre\BIBB\StataBIBB3_2022"		// Projekt/Kursordner
 
 
 glo data		"${pfad}/data"		// wo liegen die Datensätze?

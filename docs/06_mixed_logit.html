@@ -99,6 +99,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -229,292 +231,258 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>(<span class="st">"D:/R-library4"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">collapse =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">dpi=</span><span class="dv">800</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># knitr::opts_chunk$set(collectcode = T)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Statamarkdown)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>stataexe <span class="ot">&lt;-</span> <span class="st">"C:/Program Files/Stata16/StataSE-64.exe"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">engine.path=</span><span class="fu">list</span>(<span class="at">stata=</span>stataexe))</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># baua &lt;- readstata13::read.dta13("D:/Datenspeicher/BIBB_BAuA/BIBBBAuA_2018_suf1.0.dta",convert.factors = F)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <section id="logit" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="logit"><span class="header-section-number">7.1</span> <code>logit</code></h2>
 <p>Um die Odds Ratios zu erhalten, müssen wir <code>eform</code> verwenden:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> nt i.S1 </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> logm1</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>esttab logm1, b se(%9.3f) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> nt i.S1 </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> logm1</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>esttab logm1, b se(%9.3f) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. tab S1
-## 
-##  Geschlecht |      Freq.     Percent        Cum.
-## ------------+-----------------------------------
-##    männlich |     10,074       50.34       50.34
-##    weiblich |      9,938       49.66      100.00
-## ------------+-----------------------------------
-##       Total |     20,012      100.00</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Iteration 0:   log likelihood = -6191.9354  
+Iteration 1:   log likelihood = -6187.5538  
+Iteration 2:   log likelihood =   -6187.55  
+Iteration 3:   log likelihood =   -6187.55  
+
+Logistic regression                             Number of obs     =     20,012
+                                                LR chi2(1)        =       8.77
+                                                Prob &gt; chi2       =     0.0031
+Log likelihood =   -6187.55                     Pseudo R2         =     0.0007
+
+------------------------------------------------------------------------------
+          nt |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          S1 |
+   weiblich  |   .1442729   .0487565     2.96   0.003      .048712    .2398339
+       _cons |  -2.351375   .0353592   -66.50   0.000    -2.420678   -2.282073
+------------------------------------------------------------------------------
+
+
+
+----------------------------
+                      (1)   
+                       nt   
+----------------------------
+nt                          
+1.S1                    0   
+                      (.)   
+
+2.S1                0.144** 
+                  (0.049)   
+
+_cons              -2.351***
+                  (0.035)   
+----------------------------
+N                   20012   
+----------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. logit nt i.S1 
-## 
-## Iteration 0:   log likelihood = -6191.9354  
-## Iteration 1:   log likelihood = -6187.5538  
-## Iteration 2:   log likelihood =   -6187.55  
-## Iteration 3:   log likelihood =   -6187.55  
-## 
-## Logistic regression                             Number of obs     =     20,012
-##                                                 LR chi2(1)        =       8.77
-##                                                 Prob &gt; chi2       =     0.0031
-## Log likelihood =   -6187.55                     Pseudo R2         =     0.0007
-## 
-## ------------------------------------------------------------------------------
-##           nt |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
-## -------------+----------------------------------------------------------------
-##           S1 |
-##    weiblich  |   .1442729   .0487565     2.96   0.003      .048712    .2398339
-##        _cons |  -2.351375   .0353592   -66.50   0.000    -2.420678   -2.282073
-## ------------------------------------------------------------------------------
-## 
-## . est store logm1
-## 
-## . esttab logm1, b se(%9.3f)
-## 
-## ----------------------------
-##                       (1)   
-##                        nt   
-## ----------------------------
-## nt                          
-## 1.S1                    0   
-##                       (.)   
-## 
-## 2.S1                0.144** 
-##                   (0.049)   
-## 
-## _cons              -2.351***
-##                   (0.035)   
-## ----------------------------
-## N                   20012   
-## ----------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>esttab logm1, b se(%9.3f) <span class="kw">eform</span> <span class="co">// eform für Odds Ratios</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>esttab logm1, b se(%9.3f) <span class="kw">eform</span> <span class="co">// eform für Odds Ratios</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                       nt   
+----------------------------
+nt                          
+1.S1                    1   
+                      (.)   
+
+2.S1                1.155** 
+                  (0.056)   
+----------------------------
+N                   20012   
+----------------------------
+Exponentiated coefficients; Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
 </div>
-<div class="cell">
-<pre><code>## . quiet. esttab logm1, b se(%9.3f) eform // eform für Odds Ratios
-## 
-## ----------------------------
-##                       (1)   
-##                        nt   
-## ----------------------------
-## nt                          
-## 1.S1                    1   
-##                       (.)   
-## 
-## 2.S1                1.155** 
-##                   (0.056)   
-## ----------------------------
-## N                   20012   
-## ----------------------------
-## Exponentiated coefficients; Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
 </div>
 <p>Außerdem können wir mit <code>estadd lrtest</code> direkt den LR-Test in die Tabelle aufnehmen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> nt i.S1  <span class="kw">if</span> !<span class="fu">missing</span>(zpalter)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> logm1b</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> nt i.S1 zpalter </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> logm2</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>estadd <span class="kw">lrtest</span> logm1b</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>esttab logm*, b se(%9.3f) scalars(<span class="st">"lrtest_chi2  LRTest Chi²"</span> lrtest_df lrtest_p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> nt i.S1  <span class="kw">if</span> !<span class="fu">missing</span>(zpalter)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> logm1b</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> nt i.S1 zpalter </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> logm2</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>estadd <span class="kw">lrtest</span> logm1b</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>esttab logm*, b se(%9.3f) scalars(<span class="st">"lrtest_chi2  LRTest Chi²"</span> lrtest_df lrtest_p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab logm*, b se(%9.3f) scalars("lrtest_chi2  LRTest Chi²" lrtest_df lrtest_p) 
-## 
-## --------------------------------------------
-##                       (1)             (2)   
-##                        nt              nt   
-## --------------------------------------------
-## nt                                          
-## 1.S1                    0               0   
-##                       (.)             (.)   
-## 
-## 2.S1                0.142**         0.158** 
-##                   (0.049)         (0.049)   
-## 
-## zpalter                           -0.0108***
-##                                   (0.002)   
-## 
-## _cons              -2.350***       -1.854***
-##                   (0.035)         (0.103)   
-## --------------------------------------------
-## N                   19836           19836   
-## LRTest Chi²                         25.46   
-## lrtest_df                               1   
-## lrtest_p                      0.000000451   
-## --------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)             (2)   
+                       nt              nt   
+--------------------------------------------
+nt                                          
+1.S1                    0               0   
+                      (.)             (.)   
+
+2.S1                0.142**         0.158** 
+                  (0.049)         (0.049)   
+
+zpalter                           -0.0108***
+                                  (0.002)   
+
+_cons              -2.350***       -1.854***
+                  (0.035)         (0.103)   
+--------------------------------------------
+N                   19836           19836   
+LRTest Chi²                         25.46   
+lrtest_df                               1   
+lrtest_p                      0.000000451   
+--------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Mit <code>pr2</code> <code>aic</code> <code>bic</code> können wir Modellkennzahlen ausgeben lassen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>esttab logm*, b se(%9.3f)  pr2 aic bic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>esttab logm*, b se(%9.3f)  pr2 aic bic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab logm?, b se(%9.3f) scalars("lrtest_chi2  LRTest Chi²" lrtest_df lrtest_p) 
-## 
-## ----------------------------
-##                       (1)   
-##                        nt   
-## ----------------------------
-## nt                          
-## 1.S1                    0   
-##                       (.)   
-## 
-## 2.S1                0.158** 
-##                   (0.049)   
-## 
-## zpalter           -0.0108***
-##                   (0.002)   
-## 
-## _cons              -1.854***
-##                   (0.103)   
-## ----------------------------
-## N                   19836   
-## LRTest Chi²         25.46   
-## lrtest_df               1   
-## lrtest_p      0.000000451   
-## ----------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                       nt   
+----------------------------
+nt                          
+1.S1                    0   
+                      (.)   
+
+2.S1                0.158** 
+                  (0.049)   
+
+zpalter           -0.0108***
+                  (0.002)   
+
+_cons              -1.854***
+                  (0.103)   
+----------------------------
+N                   19836   
+LRTest Chi²         25.46   
+lrtest_df               1   
+lrtest_p      0.000000451   
+----------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Bei <code>margins</code> müssen wir darauf achten, die Option <code>, post</code> zu verwenden:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> nt i.S1 zpalter </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>margins, <span class="kw">dydx</span>(*) <span class="kw">post</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> mar_mod2</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>esttab mar_mod2, cells(<span class="st">"b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))"</span>) nonumbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> nt i.S1 zpalter </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>margins, <span class="kw">dydx</span>(*) <span class="kw">post</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> mar_mod2</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>esttab mar_mod2, cells(<span class="st">"b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))"</span>) nonumbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab mar_mod2, cells("b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))") nonumbers
-## 
-## -----------------------------------------------------------------------------
-##                                                                              
-##                         b           se        min95        max95            p
-## -----------------------------------------------------------------------------
-## 1.S1                    0            .            0            0            .
-## 2.S1               0.0133      0.00414      0.00523       0.0214      0.00126
-## zpalter         -0.000911     0.000180     -0.00126    -0.000558  0.000000428
-## -----------------------------------------------------------------------------
-## N                   19836                                                    
-## -----------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        b           se        min95        max95            p
+-----------------------------------------------------------------------------
+1.S1                    0            .            0            0            .
+2.S1               0.0133      0.00414      0.00523       0.0214      0.00126
+zpalter         -0.000911     0.000180     -0.00126    -0.000558  0.000000428
+-----------------------------------------------------------------------------
+N                   19836                                                    
+-----------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <p>Das funktioniert natürlich auch für die predictions mit <code>,at()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">restore</span> logm2</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>margins, <span class="fu">at</span>(zpalter = (18 20(5)65) ) <span class="kw">post</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> pred_mod2</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>esttab pred_mod2, cells(<span class="st">"b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))"</span>) nonumbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">restore</span> logm2</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>margins, <span class="fu">at</span>(zpalter = (18 20(5)65) ) <span class="kw">post</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> pred_mod2</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>esttab pred_mod2, cells(<span class="st">"b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))"</span>) nonumbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab pred_mod2, cells("b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))") nonumbers
-## 
-## -----------------------------------------------------------------------------
-##                                                                              
-##                         b           se        min95        max95            p
-## -----------------------------------------------------------------------------
-## 1._at               0.123      0.00697        0.109        0.136            0
-## 2._at               0.120      0.00644        0.108        0.133            0
-## 3._at               0.115      0.00520        0.105        0.125            0
-## 4._at               0.109      0.00411        0.101        0.117            0
-## 5._at               0.104      0.00318       0.0980        0.110            0
-## 6._at              0.0993      0.00248       0.0944        0.104            0
-## 7._at              0.0945      0.00210       0.0904       0.0987            0
-## 8._at              0.0900      0.00212       0.0859       0.0942            0
-## 9._at              0.0857      0.00243       0.0809       0.0904            0
-## 10._at             0.0815      0.00288       0.0759       0.0872            0
-## 11._at             0.0776      0.00337       0.0710       0.0842            0
-## -----------------------------------------------------------------------------
-## N                   19836                                                    
-## -----------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        b           se        min95        max95            p
+-----------------------------------------------------------------------------
+1._at               0.123      0.00697        0.109        0.136            0
+2._at               0.120      0.00644        0.108        0.133            0
+3._at               0.115      0.00520        0.105        0.125            0
+4._at               0.109      0.00411        0.101        0.117            0
+5._at               0.104      0.00318       0.0980        0.110            0
+6._at              0.0993      0.00248       0.0944        0.104            0
+7._at              0.0945      0.00210       0.0904       0.0987            0
+8._at              0.0900      0.00212       0.0859       0.0942            0
+9._at              0.0857      0.00243       0.0809       0.0904            0
+10._at             0.0815      0.00288       0.0759       0.0872            0
+11._at             0.0776      0.00337       0.0710       0.0842            0
+-----------------------------------------------------------------------------
+N                   19836                                                    
+-----------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 </section>
 <section id="mehrebenenmodelle" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="mehrebenenmodelle"><span class="header-section-number">7.2</span> Mehrebenenmodelle</h2>
 <p><code>transform(ln*: exp(@) exp(@))</code> um die Werte im Random Part richtig anzuzeigen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">xtmixed</span> F518_SUF i.S1 ||Bula:</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> mmodel</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>esttab mmodel , transform(<span class="fu">ln</span>*: <span class="fu">exp</span>(@) <span class="fu">exp</span>(@))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">xtmixed</span> F518_SUF i.S1 ||Bula:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> mmodel</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>esttab mmodel , transform(<span class="fu">ln</span>*: <span class="fu">exp</span>(@) <span class="fu">exp</span>(@))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab mmodel , transform(ln*: exp(@) exp(@))
-## 
-## ----------------------------
-##                       (1)   
-##                  F518_SUF   
-## ----------------------------
-## F518_SUF                    
-## 1.S1                    0   
-##                       (.)   
-## 
-## 2.S1              -1437.4***
-##                  (-26.88)   
-## 
-## _cons              4123.8***
-##                   (41.45)   
-## ----------------------------
-## lns1_1_1                    
-## _cons               354.8***
-##                   (28.17)   
-## ----------------------------
-## lnsig_e                     
-## _cons              3445.8***
-##                 (1484.91)   
-## ----------------------------
-## N                   16635   
-## ----------------------------
-## t statistics in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                 F518_SUF   
+----------------------------
+F518_SUF                    
+1.S1                    0   
+                      (.)   
+
+2.S1              -1437.4***
+                 (-26.88)   
+
+_cons              4123.8***
+                  (41.45)   
+----------------------------
+lns1_1_1                    
+_cons               354.8***
+                  (28.17)   
+----------------------------
+lnsig_e                     
+_cons              3445.8***
+                (1484.91)   
+----------------------------
+N                   16635   
+----------------------------
+t statistics in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>So können wir die <code>ICC</code> hinzufügen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">xtmixed</span> F518_SUF i.S1 ||Bula:</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">estat</span> icc</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>estadd <span class="fu">scalar</span> icc2 = <span class="fu">r</span>(icc2) </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>esttab, se <span class="kw">wide</span> transform(<span class="fu">ln</span>*: <span class="fu">exp</span>(@) <span class="fu">exp</span>(@)) <span class="co">///</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    varwidth(13) scalars(icc2)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">xtmixed</span> F518_SUF i.S1 ||Bula:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">estat</span> icc</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>estadd <span class="fu">scalar</span> icc2 = <span class="fu">r</span>(icc2) </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>esttab, se <span class="kw">wide</span> transform(<span class="fu">ln</span>*: <span class="fu">exp</span>(@) <span class="fu">exp</span>(@)) <span class="co">///</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    varwidth(13) scalars(icc2)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab, se wide transform(ln*: exp(@) exp(@)) ///
-## &gt;     varwidth(13) scalars(icc2)
-## 
-## ------------------------------------------
-##                        (1)                
-##                   F518_SUF                
-## ------------------------------------------
-## F518_SUF                                  
-## 1.S1                     0             (.)
-## 2.S1               -1437.4***      (53.47)
-## _cons               4123.8***      (99.48)
-## ------------------------------------------
-## lns1_1_1                                  
-## _cons                354.8***      (73.97)
-## ------------------------------------------
-## lnsig_e                                   
-## _cons               3445.8***      (18.90)
-## ------------------------------------------
-## N                    16635                
-## icc2                0.0105                
-## ------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       (1)                
+                  F518_SUF                
+------------------------------------------
+F518_SUF                                  
+1.S1                     0             (.)
+2.S1               -1437.4***      (53.47)
+_cons               4123.8***      (99.48)
+------------------------------------------
+lns1_1_1                                  
+_cons                354.8***      (73.97)
+------------------------------------------
+lnsig_e                                   
+_cons               3445.8***      (18.90)
+------------------------------------------
+N                    16635                
+icc2                0.0105                
+------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 
 
@@ -633,7 +601,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+    <div class="nav-footer-left">Alle Kursinhalte <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i></a><br> Erstellt mit <i class="fa-brands fa-r-project" aria-hidden="true"></i>, Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar <i class="fa-brands fa-github" aria-hidden="true"></i></a></div>   
   </div>
 </footer>
 

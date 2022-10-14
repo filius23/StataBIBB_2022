@@ -99,6 +99,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -119,6 +121,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -206,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#corr-x" id="toc-corr-x" class="nav-link active" data-scroll-target="#corr-x"> <span class="header-section-number">5.1</span> <code>corr x</code></a></li>
-  <li><a href="#spearmans-rho" id="toc-spearmans-rho" class="nav-link" data-scroll-target="#spearmans-rho"> <span class="header-section-number">5.2</span> Spearman’s Rho:</a></li>
+  <li><a href="#spearmans-rho" id="toc-spearmans-rho" class="nav-link" data-scroll-target="#spearmans-rho"> <span class="header-section-number">5.2</span> Spearman’s <span class="math inline">\(\rho\)</span></a></li>
   <li><a href="#ttest" id="toc-ttest" class="nav-link" data-scroll-target="#ttest"> <span class="header-section-number">5.3</span> <code>ttest</code></a></li>
   <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"> <span class="header-section-number">5.4</span> Übungen</a>
   <ul class="collapse">
@@ -245,14 +248,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>correlate zpalter F518_SUF F200</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. correlate zpalter F518_SUF F200
-## (obs=14,579)
-## 
-##              |  zpalter F518_SUF     F200
-## -------------+---------------------------
-##      zpalter |   1.0000
-##     F518_SUF |   0.0582   1.0000
-##         F200 |  -0.0539   0.2922   1.0000</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>(obs=14,579)
+
+             |  zpalter F518_SUF     F200
+-------------+---------------------------
+     zpalter |   1.0000
+    F518_SUF |   0.0582   1.0000
+        F200 |  -0.0539   0.2922   1.0000</code></pre>
+</div>
 </div>
 <p>Wieder benötigen wir <code>estpost</code>, um dann die <code>esttab</code>-Tabelle zu erstellen: Mit <code>modelwidth()</code> können wir die Breite der Spalten steuern.</p>
 <div class="cell">
@@ -264,33 +268,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>     modelwidth(30)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. estpost correlate zpalter F518_SUF F200, matrix
-## 
-##              |      e(b)     e(rho)       e(p)   e(count) 
-## -------------+--------------------------------------------
-## zpalter      |                                            
-##      zpalter |         1          1                 19836 
-##     F518_SUF |  .0795555   .0795555   1.21e-24      16543 
-##         F200 | -.0557859  -.0557859   2.35e-13      17228 
-## F518_SUF     |                                            
-##     F518_SUF |         1          1                 16635 
-##         F200 |  .2924452   .2924452   6.4e-287      14659 
-## F200         |                                            
-##         F200 |         1          1                 17376 
-## 
-## . esttab ., not unstack compress noobs nonumber nomtitles ///
-## &gt;                  varlabels(zpalter "(1) Alter" F518_SUF "(2) Bruttoeinkommen" F200 "(3) Wochenarbeitszeit") ///
-## &gt;                  eqlabels("(1) Alter" "(2) Bruttoeinkommen" "(3) Wochenarbeitszeit") ///
-## &gt;                  varwidth(30)
-## 
-## ---------------------------------------------------------------------
-##                                (1) Alter    (2) Bru~n    (3) Woc~t   
-## ---------------------------------------------------------------------
-## (1) Alter                              1                             
-## (2) Bruttoeinkommen               0.0796***         1                
-## (3) Wochenarbeitszeit            -0.0558***     0.292***         1   
-## ---------------------------------------------------------------------
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>             |      e(b)     e(rho)       e(p)   e(count) 
+-------------+--------------------------------------------
+zpalter      |                                            
+     zpalter |         1          1                 19836 
+    F518_SUF |  .0795555   .0795555   1.21e-24      16543 
+        F200 | -.0557859  -.0557859   2.35e-13      17228 
+F518_SUF     |                                            
+    F518_SUF |         1          1                 16635 
+        F200 |  .2924452   .2924452   6.4e-287      14659 
+F200         |                                            
+        F200 |         1          1                 17376 
+
+
+---------------------------------------------------------------------
+                               (1) Alter    (2) Bru~n    (3) Woc~t   
+---------------------------------------------------------------------
+(1) Alter                              1                             
+(2) Bruttoeinkommen               0.0796***         1                
+(3) Wochenarbeitszeit            -0.0558***     0.292***         1   
+---------------------------------------------------------------------
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>esttab  <span class="kw">using</span> <span class="st">"${res}/corrmat.rtf"</span>, <span class="kw">not</span> unstack <span class="kw">compress</span> <span class="kw">noobs</span> nonumber nomtitles <span class="co">///</span></span>
@@ -307,7 +307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 <section id="spearmans-rho" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="spearmans-rho"><span class="header-section-number">5.2</span> Spearman’s Rho:</h2>
+<h2 data-number="5.2" class="anchored" data-anchor-id="spearmans-rho"><span class="header-section-number">5.2</span> Spearman’s <span class="math inline">\(\rho\)</span></h2>
 <p>Für den Rangkorrelationskoeffizienten müssen wir einen kleinen Umweg gehen und die Variablen mit Hilfe von <code>egen</code> in Ränge umwandeln:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> v <span class="kw">of</span> <span class="kw">varlist</span> zpalter F518_SUF F200 {</span>
@@ -316,21 +316,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>estpost correlate rnk_zpalter rnk_F518_SUF rnk_F200, <span class="fu">matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. estpost correlate rnk_zpalter rnk_F518_SUF rnk_F200, matrix
-## 
-##              |      e(b)     e(rho)       e(p)   e(count) 
-## -------------+--------------------------------------------
-## rnk_zpalter  |                                            
-##  rnk_zpalter |         1          1                 19836 
-## rnk_F518_SUF |  .0971437   .0971437   5.57e-36      16543 
-##     rnk_F200 | -.0654795  -.0654795   7.76e-18      17228 
-## rnk_F518_SUF |                                            
-## rnk_F518_SUF |         1          1                 16635 
-##     rnk_F200 |  .4553877   .4553877          0      14659 
-## rnk_F200     |                                            
-##     rnk_F200 |         1          1                 17376 
-## 
-## .</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>             |      e(b)     e(rho)       e(p)   e(count) 
+-------------+--------------------------------------------
+rnk_zpalter  |                                            
+ rnk_zpalter |         1          1                 19836 
+rnk_F518_SUF |  .0971437   .0971437   5.57e-36      16543 
+    rnk_F200 | -.0654795  -.0654795   7.76e-18      17228 
+rnk_F518_SUF |                                            
+rnk_F518_SUF |         1          1                 16635 
+    rnk_F200 |  .4553877   .4553877          0      14659 
+rnk_F200     |                                            
+    rnk_F200 |         1          1                 17376 </code></pre>
+</div>
 </div>
 <p>Danach können wir die Korrelationsmatrix auch für den Rangkorrelationskoeffizienten wie oben erstellen:</p>
 <div class="cell">
@@ -342,23 +340,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>         <span class="bn">title</span>(<span class="st">"Dies ist der Spearman-Rangkorrelationskoeffizient"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. 
-## . esttab ., not unstack compress noobs nonumber nomtitles ///
-## &gt;                  varlabels(zpalter "(1) Alter" F518_SUF "(2) Bruttoeinkommen" F200 "(3) Wochenarbeitszeit") ///
-## &gt;                  eqlabels("(1) Alter" "(2) Bruttoeinkommen" "(3) Wochenarbeitszeit") ///
-## &gt;                  varwidth(30) ///
-## &gt;                  modelwidth(30) ///
-## &gt;                  title("Dies ist der Spearman-Rangkorrelationskoeffizient")
-## 
-## Dies ist der Spearman-Rangkorrelationskoeffizient
-## ------------------------------------------------------------------------------------------------------------------------------------
-##                                                     (1) Alter               (2) Bruttoeinkommen             (3) Wochenarbeitszeit   
-## ------------------------------------------------------------------------------------------------------------------------------------
-## rnk_zpalter                                                 1                                                                       
-## rnk_F518_SUF                                           0.0971***                              1                                     
-## rnk_F200                                              -0.0655***                          0.455***                              1   
-## ------------------------------------------------------------------------------------------------------------------------------------
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dies ist der Spearman-Rangkorrelationskoeffizient
+------------------------------------------------------------------------------------------------------------------------------------
+                                                    (1) Alter               (2) Bruttoeinkommen             (3) Wochenarbeitszeit   
+------------------------------------------------------------------------------------------------------------------------------------
+rnk_zpalter                                                 1                                                                       
+rnk_F518_SUF                                           0.0971***                              1                                     
+rnk_F200                                              -0.0655***                          0.455***                              1   
+------------------------------------------------------------------------------------------------------------------------------------
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>esttab  <span class="kw">using</span> <span class="st">"${res}/corrmat2.rtf"</span>, <span class="kw">not</span> unstack <span class="kw">compress</span> <span class="kw">noobs</span> nonumber nomtitles <span class="co">///</span></span>
@@ -388,30 +380,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">ttest</span> az F518_SUF, <span class="kw">by</span>(S1) unequal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. estpost ttest az F518_SUF, by(S1) unequal
-## 
-##              |      e(b)   e(count)      e(se)       e(t)    e(df_t)     e(p_l)       e(p)     e(p_u)     e(N_1)    e(mu_1)     e(N_2)    e(mu_2) 
-## -------------+------------------------------------------------------------------------------------------------------------------------------------
-##           az |  8.320936      20012    .155519   53.50431   19742.97          1          0          0      10074   42.43776       9938   34.11682 
-##     F518_SUF |  1431.809      16635   53.27106   26.87781   15471.34          1   1.5e-155   7.3e-156       8495   4232.735       8140   2800.926</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>             |      e(b)   e(count)      e(se)       e(t)    e(df_t)     e(p_l)       e(p)     e(p_u)     e(N_1)    e(mu_1)     e(N_2)    e(mu_2) 
+-------------+------------------------------------------------------------------------------------------------------------------------------------
+          az |  8.320936      20012    .155519   53.50431   19742.97          1          0          0      10074   42.43776       9938   34.11682 
+    F518_SUF |  1431.809      16635   53.27106   26.87781   15471.34          1   1.5e-155   7.3e-156       8495   4232.735       8140   2800.926 </code></pre>
+</div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>esttab, <span class="kw">wide</span> nonumber <span class="kw">noobs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. dis ""
-## 
-## 
-## . esttab, wide nonumber noobs
-## 
-## -----------------------------------------
-##                                          
-## -----------------------------------------
-## az                  8.321***      (53.50)
-## F518_SUF           1431.8***      (26.88)
-## -----------------------------------------
-## t statistics in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>az                  8.321***      (53.50)
+F518_SUF           1431.8***      (26.88)
+-----------------------------------------
+t statistics in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>esttab,  cell(<span class="st">"b(fmt(%13.3fc)) t(fmt(%13.3fc) star) N_1(fmt(%13.0fc)) mu_1 N_2(fmt(%13.0fc)) mu_2"</span>) <span class="co">/// </span></span>
@@ -419,16 +405,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    collabels(<span class="st">"Difference"</span> <span class="st">"t"</span> <span class="st">"N(M)"</span> <span class="st">"Mean(M)"</span> <span class="st">"N(W)"</span> <span class="st">"Mean(W)"</span>)                </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab,  cell("b(fmt(%13.3fc)) t(fmt(%13.3fc) star) N_1(fmt(%13.0fc)) mu_1 N_2(fmt(%13.0fc)) mu_2") /// 
-## &gt;         unstack wide nonumber noobs nomtitles ///
-## &gt;         collabels("Difference" "t" "N(M)" "Mean(M)" "N(W)" "Mean(W)")                            
-## 
-## ---------------------------------------------------------------------------------------------
-##                Difference            t            N(M)      Mean(M)         N(W)      Mean(W)
-## ---------------------------------------------------------------------------------------------
-## az                  8.321       53.504***       10,074       42.438        9,938       34.117
-## F518_SUF        1,431.809       26.878***        8,495    4,232.735        8,140    2,800.926
-## ---------------------------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Difference            t            N(M)      Mean(M)         N(W)      Mean(W)
+---------------------------------------------------------------------------------------------
+az                  8.321       53.504***       10,074       42.438        9,938       34.117
+F518_SUF        1,431.809       26.878***        8,495    4,232.735        8,140    2,800.926
+---------------------------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <hr>
 <p><strong><a href="#ttest1">Übung</a></strong></p>
@@ -570,7 +553,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+    <div class="nav-footer-left">Alle Kursinhalte <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i></a><br> Erstellt mit <i class="fa-brands fa-r-project" aria-hidden="true"></i>, Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar <i class="fa-brands fa-github" aria-hidden="true"></i></a></div>   
   </div>
 </footer>
 

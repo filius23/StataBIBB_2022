@@ -99,6 +99,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -233,68 +235,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<p>Es gibt eine ganze Reihe von <code>ado</code>s, welche einen Tabellenexport aus Stata erlauben. Wir werden mit <a href="http://repec.sowi.unibe.ch/stata/estout/"><code>estout</code>/<code>esttab</code></a> von Ben Jann arbeiten, das einige Vorteile bietet: Zunächst können damit sowohl Deskriptions- als auch Regressionstabellen exportiert werden - man muss also nur eine Syntaxlogik lernen. Dabei sind Exportbefehle für (fast) alle gängigen Deskriptionen und Regressionsmodelle vorhanden, inklusive Outputs von <code>margins</code>. Außerdem können damit Tabellen sowohl in Word-, Latex- und auch Excel-Formate exportiert werden - auch hier ist (fast) die gleiche Syntaxlogik verwendbar. Darüber hinaus bietet <code>esttab</code> die Möglichkeit einiger Formatierungseinstellungen.</p>
+<p>Es gibt eine ganze Reihe von <code>ado</code>s, welche einen Tabellenexport aus Stata erlauben.</p>
+<p>Wir werden mit <a href="http://repec.sowi.unibe.ch/stata/estout/"><code>estout</code>/<code>esttab</code></a> von Ben Jann arbeiten, das einige Vorteile bietet: Zunächst können damit sowohl Deskriptions- als auch Regressionstabellen exportiert werden - man muss also nur eine Syntaxlogik lernen. Dabei sind Exportbefehle für (fast) alle gängigen Deskriptionen und Regressionsmodelle vorhanden, inklusive Outputs von <code>margins</code>. Außerdem können damit Tabellen sowohl in Word-, Latex- und auch Excel-Formate exportiert werden - auch hier ist (fast) die gleiche Syntaxlogik verwendbar. Darüber hinaus bietet <code>esttab</code> die Möglichkeit einiger Formatierungseinstellungen.</p>
 <p>Um <code>estout</code>/<code>esttab</code> zu verwenden, müssen wir es zunächst installieren:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install estout, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dies sind die aktuellen Versionen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>which estout <span class="co">// check versions</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>## . which estout <span class="co">// check versiC:\Users\filse\ado\plus\e\estout.ado</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>## *! <span class="kw">version</span> 3.30  25mar2022  Ben Jann</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>which estout <span class="co">// check versions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>*! version 3.30  25mar2022  Ben Jann</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>which esttab <span class="co">// check version</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>## . which esttab <span class="co">// check versC:\Users\filse\ado\plus\e\esttab.ado</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>## *! <span class="kw">version</span> 2.1.0  19may2021  Ben Jann</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>## *! wrapper <span class="kw">for</span> estout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>which esttab <span class="co">// check version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>*! version 2.1.0  19may2021  Ben Jann
+*! wrapper for estout</code></pre>
+</div>
 </div>
 <p>Mit <code>estout</code>/<code>esttab</code> können wir Tabellen mit zusammenfassenden Statistiken und Regressionsergebnissen zu erstellen, die leicht in oder importiert werden können oder in Word verwendet werden können. Für die Latex-Verion ergibt sich der Vorteil, dass das ganze System dynamisch ist. Wenn wir etwas in unserem Do-File ändern (z. B. eine bestimmte Gruppe weglassen, eine neue Variabe aufnehmen), dann werden die Ergebnisse automatisch in LaTeX aktualisiert. Das kann eine Menge Zeit sparen, aber die Einrichtung in Latex ist sehr zeitintensiv und deren Details würden den Rahmen unseres Kurses sprengen. Ich stelle daher <a href="https://www.overleaf.com/read/cfjbtghnxrcn">hier</a> eine (sehr einfache) Latexvorlage zur Verfügung, die versierte Latex-Nutzer*innen gerne an Ihre Bedürfnisse anpassen können. <!-- https://www.overleaf.com/read/zgnvgxdzzptg --></p>
 <section id="grundlagen-e-und-r" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="grundlagen-e-und-r"><span class="header-section-number">2.1</span> Grundlagen: <code>e()</code> und <code>r()</code></h2>
 <p>Grundsätzlich baut <code>esttab</code> auf die Postestimates <code>e()</code> auf. Bei jedem Befehl werden im Hintergrund Werte in Matrizen und Skalere (also Zahlen) abgelegt, bspw. bei einem Regressionsmodell. Mit <code>ereturn list</code> können wir uns eine Liste der Postestimates ausgeben lassen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">reg</span> F518_SUF zpalter</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ereturn</span> <span class="ot">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">reg</span> F518_SUF zpalter</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ereturn</span> <span class="ot">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . qui use "D:\Datenspeicher\BIBB_BAuA/BIBBBAuA_2018_suf1.0_clean.dta", cl. qui reg F518_SUF zpalter
-## 
-## . ereturn list
-## 
-## scalars:
-##                   e(N) =  16543
-##                e(df_m) =  1
-##                e(df_r) =  16541
-##                   e(F) =  105.3561454498825
-##                  e(r2) =  .0063290815436915
-##                e(rmse) =  3525.162828161657
-##                 e(mss) =  1309236899.97876
-##                 e(rss) =  205551251614.9366
-##                e(r2_a) =  .0062690083366028
-##                  e(ll) =  -158590.4618746699
-##                e(ll_0) =  -158642.9792418738
-##                e(rank) =  2
-## 
-## macros:
-##             e(cmdline) : "regress F518_SUF zpalter"
-##               e(title) : "Linear regression"
-##           e(marginsok) : "XB default"
-##                 e(vce) : "ols"
-##              e(depvar) : "F518_SUF"
-##                 e(cmd) : "regress"
-##          e(properties) : "b V"
-##             e(predict) : "regres_p"
-##               e(model) : "ols"
-##           e(estat_cmd) : "regress_estat"
-## 
-## matrices:
-##                   e(b) :  1 x 2
-##                   e(V) :  2 x 2
-## 
-## functions:
-##              e(sample)</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>scalars:
+                  e(N) =  16543
+               e(df_m) =  1
+               e(df_r) =  16541
+                  e(F) =  105.3561454498825
+                 e(r2) =  .0063290815436915
+               e(rmse) =  3525.162828161657
+                e(mss) =  1309236899.97876
+                e(rss) =  205551251614.9366
+               e(r2_a) =  .0062690083366028
+                 e(ll) =  -158590.4618746699
+               e(ll_0) =  -158642.9792418738
+               e(rank) =  2
+
+macros:
+            e(cmdline) : "regress F518_SUF zpalter"
+              e(title) : "Linear regression"
+          e(marginsok) : "XB default"
+                e(vce) : "ols"
+             e(depvar) : "F518_SUF"
+                e(cmd) : "regress"
+         e(properties) : "b V"
+            e(predict) : "regres_p"
+              e(model) : "ols"
+          e(estat_cmd) : "regress_estat"
+
+matrices:
+                  e(b) :  1 x 2
+                  e(V) :  2 x 2
+
+functions:
+             e(sample)   </code></pre>
+</div>
 </div>
 <p>Das Grundprinzip ist dann immer:</p>
 <ol class="example" type="1">
@@ -304,39 +307,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Die Matrizen können wir mit <code>matrix list</code>, die <code>Skalare</code> mit <code>scalar list</code> + Name aufrufen, unter <code>e(b)</code> sind beispielsweise die Koeffizienten abgelegt:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span> <span class="ot">list</span> <span class="fu">e</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span> <span class="ot">list</span> <span class="fu">e</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . qui use "D:\Datenspeicher\BIBB_BAuA/BIBBBAuA_2018_suf1.0_clean.dta", cl. qui reg F518_SUF zpalter
-## 
-## . matrix list e(b)
-## 
-## e(b)[1,2]
-##       zpalter      _cons
-## y1  24.622534  2381.2797</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>e(b)[1,2]
+      zpalter      _cons
+y1  24.622534  2381.2797</code></pre>
+</div>
 </div>
 <p>Bei vielen deskriptiven Befehlen werden die Kennzahlen hingegen als <em>results</em> in <code>r()</code> abgelegt. An die Werte in <code>r()</code> kommen wird mit <code>return list</code>, <code>ereturn list</code> für <code>e()</code> ist dahingegen leer:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> su F518_SUF</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ereturn</span> <span class="ot">list</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> <span class="ot">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> su F518_SUF</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ereturn</span> <span class="ot">list</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> <span class="ot">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . qui use "D:\Datenspeicher\BIBB_BAuA/BIBBBAuA_2018_suf1.0_clean.dta", cl. quietly su F518_SUF
-## 
-## . ereturn list
-## 
-## . return list
-## 
-## scalars:
-##                   r(N) =  16635
-##               r(sum_w) =  16635
-##                r(mean) =  3532.108506161707
-##                 r(Var) =  12467451.86889181
-##                  r(sd) =  3530.927904799503
-##                 r(min) =  1
-##                 r(max) =  72000
-##                 r(sum) =  58756625</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>scalars:
+                  r(N) =  16635
+              r(sum_w) =  16635
+               r(mean) =  3532.108506161707
+                r(Var) =  12467451.86889181
+                 r(sd) =  3530.927904799503
+                r(min) =  1
+                r(max) =  72000
+                r(sum) =  58756625</code></pre>
+</div>
 </div>
 <p>Das bringt mit sich, dass wir für Deskriptionen meist mit dem Hilfsbefehl <code>estpost</code> die in <code>r()</code> abgelegten Ergebnisse in <code>e()</code> umwandeln müssen. Grundsätzlich sind aber die Ergebnisse aus <code>e()</code> und <code>r()</code> alle in Tabellen mit <code>esttab</code> exportierbar.</p>
 </section>
@@ -475,7 +472,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+    <div class="nav-footer-left">Alle Kursinhalte <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i></a><br> Erstellt mit <i class="fa-brands fa-r-project" aria-hidden="true"></i>, Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar <i class="fa-brands fa-github" aria-hidden="true"></i></a></div>   
   </div>
 </footer>
 

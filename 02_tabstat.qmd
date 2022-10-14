@@ -2,7 +2,7 @@
 
 ```{r setup2, echo = F, message=F, warning = F}
 .libPaths("D:/R-library4")
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = F)
 knitr::opts_chunk$set(dpi=800)
 # knitr::opts_chunk$set(collectcode = T)
 library(Statamarkdown)
@@ -68,6 +68,7 @@ esttab, cells("mean sd min max count")
 set linesize 80
 qui use "./data/BIBBBAuA_2018_short.dta", clear
 estpost tabstat F518_SUF, c(stat) stat(mean sd min max n)
+dis " "
 esttab, cells("mean sd min max count")
 ```
 
@@ -95,6 +96,8 @@ esttab, cells("mean p50 sd min max count")
 set linesize 200
 qui use "./data/BIBBBAuA_2018_short.dta", clear
 estpost tabstat F518_SUF, c(stat) stat(mean p50 sd min max n)
+dis " "
+dis " "
 esttab, cells("mean p50 sd min max count")
 ```
 
@@ -183,7 +186,7 @@ Für das Ausgabeformat hängen wir einfach die gewünschte Dateiendung an:
 
 + `.rtf` für eine Datei, die mit Word geöffnet und weiterverarbeitet werden kann
 + `.tex` für eine Latex-Datei
-+ `.csv` für eine Excel-Datei (mehr zum Excel-Export [hier](#misc))
++ `.csv` für eine in Excel lesbare `csv`-Datei (mehr zum Excel-Export [hier](#misc))
 
 ```{stata export, eval = F}
 esttab using "${res}/tab1.rtf", ///

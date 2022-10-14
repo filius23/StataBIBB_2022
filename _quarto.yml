@@ -6,7 +6,7 @@ project:
   # output-file: pdf_doc
   # 
 book:
-  title: "R am BIBB"
+  title: "Tabellenexport mit Stata"
   author: "Andreas Filser"
   date: last-modified
   chapters:
@@ -20,7 +20,7 @@ book:
     - 07_misc.qmd
   language: de-DE
   always_allow_html: true
-  downloads: [pdf]
+  # downloads: [pdf]
   page-footer:
    left: |
       Alle Kursinhalte {{< fa brands creative-commons >}} 2022 von [Andreas Filser](https://afilser.netlify.app/)<br>

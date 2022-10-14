@@ -9,7 +9,7 @@
 <meta name="author" content="Andreas Filser">
 <meta name="dcterms.date" content="2022-10-14">
 
-<title>R am BIBB</title>
+<title>Tabellenexport mit Stata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,6 +37,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,7 +70,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">R am BIBB</h1>
+      <h1 class="quarto-secondary-nav-title">Tabellenexport mit Stata</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -81,10 +83,7 @@ ul.task-list{list-style: none;}
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R am BIBB</a> 
-        <div class="sidebar-tools-main">
-    <a href="./R-am-BIBB.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
-</div>
+      <a href="./">Tabellenexport mit Stata</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -152,8 +151,8 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">R am BIBB</h1>
-<p class="subtitle lead">Export in Word und Latex</p>
+<h1 class="title d-none d-lg-block">Tabellenexport mit Stata</h1>
+<p class="subtitle lead">Eine Tour durch <code>esttab</code></p>
 </div>
 
 
@@ -163,7 +162,7 @@ ul.task-list{list-style: none;}
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Andreas Filser </p>
+             <p><a href="www.afilser.netlify.app/">Andreas Filser</a> </p>
           </div>
   </div>
     
@@ -184,7 +183,12 @@ ul.task-list{list-style: none;}
 </div>
 <section id="herzlich-willkommen" class="level1 unnumbered">
 <h1 class="unnumbered">Herzlich Willkommen</h1>
-<p>Hier entsteht das Begleitskript für die Weiterbildung <strong>Stata – Erzeugen von Deskriptions- und Regressionstabellen</strong> am BIBB von Andreas Filser am 21.10.2022</p>
+<p>Dies ist das Begleitskript für die Weiterbildung <strong>Stata – Erzeugen von Deskriptions- und Regressionstabellen</strong> am BIBB von Andreas Filser am 21.10.2022</p>
+<div class="g-col-12 g-col-sm-6 g-col-md-4">
+<p><i class="fa-solid fa-calendar-alt" aria-hidden="true"></i> &nbsp; Freitag 21.10.2022</p>
+<p><i class="fa-solid fa-clock" aria-hidden="true"></i> &nbsp; 8:30 - 17:30 Uhr</p>
+<p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> &nbsp; Webex</p>
+</div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -202,11 +206,6 @@ ul.task-list{list-style: none;}
 <!--   kable_styling(bootstrap_options = "condensed", full_width = F) %>%  -->
 <!--   column_spec(1,bold = T) -->
 <!-- ``` -->
-<div class="g-col-12 g-col-sm-6 g-col-md-4">
-<p> &nbsp; Freitag 21.10.2022</p>
-<p> &nbsp; 8:30 - 17:30 Uhr</p>
-<p> &nbsp; Webex</p>
-</div>
 
 
 </section>
@@ -321,7 +320,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+    <div class="nav-footer-left">Alle Kursinhalte <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i></a><br> Erstellt mit <i class="fa-brands fa-r-project" aria-hidden="true"></i>, Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar <i class="fa-brands fa-github" aria-hidden="true"></i></a></div>   
   </div>
 </footer>
 

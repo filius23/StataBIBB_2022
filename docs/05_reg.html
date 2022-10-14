@@ -99,6 +99,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -259,58 +261,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Mit <code>ereturn list</code> bekommen wir alle abrufbaren Informationen angezeigt:</p>
 <div class="cell">
-<pre><code>## . quiet. reg F518_SUF c.zpalter // einfaches Regressionsmodell
-## 
-##       Source |       SS           df       MS      Number of obs   =    16,543
-## -------------+----------------------------------   F(1, 16541)     =    105.36
-##        Model |  1.3092e+09         1  1.3092e+09   Prob &gt; F        =    0.0000
-##     Residual |  2.0555e+11    16,541    12426773   R-squared       =    0.0063
-## -------------+----------------------------------   Adj R-squared   =    0.0063
-##        Total |  2.0686e+11    16,542    12505168   Root MSE        =    3525.2
-## 
-## ------------------------------------------------------------------------------
-##     F518_SUF |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
-## -------------+----------------------------------------------------------------
-##      zpalter |   24.62253   2.398848    10.26   0.000     19.92053    29.32453
-##        _cons |    2381.28    115.577    20.60   0.000     2154.736    2607.823
-## ------------------------------------------------------------------------------
-## 
-## . estimates store reg1     // Ergebnisse speichern
-## 
-## . ereturn list                         // abrufbare Informationen
-## 
-## scalars:
-##                e(rank) =  2
-##                e(ll_0) =  -158642.9792418738
-##                  e(ll) =  -158590.4618746699
-##                e(r2_a) =  .0062690083366028
-##                 e(rss) =  205551251614.9366
-##                 e(mss) =  1309236899.97876
-##                e(rmse) =  3525.162828161657
-##                  e(r2) =  .0063290815436915
-##                   e(F) =  105.3561454498825
-##                e(df_r) =  16541
-##                e(df_m) =  1
-##                   e(N) =  16543
-## 
-## macros:
-##             e(cmdline) : "regress F518_SUF c.zpalter"
-##               e(title) : "Linear regression"
-##           e(marginsok) : "XB default"
-##                 e(vce) : "ols"
-##              e(depvar) : "F518_SUF"
-##                 e(cmd) : "regress"
-##          e(properties) : "b V"
-##             e(predict) : "regres_p"
-##               e(model) : "ols"
-##           e(estat_cmd) : "regress_estat"
-## 
-## matrices:
-##                   e(b) :  1 x 2
-##                   e(V) :  2 x 2
-## 
-## functions:
-##              e(sample)</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Source |       SS           df       MS      Number of obs   =    16,543
+-------------+----------------------------------   F(1, 16541)     =    105.36
+       Model |  1.3092e+09         1  1.3092e+09   Prob &gt; F        =    0.0000
+    Residual |  2.0555e+11    16,541    12426773   R-squared       =    0.0063
+-------------+----------------------------------   Adj R-squared   =    0.0063
+       Total |  2.0686e+11    16,542    12505168   Root MSE        =    3525.2
+
+------------------------------------------------------------------------------
+    F518_SUF |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     zpalter |   24.62253   2.398848    10.26   0.000     19.92053    29.32453
+       _cons |    2381.28    115.577    20.60   0.000     2154.736    2607.823
+------------------------------------------------------------------------------
+
+
+
+scalars:
+               e(rank) =  2
+               e(ll_0) =  -158642.9792418738
+                 e(ll) =  -158590.4618746699
+               e(r2_a) =  .0062690083366028
+                e(rss) =  205551251614.9366
+                e(mss) =  1309236899.97876
+               e(rmse) =  3525.162828161657
+                 e(r2) =  .0063290815436915
+                  e(F) =  105.3561454498825
+               e(df_r) =  16541
+               e(df_m) =  1
+                  e(N) =  16543
+
+macros:
+            e(cmdline) : "regress F518_SUF c.zpalter"
+              e(title) : "Linear regression"
+          e(marginsok) : "XB default"
+                e(vce) : "ols"
+             e(depvar) : "F518_SUF"
+                e(cmd) : "regress"
+         e(properties) : "b V"
+            e(predict) : "regres_p"
+              e(model) : "ols"
+          e(estat_cmd) : "regress_estat"
+
+matrices:
+                  e(b) :  1 x 2
+                  e(V) :  2 x 2
+
+functions:
+             e(sample)   </code></pre>
+</div>
 </div>
 <p>Mit <code>est dir</code> bekommen wir übrigens eine Übersicht über alle Ergebnisse. Mit <code>restore name</code> können wir ein Modell “aktivieren”. Mit <code>est drop _all</code> können wir alle estimates löschen.</p>
 <p>Alle unter <code>e()</code> abgespeicherten Informationen können wir direkt in unsere <code>esttab</code> einfügen. Los geht’s:</p>
@@ -321,69 +321,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>esttab reg1 <span class="co">// Tabelle mit Standard-Einstellungen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1 // Tabelle mit Standard-Einstellungen
-## 
-## ----------------------------
-##                       (1)   
-##                  F518_SUF   
-## ----------------------------
-## zpalter             24.62***
-##                   (10.26)   
-## 
-## _cons              2381.3***
-##                   (20.60)   
-## ----------------------------
-## N                   16543   
-## ----------------------------
-## t statistics in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                 F518_SUF   
+----------------------------
+zpalter             24.62***
+                  (10.26)   
+
+_cons              2381.3***
+                  (20.60)   
+----------------------------
+N                   16543   
+----------------------------
+t statistics in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Das ist noch sehr <em>basic</em>. U.a. sind häufig statt der t-Werte die Standardfehler in Klammern genannt. Grundsätzlich können wir folgende Kennzahlen anfordern: + <code>b</code> Regressionskoeffizienten + <code>se</code> Standardfehler + <code>t</code> t-Werte + <code>p</code> p-Werte + <code>ci</code> 95%-Konfidenzintervalle + <code>beta</code> standardisierte Koeffizienten</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>esttab reg1, b se(%9.3f) <span class="kw">label</span> <span class="co">// Formatierung, SE statt t + Variablen Labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1, b se(%9.3f) label // Formatierung, SE statt t + Variablen Labels
-## 
-## ------------------------------------
-##                               (1)   
-##                      Wie hoch i~h   
-## ------------------------------------
-## Alter der Zielp             24.62***
-##                           (2.399)   
-## 
-## Constant                   2381.3***
-##                         (115.577)   
-## ------------------------------------
-## Observations                16543   
-## ------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                              (1)   
+                     Wie hoch i~h   
+------------------------------------
+Alter der Zielp             24.62***
+                          (2.399)   
+
+Constant                   2381.3***
+                        (115.577)   
+------------------------------------
+Observations                16543   
+------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Außerdem wollen wir in der Regel nicht nur die Fallzahl, sondern auch weitere Informationen zum Modell angeben. Dabei können wir auf die Liste, die wir vorhin bei <code>ereturn list</code> gesehen haben, zurückgreifen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>esttab reg1, b se(%9.3f) <span class="kw">stats</span>(<span class="kw">N</span>  r2 ll <span class="fu">F</span>) <span class="co">// Modellkennzahlen angeben (volle Liste oben bei ereturn list)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1, b se(%9.3f) stats(N  r2 ll F) // Modellkennzahlen angeben (volle Liste oben bei ereturn list)
-## 
-## ----------------------------
-##                       (1)   
-##                  F518_SUF   
-## ----------------------------
-## zpalter             24.62***
-##                   (2.399)   
-## 
-## _cons              2381.3***
-##                 (115.577)   
-## ----------------------------
-## N                   16543   
-## r2                0.00633   
-## ll              -158590.5   
-## F                   105.4   
-## ----------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                 F518_SUF   
+----------------------------
+zpalter             24.62***
+                  (2.399)   
+
+_cons              2381.3***
+                (115.577)   
+----------------------------
+N                   16543   
+r2                0.00633   
+ll              -158590.5   
+F                   105.4   
+----------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Diese Informationen können wir natürlich auch labeln und formatieren wie wir es schon kennengelernt haben. Auch <code>coeflabel</code> funktioniert hier so wie bei <code>tabstat</code> zuvor:</p>
 <div class="cell">
@@ -392,26 +389,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    coeflabel(zpalter <span class="st">"Alter"</span> <span class="dt">_cons</span> <span class="st">"Konstante"</span>)  <span class="co">// Koeffizienten links labeln</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1, b se(%9.3f) /// 
-## &gt;         stats(r2 r2_a N, fmt(%9.4f %9.4f %9.0fc) labels("R²" "adj. R²" "Observations")) /// N und R² labeln
-## &gt;         coeflabel(zpalter "Alter" _cons "Konstante")  // Koeffizienten links labeln
-## 
-## ----------------------------
-##                       (1)   
-##                  F518_SUF   
-## ----------------------------
-## Alter               24.62***
-##                   (2.399)   
-## 
-## Konstante          2381.3***
-##                 (115.577)   
-## ----------------------------
-## R²                 0.0063   
-## adj. R²            0.0063   
-## Observations       16,543   
-## ----------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                 F518_SUF   
+----------------------------
+Alter               24.62***
+                  (2.399)   
+
+Konstante          2381.3***
+                (115.577)   
+----------------------------
+R²                 0.0063   
+adj. R²            0.0063   
+Observations       16,543   
+----------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Außerdem können wir mit <code>mtitles</code> die Beschrifung anpassen und mit <code>nonumbers</code> die Zahl oben ausblenden. Mit <code>title</code> können wir einen Tabellentitel und mit <code>note</code> eine Notiz unten hinzufügen. Wenn wir mehrere Zeilen möchten, dann geben wir einfach <code>"Text in 1. Zeile" "Text in 2. Zeile"</code> an:</p>
 <div class="cell">
@@ -424,31 +418,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    addnotes(<span class="st">"erste Anmerkung"</span> <span class="st">"zweite Anmerkung darunter"</span>) <span class="co">// Notizen ganz unten</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1, b se(%9.3f) /// 
-## &gt;         stats(r2 N, fmt(%9.3f %9.0g) labels(R² Observations)) ///
-## &gt;         coeflabel(zpalter "Alter" _cons "Konstante") ///
-## &gt;         mtitles("1. Modell") /// 
-## &gt;         nonumbers ///
-## &gt;         title(Tabellentitel)    /// Titel für die Tabelle
-## &gt;         addnotes("erste Anmerkung" "zweite Anmerkung darunter") // Notizen ganz unten
-## 
-## Tabellentitel
-## ----------------------------
-##                 1. Modell   
-## ----------------------------
-## Alter               24.62***
-##                   (2.399)   
-## 
-## Konstante          2381.3***
-##                 (115.577)   
-## ----------------------------
-## R²                  0.006   
-## Observations        16543   
-## ----------------------------
-## Standard errors in parentheses
-## erste Anmerkung
-## zweite Anmerkung darunter
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tabellentitel
+----------------------------
+                1. Modell   
+----------------------------
+Alter               24.62***
+                  (2.399)   
+
+Konstante          2381.3***
+                (115.577)   
+----------------------------
+R²                  0.006   
+Observations        16543   
+----------------------------
+Standard errors in parentheses
+erste Anmerkung
+zweite Anmerkung darunter
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Auch Signifikanzsterne anpassen, mit <code>star()</code></p>
 <div class="cell">
@@ -458,26 +446,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">star</span>(+ 0.10 * 0.05 ** 0.01 *** 0.001 **** 0.0001)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1, b se(%9.3f) /// 
-## &gt;         stats(r2 N, fmt(%9.3f %9.0g) labels(R² Observations)) ///
-## &gt;         coeflabel(zpalter "Alter" _cons "Konstante") ///
-## &gt;         star(+ 0.10 * 0.05 ** 0.01 *** 0.001 **** 0.0001)
-## 
-## -----------------------------
-##                       (1)    
-##                  F518_SUF    
-## -----------------------------
-## Alter               24.62****
-##                   (2.399)    
-## 
-## Konstante          2381.3****
-##                 (115.577)    
-## -----------------------------
-## R²                  0.006    
-## Observations        16543    
-## -----------------------------
-## Standard errors in parentheses
-## + p&lt;0.10, * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001, **** p&lt;0.0001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)    
+                 F518_SUF    
+-----------------------------
+Alter               24.62****
+                  (2.399)    
+
+Konstante          2381.3****
+                (115.577)    
+-----------------------------
+R²                  0.006    
+Observations        16543    
+-----------------------------
+Standard errors in parentheses
++ p&lt;0.10, * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001, **** p&lt;0.0001</code></pre>
+</div>
 </div>
 <p>Die Klammern können wir mit <code>noparentheses</code> unterdrücken oder mit <code>brackets</code> auf <code>[]</code> ändern.</p>
 <section id="neben--statt-untereinander" class="level3" data-number="6.2.1">
@@ -492,28 +476,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    addnotes(<span class="st">"erste Anmerkung"</span> <span class="st">"zweite Anmerkung darunter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1, b se(%9.3f) /// 
-## &gt;         wide ///
-## &gt;         stats(r2 N, fmt(%9.3f %9.0g) labels(R² Observations)) ///
-## &gt;         coeflabel(zpalter "Alter" _cons "Konstante") ///
-## &gt;         title(Modelltitel)      ///
-## &gt;         addnotes("erste Anmerkung" "zweite Anmerkung darunter")
-## 
-## Modelltitel
-## -----------------------------------------
-##                       (1)                
-##                  F518_SUF                
-## -----------------------------------------
-## Alter               24.62***      (2.399)
-## Konstante          2381.3***    (115.577)
-## -----------------------------------------
-## R²                  0.006                
-## Observations        16543                
-## -----------------------------------------
-## Standard errors in parentheses
-## erste Anmerkung
-## zweite Anmerkung darunter
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Modelltitel
+-----------------------------------------
+                      (1)                
+                 F518_SUF                
+-----------------------------------------
+Alter               24.62***      (2.399)
+Konstante          2381.3***    (115.577)
+-----------------------------------------
+R²                  0.006                
+Observations        16543                
+-----------------------------------------
+Standard errors in parentheses
+erste Anmerkung
+zweite Anmerkung darunter
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Leider funktioniert das nicht für mehr als zwei Kennzahlen:</p>
 <div class="cell">
@@ -526,18 +505,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>            addnotes(<span class="st">"erste Anmerkung"</span> <span class="st">"zweite Anmerkung darunter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1,b se(%9.3f) ci(%9.3f) p(%9.3f) /// 
-## &gt;                         wide ///
-## &gt;                         stats(r2 N, fmt(%9.3f %9.0g) labels(R² Observations)) ///
-## &gt;                         coeflabel(zpalter "Alter" _cons "Konstante") ///
-## &gt;                         star(+ 0.10 * 0.05 ** 0.01 *** 0.001 **** 0.0001) ///
-## &gt;                         title(Modelltitel)      ///
-## &gt;                         addnotes("erste Anmerkung" "zweite Anmerkung darunter")
-## only one allowed of z, se, p, ci, and aux()
-## r(198);
-## 
-## end of do-file
-## r(198);</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>only one allowed of z, se, p, ci, and aux()
+r(198);
+
+end of do-file
+r(198);</code></pre>
+</div>
 </div>
 <p>Hier müssen wir dann auf <code>cells()</code> und <code>""</code> zurückgreifen. Mit <code>ci_l</code> und <code>ci_u</code> statt <code>ci</code> bekommen wir außerdem die untere und obere KI-Grenze in separaten Spalten angezeigt, was das Ganze etwas übersichtlicher macht:</p>
 <div class="cell">
@@ -545,31 +519,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>esttab reg1, cells(<span class="st">"b se(fmt(%9.3f)) ci_l(fmt(%9.2f)) ci_u(fmt(%9.2f)) p(fmt(%9.3f))"</span>) <span class="co">// Übersichtlicher: KIs aufteilen in zwei Spalten</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1, cells("b se(fmt(%9.3f)) ci(fmt(%9.2f)) p(fmt(%9.3f))")
-## 
-## ----------------------------------------------------------------
-##                       (1)                                       
-##                  F518_SUF                                       
-##                         b           se         ci95            p
-## ----------------------------------------------------------------
-## zpalter          24.62253        2.399  19.92,29.32        0.000
-## _cons             2381.28      115.577 2154.74,2607.82        0.000
-## ----------------------------------------------------------------
-## N                   16543                                       
-## ----------------------------------------------------------------
-## 
-## . esttab reg1, cells("b se(fmt(%9.3f)) ci_l(fmt(%9.2f)) ci_u(fmt(%9.2f)) p(fmt(%9.3f))") // Übersichtlicher: KIs aufteilen in zwei Spalten
-## 
-## -----------------------------------------------------------------------------
-##                       (1)                                                    
-##                  F518_SUF                                                    
-##                         b           se        min95        max95            p
-## -----------------------------------------------------------------------------
-## zpalter          24.62253        2.399        19.92        29.32        0.000
-## _cons             2381.28      115.577      2154.74      2607.82        0.000
-## -----------------------------------------------------------------------------
-## N                   16543                                                    
-## -----------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)                                       
+                 F518_SUF                                       
+                        b           se         ci95            p
+----------------------------------------------------------------
+zpalter          24.62253        2.399  19.92,29.32        0.000
+_cons             2381.28      115.577 2154.74,2607.82        0.000
+----------------------------------------------------------------
+N                   16543                                       
+----------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------
+                      (1)                                                    
+                 F518_SUF                                                    
+                        b           se        min95        max95            p
+-----------------------------------------------------------------------------
+zpalter          24.62253        2.399        19.92        29.32        0.000
+_cons             2381.28      115.577      2154.74      2607.82        0.000
+-----------------------------------------------------------------------------
+N                   16543                                                    
+-----------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <p>Auch das können wir labeln - mit <code>collabels</code>:</p>
 <div class="cell">
@@ -577,19 +549,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>            collabels(<span class="st">"B"</span> <span class="st">"SE"</span> <span class="st">"u.KI"</span> <span class="st">"o.KI"</span> <span class="st">"p"</span>)       <span class="co">// labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg1, cells("b se(fmt(%9.3f)) ci_l(fmt(%9.2f)) ci_u(fmt(%9.2f)) p(fmt(%9.3f))") ///
-## &gt;                         collabels("B" "SE" "u.KI" "o.KI" "p")           // labels
-## 
-## -----------------------------------------------------------------------------
-##                       (1)                                                    
-##                  F518_SUF                                                    
-##                         B           SE         u.KI         o.KI            p
-## -----------------------------------------------------------------------------
-## zpalter          24.62253        2.399        19.92        29.32        0.000
-## _cons             2381.28      115.577      2154.74      2607.82        0.000
-## -----------------------------------------------------------------------------
-## N                   16543                                                    
-## -----------------------------------------------------------------------------</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)                                                    
+                 F518_SUF                                                    
+                        B           SE         u.KI         o.KI            p
+-----------------------------------------------------------------------------
+zpalter          24.62253        2.399        19.92        29.32        0.000
+_cons             2381.28      115.577      2154.74      2607.82        0.000
+-----------------------------------------------------------------------------
+N                   16543                                                    
+-----------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <hr>
 <p><strong><a href="#reg1">Übung</a></strong></p>
@@ -606,26 +576,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    coeflabel(1.S1 <span class="st">"Maenner"</span> 2.S1 <span class="st">"Frauen"</span> <span class="dt">_cons</span> <span class="st">"Konstante"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg2,  b se(%9.3f)       ///
-## &gt;         coeflabel(1.S1 "Maenner" 2.S1 "Frauen" _cons "Konstante")
-## 
-## ----------------------------
-##                       (1)   
-##                  F518_SUF   
-## ----------------------------
-## Maenner                 0   
-##                       (.)   
-## 
-## Frauen            -1431.8***
-##                  (53.630)   
-## 
-## Konstante          4232.7***
-##                  (37.515)   
-## ----------------------------
-## N                   16635   
-## ----------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                 F518_SUF   
+----------------------------
+Maenner                 0   
+                      (.)   
+
+Frauen            -1431.8***
+                 (53.630)   
+
+Konstante          4232.7***
+                 (37.515)   
+----------------------------
+N                   16635   
+----------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Um Referenzkategorie in der Tabelle kennzuzeichnen, muss die Regression mit <code>xi:</code> erstellt werden. Der Koeffizienten für <code>S1</code> = 2 ist dann <code>_IS1_2</code>:</p>
 <div class="cell">
@@ -635,23 +603,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    coeflabel(_IS1_2 <span class="st">"Frauen"</span> <span class="dt">_cons</span> <span class="st">"Konstante"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet.   esttab reg2b,  b se(%9.3f)    ///     
-## &gt;         coeflabel(_IS1_2 "Frauen" _cons "Konstante")
-## 
-## ----------------------------
-##                       (1)   
-##                  F518_SUF   
-## ----------------------------
-## Frauen            -1431.8***
-##                  (53.630)   
-## 
-## Konstante          4232.7***
-##                  (37.515)   
-## ----------------------------
-## N                   16635   
-## ----------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                 F518_SUF   
+----------------------------
+Frauen            -1431.8***
+                 (53.630)   
+
+Konstante          4232.7***
+                 (37.515)   
+----------------------------
+N                   16635   
+----------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Mit <code>refcat()</code> können wir jetzt eine Zeile in die Tabelle einfüge. Dazu geben wir die Variable an, überhalb derer die Zeile eingefügt werden soll (hier also <code>_IS1_2</code>) und den Text, der links in der Beschriftung angezeigt werden soll:</p>
 <div class="cell">
@@ -660,26 +626,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    refcat(_IS1_2 <span class="st">"Männer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg2b,  b se(%9.3f)      ///     
-## &gt;         coeflabel(_IS1_2 "Frauen" _cons "Konstante") ///
-## &gt;         refcat(_IS1_2 "Männer")
-## 
-## ----------------------------
-##                       (1)   
-##                  F518_SUF   
-## ----------------------------
-## Männer               ref.   
-## 
-## Frauen            -1431.8***
-##                  (53.630)   
-## 
-## Konstante          4232.7***
-##                  (37.515)   
-## ----------------------------
-## N                   16635   
-## ----------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)   
+                 F518_SUF   
+----------------------------
+Männer               ref.   
+
+Frauen            -1431.8***
+                 (53.630)   
+
+Konstante          4232.7***
+                 (37.515)   
+----------------------------
+N                   16635   
+----------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Mit <code>label("Referenzkategorie")</code> können wir <code>ref.</code> ersetzen. Mit <code>below</code> wird die Zeile unter der angegebenen Variable eingefügt.</p>
 <div class="cell">
@@ -710,37 +673,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>esttab regm*,  b se(%9.3f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab regm*,  b se(%9.3f)
-## 
-## ----------------------------------------------------------------------------
-##                       (1)             (2)             (3)             (4)   
-##                  F518_SUF        F518_SUF        F518_SUF        F518_SUF   
-## ----------------------------------------------------------------------------
-## _IS1_2            -1431.8***      -1471.7***      -1496.8***      -1458.5***
-##                  (53.630)        (53.722)        (53.768)        (52.124)   
-## 
-## zpalter                             28.45***        146.5***        130.8***
-##                                   (2.350)        (17.208)        (16.839)   
-## 
-## c.zpalter#~r                                       -1.317***       -1.193***
-##                                                   (0.190)         (0.186)   
-## 
-## _Im1202_2                                                           470.2***
-##                                                                 (119.627)   
-## 
-## _Im1202_3                                                          1114.5***
-##                                                                 (143.641)   
-## 
-## _Im1202_4                                                          2322.9***
-##                                                                 (120.657)   
-## 
-## _cons              4232.7***       2922.0***        467.3          -334.3   
-##                  (37.515)       (114.755)       (372.647)       (364.132)   
-## ----------------------------------------------------------------------------
-## N                   16635           16543           16543           16521   
-## ----------------------------------------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)             (2)             (3)             (4)   
+                 F518_SUF        F518_SUF        F518_SUF        F518_SUF   
+----------------------------------------------------------------------------
+_IS1_2            -1431.8***      -1471.7***      -1496.8***      -1458.5***
+                 (53.630)        (53.722)        (53.768)        (52.124)   
+
+zpalter                             28.45***        146.5***        130.8***
+                                  (2.350)        (17.208)        (16.839)   
+
+c.zpalter#~r                                       -1.317***       -1.193***
+                                                  (0.190)         (0.186)   
+
+_Im1202_2                                                           470.2***
+                                                                (119.627)   
+
+_Im1202_3                                                          1114.5***
+                                                                (143.641)   
+
+_Im1202_4                                                          2322.9***
+                                                                (120.657)   
+
+_cons              4232.7***       2922.0***        467.3          -334.3   
+                 (37.515)       (114.755)       (372.647)       (364.132)   
+----------------------------------------------------------------------------
+N                   16635           16543           16543           16521   
+----------------------------------------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Auch hier lohnt sich aber natürlich etwas label-Arbeit:</p>
 <div class="cell">
@@ -758,52 +720,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    varwidth(20)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet.   esttab regm*,  b se(%9.3f) ///
-## &gt;         coeflabel(_IS1_2 "Frauen" zpalter "Alter" ///
-## &gt;                           c.zpalter#c.zpalter "Alter²" ///
-## &gt;                           _Im1202_2  "dual/schul. Abs." ///    
-## &gt;                           _Im1202_3  "Meister/Techniker" ///
-## &gt;                           _Im1202_4  "Hochschule/Uni" ///
-## &gt;                           _cons "Konstante") ///
-## &gt;         refcat(_IS1_2 "Männer" ///
-## &gt;                    _Im1202_2 "kein Abs.")       ///
-## &gt;                    nomtitle ///
-## &gt;         stats(r2 N, fmt(%9.3f %9.0g) labels(R² Observations)) ///
-## &gt;         varwidth(20)
-## 
-## ------------------------------------------------------------------------------------
-##                               (1)             (2)             (3)             (4)   
-## ------------------------------------------------------------------------------------
-## Männer                       ref.            ref.            ref.            ref.   
-## 
-## Frauen                    -1431.8***      -1471.7***      -1496.8***      -1458.5***
-##                          (53.630)        (53.722)        (53.768)        (52.124)   
-## 
-## Alter                                       28.45***        146.5***        130.8***
-##                                           (2.350)        (17.208)        (16.839)   
-## 
-## Alter²                                                     -1.317***       -1.193***
-##                                                           (0.190)         (0.186)   
-## 
-## kein Abs.                                                                    ref.   
-## 
-## dual/schul. Abs.                                                            470.2***
-##                                                                         (119.627)   
-## 
-## Meister/Techniker                                                          1114.5***
-##                                                                         (143.641)   
-## 
-## Hochschule/Uni                                                             2322.9***
-##                                                                         (120.657)   
-## 
-## Konstante                  4232.7***       2922.0***        467.3          -334.3   
-##                          (37.515)       (114.755)       (372.647)       (364.132)   
-## ------------------------------------------------------------------------------------
-## R²                          0.041           0.049           0.052           0.117   
-## Observations                16635           16543           16543           16521   
-## ------------------------------------------------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                              (1)             (2)             (3)             (4)   
+------------------------------------------------------------------------------------
+Männer                       ref.            ref.            ref.            ref.   
+
+Frauen                    -1431.8***      -1471.7***      -1496.8***      -1458.5***
+                         (53.630)        (53.722)        (53.768)        (52.124)   
+
+Alter                                       28.45***        146.5***        130.8***
+                                          (2.350)        (17.208)        (16.839)   
+
+Alter²                                                     -1.317***       -1.193***
+                                                          (0.190)         (0.186)   
+
+kein Abs.                                                                    ref.   
+
+dual/schul. Abs.                                                            470.2***
+                                                                        (119.627)   
+
+Meister/Techniker                                                          1114.5***
+                                                                        (143.641)   
+
+Hochschule/Uni                                                             2322.9***
+                                                                        (120.657)   
+
+Konstante                  4232.7***       2922.0***        467.3          -334.3   
+                         (37.515)       (114.755)       (372.647)       (364.132)   
+------------------------------------------------------------------------------------
+R²                          0.041           0.049           0.052           0.117   
+Observations                16635           16543           16543           16521   
+------------------------------------------------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <hr>
 <p><strong><a href="#reg3">Übung</a></strong></p>
@@ -817,37 +767,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>esttab regm*,  b se(%9.3f) <span class="kw">keep</span>(_IS1_2 zpalter) <span class="co">// mehrere mit Leerzeichen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. 
-## . esttab regm*,  b se(%9.3f) keep(_IS1_2)
-## 
-## ----------------------------------------------------------------------------
-##                       (1)             (2)             (3)             (4)   
-##                  F518_SUF        F518_SUF        F518_SUF        F518_SUF   
-## ----------------------------------------------------------------------------
-## _IS1_2            -1431.8***      -1471.7***      -1496.8***      -1458.5***
-##                  (53.630)        (53.722)        (53.768)        (52.124)   
-## ----------------------------------------------------------------------------
-## N                   16635           16543           16543           16521   
-## ----------------------------------------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001
-## 
-## . esttab regm*,  b se(%9.3f) keep(_IS1_2 zpalter) // mehrere mit Leerzeichen
-## 
-## ----------------------------------------------------------------------------
-##                       (1)             (2)             (3)             (4)   
-##                  F518_SUF        F518_SUF        F518_SUF        F518_SUF   
-## ----------------------------------------------------------------------------
-## _IS1_2            -1431.8***      -1471.7***      -1496.8***      -1458.5***
-##                  (53.630)        (53.722)        (53.768)        (52.124)   
-## 
-## zpalter                             28.45***        146.5***        130.8***
-##                                   (2.350)        (17.208)        (16.839)   
-## ----------------------------------------------------------------------------
-## N                   16635           16543           16543           16521   
-## ----------------------------------------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)             (2)             (3)             (4)   
+                 F518_SUF        F518_SUF        F518_SUF        F518_SUF   
+----------------------------------------------------------------------------
+_IS1_2            -1431.8***      -1471.7***      -1496.8***      -1458.5***
+                 (53.630)        (53.722)        (53.768)        (52.124)   
+----------------------------------------------------------------------------
+N                   16635           16543           16543           16521   
+----------------------------------------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001
+
+
+----------------------------------------------------------------------------
+                      (1)             (2)             (3)             (4)   
+                 F518_SUF        F518_SUF        F518_SUF        F518_SUF   
+----------------------------------------------------------------------------
+_IS1_2            -1431.8***      -1471.7***      -1496.8***      -1458.5***
+                 (53.630)        (53.722)        (53.768)        (52.124)   
+
+zpalter                             28.45***        146.5***        130.8***
+                                  (2.350)        (17.208)        (16.839)   
+----------------------------------------------------------------------------
+N                   16635           16543           16543           16521   
+----------------------------------------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Allerdings fehlt hier jetzt die Information, welche Kontrollvariablen jeweils im Modell waren. Da kann uns <code>estadd local</code> weiter helfen. Damit können wir einen Text zu jedem <code>estimate</code> hinzufügen und den dann unten in der Tabelle ausgeben lassen. Wir erweitern unsere Schleife also und lassen sie nochmal laufen. Mit <code>scalars("note Kontrollvariablen")</code> werden die vorher abgelegten <code>note</code>s dann als Zeile <code>Kontrollvariablen</code> in der Tabelle angezeigt. Mit <code>modelwidth()</code> können wir die Breite der Spalten steuern.</p>
 <div class="cell">
@@ -868,41 +815,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    refcat(_IS1_2 <span class="st">"Männer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. 
-## . esttab regm*,  b se(%9.3f) keep(_IS1_2) scalars("note Kontrollvariablen")
-## 
-## ----------------------------------------------------------------------------
-##                       (1)             (2)             (3)             (4)   
-##                  F518_SUF        F518_SUF        F518_SUF        F518_SUF   
-## ----------------------------------------------------------------------------
-## _IS1_2            -1431.8***      -1471.7***      -1496.8***      -1458.5***
-##                  (53.630)        (53.722)        (53.768)        (52.124)   
-## ----------------------------------------------------------------------------
-## N                   16635           16543           16543           16521   
-## Kontrollva~n                    c.zpalter    c.zpalter##c.zpalter    c.zpalter##c.zpalter i.m1202   
-## ----------------------------------------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001
-## 
-## . esttab regm*,  b se(%9.3f) keep(_IS1_2) scalars("note Kontrollvariablen") ///
-## &gt;         modelwidth(25) ///
-## &gt;         coeflabel(_IS1_2 "Frauen") ///
-## &gt;         refcat(_IS1_2 "Männer")
-## 
-## --------------------------------------------------------------------------------------------------------------------------------
-##                                    (1)                          (2)                          (3)                          (4)   
-##                               F518_SUF                     F518_SUF                     F518_SUF                     F518_SUF   
-## --------------------------------------------------------------------------------------------------------------------------------
-## Männer                            ref.                         ref.                         ref.                         ref.   
-## 
-## Frauen                         -1431.8***                   -1471.7***                   -1496.8***                   -1458.5***
-##                               (53.630)                     (53.722)                     (53.768)                     (52.124)   
-## --------------------------------------------------------------------------------------------------------------------------------
-## N                                16635                        16543                        16543                        16521   
-## Kontrollva~n                                              c.zpalter         c.zpalter##c.zpalter    c.zpalter##c.zpalter i.m1202   
-## --------------------------------------------------------------------------------------------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)             (2)             (3)             (4)   
+                 F518_SUF        F518_SUF        F518_SUF        F518_SUF   
+----------------------------------------------------------------------------
+_IS1_2            -1431.8***      -1471.7***      -1496.8***      -1458.5***
+                 (53.630)        (53.722)        (53.768)        (52.124)   
+----------------------------------------------------------------------------
+N                   16635           16543           16543           16521   
+Kontrollva~n                    c.zpalter    c.zpalter##c.zpalter    c.zpalter##c.zpalter i.m1202   
+----------------------------------------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+                                   (1)                          (2)                          (3)                          (4)   
+                              F518_SUF                     F518_SUF                     F518_SUF                     F518_SUF   
+--------------------------------------------------------------------------------------------------------------------------------
+Männer                            ref.                         ref.                         ref.                         ref.   
+
+Frauen                         -1431.8***                   -1471.7***                   -1496.8***                   -1458.5***
+                              (53.630)                     (53.722)                     (53.768)                     (52.124)   
+--------------------------------------------------------------------------------------------------------------------------------
+N                                16635                        16543                        16543                        16521   
+Kontrollva~n                                              c.zpalter         c.zpalter##c.zpalter    c.zpalter##c.zpalter i.m1202   
+--------------------------------------------------------------------------------------------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Mit der <code>regex</code>-Funktion <code>ustrregexra("","Suchtext", "Ersetztext")</code> können wir aus den Variablenangaben auch noch sprechendere Bezeichnungen machen. Die Option <code>quietly</code> vor dem <code>reg</code>-Befehl unterdrückt die Standard-Regressionstabelle von Stata.</p>
 <div class="cell">
@@ -926,29 +867,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    nomtitle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quietly{
-## 
-## .   
-## . esttab regm*,  b se(%9.3f) keep(_IS1_2) scalars("note Kontrollvariablen") ///
-## &gt;         modelwidth(25) ///
-## &gt;         varwidth(17) ///
-## &gt;         coeflabel(_IS1_2 "Frauen") ///
-## &gt;         refcat(_IS1_2 "Männer") ///
-## &gt;         nomtitle
-## 
-## -------------------------------------------------------------------------------------------------------------------------------------
-##                                         (1)                          (2)                          (3)                          (4)   
-## -------------------------------------------------------------------------------------------------------------------------------------
-## Männer                                 ref.                         ref.                         ref.                         ref.   
-## 
-## Frauen                              -1431.8***                   -1471.7***                   -1496.8***                   -1458.5***
-##                                    (53.630)                     (53.722)                     (53.768)                     (52.124)   
-## -------------------------------------------------------------------------------------------------------------------------------------
-## N                                     16635                        16543                        16543                        16521   
-## Kontrollvariablen                         -                        Alter              Alter &amp; Alter^2    Alter &amp; Alter^2, Ausbildung   
-## -------------------------------------------------------------------------------------------------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                        (1)                          (2)                          (3)                          (4)   
+-------------------------------------------------------------------------------------------------------------------------------------
+Männer                                 ref.                         ref.                         ref.                         ref.   
+
+Frauen                              -1431.8***                   -1471.7***                   -1496.8***                   -1458.5***
+                                   (53.630)                     (53.722)                     (53.768)                     (52.124)   
+-------------------------------------------------------------------------------------------------------------------------------------
+N                                     16635                        16543                        16543                        16521   
+Kontrollvariablen                         -                        Alter              Alter &amp; Alter^2    Alter &amp; Alter^2, Ausbildung   
+-------------------------------------------------------------------------------------------------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <hr>
 <p><strong><a href="#reg4">Übung</a></strong></p>
@@ -971,37 +903,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>esttab reg_*</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg_*
-## 
-## ----------------------------------------------------------------------------
-##                       (1)             (2)             (3)             (4)   
-##                  F518_SUF        F518_SUF        F518_SUF        F518_SUF   
-## ----------------------------------------------------------------------------
-## zpalter             213.0***        192.2***        42.43           33.35   
-##                    (8.44)          (7.78)          (1.88)          (1.51)   
-## 
-## c.zpalter#~r       -1.930***       -1.810***       -0.326          -0.217   
-##                   (-6.90)         (-6.63)         (-1.31)         (-0.89)   
-## 
-## 1.m1202                                 0                               0   
-##                                       (.)                             (.)   
-## 
-## 2.m1202                             390.5*                          524.5***
-##                                    (2.12)                          (3.56)   
-## 
-## 3.m1202                            1172.5***                       1020.9***
-##                                    (5.45)                          (5.55)   
-## 
-## 4.m1202                            2549.6***                       2046.7***
-##                                   (13.72)                         (13.76)   
-## 
-## _cons             -1210.6*        -1824.9***       1560.8**         606.5   
-##                   (-2.22)         (-3.43)          (3.15)          (1.25)   
-## ----------------------------------------------------------------------------
-## N                    8451            8442            8092            8079   
-## ----------------------------------------------------------------------------
-## t statistics in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      (1)             (2)             (3)             (4)   
+                 F518_SUF        F518_SUF        F518_SUF        F518_SUF   
+----------------------------------------------------------------------------
+zpalter             213.0***        192.2***        42.43           33.35   
+                   (8.44)          (7.78)          (1.88)          (1.51)   
+
+c.zpalter#~r       -1.930***       -1.810***       -0.326          -0.217   
+                  (-6.90)         (-6.63)         (-1.31)         (-0.89)   
+
+1.m1202                                 0                               0   
+                                      (.)                             (.)   
+
+2.m1202                             390.5*                          524.5***
+                                   (2.12)                          (3.56)   
+
+3.m1202                            1172.5***                       1020.9***
+                                   (5.45)                          (5.55)   
+
+4.m1202                            2549.6***                       2046.7***
+                                  (13.72)                         (13.76)   
+
+_cons             -1210.6*        -1824.9***       1560.8**         606.5   
+                  (-2.22)         (-3.43)          (3.15)          (1.25)   
+----------------------------------------------------------------------------
+N                    8451            8442            8092            8079   
+----------------------------------------------------------------------------
+t statistics in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 <p>Mit <code>mgroups</code> können wir dann mehrere Spalten überschreiben. <code>pattern</code> gibt dabei die Gruppierung an: <code>1</code> steht für “(nächstes) Label”, <code>0</code> für “unter vorheriges einordnen”.</p>
 <div class="cell">
@@ -1011,75 +942,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>     mgroups(<span class="st">""</span> <span class="st">"Männer"</span> <span class="st">"Frauen"</span>, pattern(1 1 0 1 ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet. esttab reg_*, r2 ///
-## &gt;          mgroups("Männer" "Frauen", pattern(1 0 1 0))
-## 
-## ----------------------------------------------------------------------------
-##                    Männer                          Frauen                   
-##                       (1)             (2)             (3)             (4)   
-##                  F518_SUF        F518_SUF        F518_SUF        F518_SUF   
-## ----------------------------------------------------------------------------
-## zpalter             213.0***        192.2***        42.43           33.35   
-##                    (8.44)          (7.78)          (1.88)          (1.51)   
-## 
-## c.zpalter#~r       -1.930***       -1.810***       -0.326          -0.217   
-##                   (-6.90)         (-6.63)         (-1.31)         (-0.89)   
-## 
-## 1.m1202                                 0                               0   
-##                                       (.)                             (.)   
-## 
-## 2.m1202                             390.5*                          524.5***
-##                                    (2.12)                          (3.56)   
-## 
-## 3.m1202                            1172.5***                       1020.9***
-##                                    (5.45)                          (5.55)   
-## 
-## 4.m1202                            2549.6***                       2046.7***
-##                                   (13.72)                         (13.76)   
-## 
-## _cons             -1210.6*        -1824.9***       1560.8**         606.5   
-##                   (-2.22)         (-3.43)          (3.15)          (1.25)   
-## ----------------------------------------------------------------------------
-## N                    8451            8442            8092            8079   
-## R-sq                0.021           0.089           0.003           0.072   
-## ----------------------------------------------------------------------------
-## t statistics in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001
-## 
-## . esttab reg_*, r2 ///
-## &gt;          mgroups("" "Männer" "Frauen", pattern(1 1 0 1 ))
-## 
-## ----------------------------------------------------------------------------
-##                                    Männer                          Frauen   
-##                       (1)             (2)             (3)             (4)   
-##                  F518_SUF        F518_SUF        F518_SUF        F518_SUF   
-## ----------------------------------------------------------------------------
-## zpalter             213.0***        192.2***        42.43           33.35   
-##                    (8.44)          (7.78)          (1.88)          (1.51)   
-## 
-## c.zpalter#~r       -1.930***       -1.810***       -0.326          -0.217   
-##                   (-6.90)         (-6.63)         (-1.31)         (-0.89)   
-## 
-## 1.m1202                                 0                               0   
-##                                       (.)                             (.)   
-## 
-## 2.m1202                             390.5*                          524.5***
-##                                    (2.12)                          (3.56)   
-## 
-## 3.m1202                            1172.5***                       1020.9***
-##                                    (5.45)                          (5.55)   
-## 
-## 4.m1202                            2549.6***                       2046.7***
-##                                   (13.72)                         (13.76)   
-## 
-## _cons             -1210.6*        -1824.9***       1560.8**         606.5   
-##                   (-2.22)         (-3.43)          (3.15)          (1.25)   
-## ----------------------------------------------------------------------------
-## N                    8451            8442            8092            8079   
-## R-sq                0.021           0.089           0.003           0.072   
-## ----------------------------------------------------------------------------
-## t statistics in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   Männer                          Frauen                   
+                      (1)             (2)             (3)             (4)   
+                 F518_SUF        F518_SUF        F518_SUF        F518_SUF   
+----------------------------------------------------------------------------
+zpalter             213.0***        192.2***        42.43           33.35   
+                   (8.44)          (7.78)          (1.88)          (1.51)   
+
+c.zpalter#~r       -1.930***       -1.810***       -0.326          -0.217   
+                  (-6.90)         (-6.63)         (-1.31)         (-0.89)   
+
+1.m1202                                 0                               0   
+                                      (.)                             (.)   
+
+2.m1202                             390.5*                          524.5***
+                                   (2.12)                          (3.56)   
+
+3.m1202                            1172.5***                       1020.9***
+                                   (5.45)                          (5.55)   
+
+4.m1202                            2549.6***                       2046.7***
+                                  (13.72)                         (13.76)   
+
+_cons             -1210.6*        -1824.9***       1560.8**         606.5   
+                  (-2.22)         (-3.43)          (3.15)          (1.25)   
+----------------------------------------------------------------------------
+N                    8451            8442            8092            8079   
+R-sq                0.021           0.089           0.003           0.072   
+----------------------------------------------------------------------------
+t statistics in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001
+
+
+----------------------------------------------------------------------------
+                                   Männer                          Frauen   
+                      (1)             (2)             (3)             (4)   
+                 F518_SUF        F518_SUF        F518_SUF        F518_SUF   
+----------------------------------------------------------------------------
+zpalter             213.0***        192.2***        42.43           33.35   
+                   (8.44)          (7.78)          (1.88)          (1.51)   
+
+c.zpalter#~r       -1.930***       -1.810***       -0.326          -0.217   
+                  (-6.90)         (-6.63)         (-1.31)         (-0.89)   
+
+1.m1202                                 0                               0   
+                                      (.)                             (.)   
+
+2.m1202                             390.5*                          524.5***
+                                   (2.12)                          (3.56)   
+
+3.m1202                            1172.5***                       1020.9***
+                                   (5.45)                          (5.55)   
+
+4.m1202                            2549.6***                       2046.7***
+                                  (13.72)                         (13.76)   
+
+_cons             -1210.6*        -1824.9***       1560.8**         606.5   
+                  (-2.22)         (-3.43)          (3.15)          (1.25)   
+----------------------------------------------------------------------------
+N                    8451            8442            8092            8079   
+R-sq                0.021           0.089           0.003           0.072   
+----------------------------------------------------------------------------
+t statistics in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 </section>
 <section id="einmal-mit-allem" class="level2" data-number="6.7">
@@ -1117,47 +1044,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a>  varwidth(20)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<pre><code>## . quiet.   esttab reg_* , ///
-## &gt;                 b se(%9.3f)  ///
-## &gt;                 nomtitle ///
-## &gt;                 coeflabel(_IS1_2 "Frauen" zpalter "Alter" ///
-## &gt;                           c.zpalter#c.zpalter "Alter²" ///
-## &gt;                           _Im1202_2  "dual/schul. Abs." ///    
-## &gt;                           _Im1202_3  "Meister/Techniker" ///
-## &gt;                           _Im1202_4  "Hochschule/Uni" ///
-## &gt;                           _cons "Konstante") ///
-## &gt;                 stats(r2 N, fmt(%9.3f %9.0g) labels(R² Observations)) ///
-## &gt;         refcat(Im1202_2 "kein Abs.") ///
-## &gt;          mgroups("Männer" "Frauen", pattern(1 0 1 0)) ///
-## &gt;   varwidth(20)
-## 
-## ------------------------------------------------------------------------------------
-##                            Männer                          Frauen                   
-##                               (1)             (2)             (3)             (4)   
-## ------------------------------------------------------------------------------------
-## Alter                       213.0***        192.2***        42.43           33.35   
-##                          (25.236)        (24.688)        (22.611)        (22.120)   
-## 
-## Alter²                     -1.930***       -1.810***       -0.326          -0.217   
-##                           (0.280)         (0.273)         (0.249)         (0.243)   
-## 
-## dual/schul. Abs.                            390.5*                          524.5***
-##                                         (183.930)                       (147.488)   
-## 
-## Meister/Techniker                          1172.5***                       1020.9***
-##                                         (215.289)                       (183.784)   
-## 
-## Hochschule/Uni                             2549.6***                       2046.7***
-##                                         (185.774)                       (148.792)   
-## 
-## Konstante                 -1210.6*        -1824.9***       1560.8**         606.5   
-##                         (544.709)       (532.431)       (494.799)       (483.370)   
-## ------------------------------------------------------------------------------------
-## R²                          0.021           0.089           0.003           0.072   
-## Observations                 8451            8442            8092            8079   
-## ------------------------------------------------------------------------------------
-## Standard errors in parentheses
-## * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Männer                          Frauen                   
+                              (1)             (2)             (3)             (4)   
+------------------------------------------------------------------------------------
+Alter                       213.0***        192.2***        42.43           33.35   
+                         (25.236)        (24.688)        (22.611)        (22.120)   
+
+Alter²                     -1.930***       -1.810***       -0.326          -0.217   
+                          (0.280)         (0.273)         (0.249)         (0.243)   
+
+dual/schul. Abs.                            390.5*                          524.5***
+                                        (183.930)                       (147.488)   
+
+Meister/Techniker                          1172.5***                       1020.9***
+                                        (215.289)                       (183.784)   
+
+Hochschule/Uni                             2549.6***                       2046.7***
+                                        (185.774)                       (148.792)   
+
+Konstante                 -1210.6*        -1824.9***       1560.8**         606.5   
+                        (544.709)       (532.431)       (494.799)       (483.370)   
+------------------------------------------------------------------------------------
+R²                          0.021           0.089           0.003           0.072   
+Observations                 8451            8442            8092            8079   
+------------------------------------------------------------------------------------
+Standard errors in parentheses
+* p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001</code></pre>
+</div>
 </div>
 </section>
 <section id="übungen" class="level2" data-number="6.8">
@@ -1368,7 +1282,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Alle Kursinhalte 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung </a><br> Erstellt mit , Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar </a></div>   
+    <div class="nav-footer-left">Alle Kursinhalte <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 von <a href="https://afilser.netlify.app/">Andreas Filser</a><br> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC Lizenz mit Namensnennung <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i></a><br> Erstellt mit <i class="fa-brands fa-r-project" aria-hidden="true"></i>, Code <a href="https://github.com/filius23/BIBB_R">hier einsehbar <i class="fa-brands fa-github" aria-hidden="true"></i></a></div>   
   </div>
 </footer>
 

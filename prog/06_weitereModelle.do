@@ -47,6 +47,9 @@ margins, at(zpalter = (18 20(5)65) ) post
 est store pred_mod2
 esttab pred_mod2, cells("b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))") nonumbers 
 
+// coeflabel zur Beschriftung
+esttab pred_mod2, cells("b(fmt(a3)) se(fmt(a3)) ci_l(fmt(a3)) ci_u(fmt(a3)) p(fmt(a3))") nonumbers  ///
+		coeflabel(1._at "alter=18" 2._at "alter = 20") // 
 
 * ------------------ *
 * mixed

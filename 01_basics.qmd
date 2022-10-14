@@ -2,7 +2,7 @@
 
 ```{r setup1, echo = F, message=F, warning = F}
 .libPaths("D:/R-library4")
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = F)
 knitr::opts_chunk$set(dpi=800)
 # knitr::opts_chunk$set(collectcode = T)
 library(Statamarkdown)
@@ -20,6 +20,8 @@ knitr::opts_chunk$set(engine.path=list(stata=stataexe))
 
 
 Es gibt eine ganze Reihe von `ado`s, welche einen Tabellenexport aus Stata erlauben.
+
+
 Wir werden mit [`estout`/`esttab`](http://repec.sowi.unibe.ch/stata/estout/) von Ben Jann arbeiten, das einige Vorteile bietet:
 Zunächst können damit sowohl Deskriptions- als auch Regressionstabellen exportiert werden - man muss also nur eine Syntaxlogik lernen.
 Dabei sind Exportbefehle für (fast) alle gängigen Deskriptionen und Regressionsmodelle vorhanden, inklusive Outputs von `margins`.
