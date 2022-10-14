@@ -25,7 +25,7 @@
     "href": "01_basics.html#kurs-setup",
     "title": "1  Tabellenexport mit Stata: Grundlagen & Pakete",
     "section": "1.2 Kurs-Setup",
-    "text": "1.2 Kurs-Setup"
+    "text": "1.2 Kurs-Setup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEinstellung für ssc install an BIBB-Arbeitsrechnern\n\n\n\n\n\nUm ados mit ssc install installieren zu können, muss die Option Connect through proxy server wie folgt gefüllt (und aktiviert) werden:\n\nHTTP proxy host: kessenich.ivbb.bund.de\nPort: 80"
   },
   {
     "objectID": "01_basics.html#init",

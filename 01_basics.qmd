@@ -106,6 +106,19 @@ Grundsätzlich sind aber die Ergebnisse aus `e()` und `r()` alle in Tabellen mit
 knitr::include_graphics("pics/01_pfade.png")
 ```
 
+:::{.callout-caution collapse="true"}
+# Einstellung für `ssc install` an BIBB-Arbeitsrechnern
+
+Um ados mit `ssc install` installieren zu können, muss die Option `Connect through proxy server` wie folgt gefüllt (und aktiviert) werden:
+
++ HTTP proxy host: `kessenich.ivbb.bund.de`
++ Port:  `80`
+  
+```{r sccinst, echo = F,out.width="95%",fig.align="center"}
+knitr::include_graphics("./pics/02_install.png")
+```
+
+::::
 
 ## Übung {#init}
 
