@@ -1,8 +1,10 @@
 {
-  "hash": "406a35ae3e1dad790f2391c513385ed6",
+  "hash": "6e1e272e5f0e5efa8e3e0a5e9d1e25e8",
   "result": {
-    "markdown": "#### Herzlich Willkommen {-}\n\n\n\n\n\n\n\n<!-- # Stata: Erzeugen von Deskriptions- und Regressionstabellen {#index .unnumbered} -->\n\n\nDies ist das Begleitskript zum Kurs **Erzeugen von Deskriptions- und Regressionstabellen mit Stata** am BIBB von [Andreas Filser](https://afilser.netlify.app/). Der Kurs gibt eine Tour durch die Möglichkeiten zum Tabellenexport mit [`esttab`](http://repec.sowi.unibe.ch/stata/estout/).\n\nMelden Sie sich gerne bei Fragen oder Wünschen unter andreas.filser[at]uol.de\n\n::: {.g-col-12 .g-col-sm-6 .g-col-md-4}\n\n{{< fa calendar-alt >}} &nbsp; Freitag 21.10.2022\n\n{{< fa clock >}} &nbsp; 8:30 - 17:30 Uhr\n\n{{< fa location-dot >}} &nbsp; Webex\n\n:::\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](pics/01_titel.png){fig-align='center' width=60%}\n:::\n:::\n\n\n\n<!-- ```{r kapitel, ft.align = \"center\",message=F,warning=F, echo = F} -->\n<!-- library(kableExtra) -->\n<!-- opts <- options(knitr.kable.NA = \"\") -->\n\n<!-- readxl::read_xlsx(\"00_kapitel.xlsx\",sheet = 1) %>%  -->\n<!--   kable() %>%  -->\n<!--   kable_styling(bootstrap_options = \"condensed\", full_width = F) %>%  -->\n<!--   column_spec(1,bold = T) -->\n<!-- ``` -->\n\n\n\n\n\n",
-    "supporting": [],
+    "markdown": "#### Herzlich Willkommen {-}\n\n\n\n\n\n\n\n<!-- # Stata: Erzeugen von Deskriptions- und Regressionstabellen {#index .unnumbered} -->\n\n\nDies ist das Begleitskript zum Kurs **Erzeugen von Deskriptions- und Regressionstabellen mit Stata** am BIBB von [Andreas Filser](https://afilser.netlify.app/). Der Kurs gibt eine Tour durch die Möglichkeiten zum Tabellenexport mit [`esttab`](http://repec.sowi.unibe.ch/stata/estout/).\n\nMelden Sie sich gerne bei Fragen oder Wünschen unter andreas.filser[at]uol.de\n\n::: {.g-col-12 .g-col-sm-6 .g-col-md-4}\n\n{{< fa calendar-alt >}} &nbsp; Freitag 21.10.2022\n\n{{< fa clock >}} &nbsp; 8:30 - 17:00 Uhr\n\n{{< fa location-dot >}} &nbsp; Webex\n\n:::\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](pics/01_titel.png){fig-align='center' width=60%}\n:::\n:::\n\n\n\n<!-- ```{r kapitel, ft.align = \"center\",message=F,warning=F, echo = F} -->\n<!-- library(kableExtra) -->\n<!-- opts <- options(knitr.kable.NA = \"\") -->\n\n<!-- readxl::read_xlsx(\"00_kapitel.xlsx\",sheet = 1) %>%  -->\n<!--   kable() %>%  -->\n<!--   kable_styling(bootstrap_options = \"condensed\", full_width = F) %>%  -->\n<!--   column_spec(1,bold = T) -->\n<!-- ``` -->\n\n\n\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

@@ -30,7 +30,7 @@ Melden Sie sich gerne bei Fragen oder Wünschen unter andreas.filser[at]uol.de
 
 {{< fa calendar-alt >}} &nbsp; Freitag 21.10.2022
 
-{{< fa clock >}} &nbsp; 8:30 - 17:30 Uhr
+{{< fa clock >}} &nbsp; 8:30 - 17:00 Uhr
 
 {{< fa location-dot >}} &nbsp; Webex
 
