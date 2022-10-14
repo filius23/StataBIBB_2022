@@ -7,7 +7,7 @@ project:
   # 
 book:
   title: "Tabellenexport mit Stata"
-  author: "Andreas Filser"
+  author: "[Andreas Filser](https://afilser.netlify.app/)"
   date: last-modified
   chapters:
     - index.qmd
@@ -22,13 +22,13 @@ book:
   always_allow_html: true
   # downloads: [pdf]
   page-footer:
-   left: |
       Alle Kursinhalte {{< fa brands creative-commons >}} 2022 von [Andreas Filser](https://afilser.netlify.app/)<br>
       [CC Lizenz mit Namensnennung {{< fa brands creative-commons >}}
       {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}](https://creativecommons.org/licenses/by-nc/4.0/)<br>
-      Erstellt mit {{< fa brands r-project >}}, Code [hier einsehbar {{< fa brands github >}}](https://github.com/filius23/BIBB_R)
+      Erstellt mit {{< fa brands r-project >}}, Code [hier einsehbar {{< fa brands github >}}](https://github.com/filius23/StataBIBB_tables2022)
       
       
+   # left: |
 
 
 bibliography: packages.bib

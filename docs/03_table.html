@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R am BIBB - 4&nbsp; tabulate</title>
+<title>Tabellenexport mit Stata - 3&nbsp; tabulate</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -146,10 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R am BIBB</a> 
-        <div class="sidebar-tools-main">
-    <a href="./R-am-BIBB.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
-</div>
+      <a href="./">Tabellenexport mit Stata</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -161,42 +158,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stata: Erzeugen von Deskriptions- und Regressionstabellen</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Eine Tour durch <code>esttab</code></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tabellenexport mit Stata: Grundlagen &amp; Pakete</span></a>
+  <a href="./01_basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tabellenexport mit Stata: Grundlagen &amp; Pakete</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_tabstat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Deskriptionen</span></a>
+  <a href="./02_tabstat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Deskriptionen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_table.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></a>
+  <a href="./03_table.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_corrmat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Korrelationsmatrix</span></a>
+  <a href="./04_corrmat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Korrelationsmatrix</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_reg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regressionstabellen</span></a>
+  <a href="./05_reg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Regressionstabellen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_mixed_logit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel- und logit Modelle</span></a>
+  <a href="./06_mixed_logit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Multilevel- und logit Modelle</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_misc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Weitere Optionen</span></a>
+  <a href="./07_misc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Weitere Optionen</span></a>
   </div>
 </li>
     </ul>
@@ -208,13 +205,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#tab-x-one-way-frequency-table" id="toc-tab-x-one-way-frequency-table" class="nav-link active" data-scroll-target="#tab-x-one-way-frequency-table"> <span class="header-section-number">4.1</span> <code>tab x</code>: One-way frequency table</a></li>
-  <li><a href="#tab-var1-var2-kontingenz-kreuztabelle" id="toc-tab-var1-var2-kontingenz-kreuztabelle" class="nav-link" data-scroll-target="#tab-var1-var2-kontingenz-kreuztabelle"> <span class="header-section-number">4.2</span> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle</a></li>
-  <li><a href="#gewichtete-tabelle-mit-svy" id="toc-gewichtete-tabelle-mit-svy" class="nav-link" data-scroll-target="#gewichtete-tabelle-mit-svy"> <span class="header-section-number">4.3</span> Gewichtete Tabelle mit <code>svy</code></a></li>
-  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"> <span class="header-section-number">4.4</span> Übungen</a>
+  <li><a href="#tab-x-one-way-frequency-table" id="toc-tab-x-one-way-frequency-table" class="nav-link active" data-scroll-target="#tab-x-one-way-frequency-table"> <span class="header-section-number">3.1</span> <code>tab x</code>: One-way frequency table</a></li>
+  <li><a href="#tab-var1-var2-kontingenz-kreuztabelle" id="toc-tab-var1-var2-kontingenz-kreuztabelle" class="nav-link" data-scroll-target="#tab-var1-var2-kontingenz-kreuztabelle"> <span class="header-section-number">3.2</span> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle</a></li>
+  <li><a href="#gewichtete-tabelle-mit-svy" id="toc-gewichtete-tabelle-mit-svy" class="nav-link" data-scroll-target="#gewichtete-tabelle-mit-svy"> <span class="header-section-number">3.3</span> Gewichtete Tabelle mit <code>svy</code></a></li>
+  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"> <span class="header-section-number">3.4</span> Übungen</a>
   <ul class="collapse">
-  <li><a href="#table1" id="toc-table1" class="nav-link" data-scroll-target="#table1"> <span class="header-section-number">4.4.1</span> Übung</a></li>
-  <li><a href="#table2" id="toc-table2" class="nav-link" data-scroll-target="#table2"> <span class="header-section-number">4.4.2</span> Übung</a></li>
+  <li><a href="#table1" id="toc-table1" class="nav-link" data-scroll-target="#table1"> <span class="header-section-number">3.4.1</span> Übung</a></li>
+  <li><a href="#table2" id="toc-table2" class="nav-link" data-scroll-target="#table2"> <span class="header-section-number">3.4.2</span> Übung</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -224,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="tab" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></span></h1>
+<h1 class="title"><span id="tab" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><code>tabulate</code></span></span></h1>
 </div>
 
 
@@ -242,8 +239,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <p>Mit <code>table</code> können wir sowohl uni- als auch bivariate Häufigkeitsauszählungen erstellen. Auch diese können wir mit <code>esttab</code> exportieren. Außerdem können wir auch gewichtete Tabellen exportieren.</p>
-<section id="tab-x-one-way-frequency-table" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="tab-x-one-way-frequency-table"><span class="header-section-number">4.1</span> <code>tab x</code>: One-way frequency table</h2>
+<section id="tab-x-one-way-frequency-table" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="tab-x-one-way-frequency-table"><span class="header-section-number">3.1</span> <code>tab x</code>: One-way frequency table</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -324,8 +321,8 @@ Total                                           19967          100
 <p><strong><a href="#table1">Übung 1</a></strong></p>
 <hr>
 </section>
-<section id="tab-var1-var2-kontingenz-kreuztabelle" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="tab-var1-var2-kontingenz-kreuztabelle"><span class="header-section-number">4.2</span> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle</h2>
+<section id="tab-var1-var2-kontingenz-kreuztabelle" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="tab-var1-var2-kontingenz-kreuztabelle"><span class="header-section-number">3.2</span> <code>tab var1 var2</code>: Kontingenz-/Kreuztabelle</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> m1202 S1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -445,8 +442,8 @@ Und hier eine Notiz sogar mit: eingefügtem Text</code></pre>
 <p><strong><a href="#table2">Übung 2</a></strong></p>
 <hr>
 </section>
-<section id="gewichtete-tabelle-mit-svy" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="gewichtete-tabelle-mit-svy"><span class="header-section-number">4.3</span> Gewichtete Tabelle mit <code>svy</code></h2>
+<section id="gewichtete-tabelle-mit-svy" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="gewichtete-tabelle-mit-svy"><span class="header-section-number">3.3</span> Gewichtete Tabelle mit <code>svy</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">svyset</span> <span class="dt">_n</span> [<span class="kw">pweight</span>=gew2018]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">svy</span>: <span class="kw">tabulate</span>  m1202 S1 , <span class="ot">row</span> <span class="kw">percent</span> <span class="fu">count</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -502,18 +499,18 @@ N                                               19967
 <li><code>e(obs)</code> = number of observations</li>
 </ul>
 </section>
-<section id="übungen" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="übungen"><span class="header-section-number">4.4</span> Übungen</h2>
-<section id="table1" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="table1"><span class="header-section-number">4.4.1</span> Übung</h3>
+<section id="übungen" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.4</span> Übungen</h2>
+<section id="table1" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="table1"><span class="header-section-number">3.4.1</span> Übung</h3>
 <ul>
 <li>Erstellen Sie eine Häufigkeitstabelle für von <code>gkpol</code>.</li>
 <li>Lassen Sie sich die Labels für <code>gkpol</code> anzeigen und passen Sie die Tabelle nach Ihren Vorstellungen an.Wie würden Sie die kumulierten Anteile aus Ihrer Tabelle ausblenden?</li>
 <li>Passen Sie die Labels für die Spalten (bspw. <code>N</code> statt <code>freq</code> und <code>%</code> statt <code>pct</code>) an und blenden Sie die kumulierte relative Häufigkeit aus.</li>
 </ul>
 </section>
-<section id="table2" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="table2"><span class="header-section-number">4.4.2</span> Übung</h3>
+<section id="table2" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="table2"><span class="header-section-number">3.4.2</span> Übung</h3>
 <ul>
 <li>Erstellen Sie eine Kreuztabelle für <code>gkpol</code> und <code>mobil</code>.</li>
 <li>Passen Sie die Beschriftung der Tabelle nach Ihren Vorstellungen an.</li>
@@ -626,12 +623,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./02_tabstat.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Deskriptionen</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Deskriptionen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04_corrmat.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Korrelationsmatrix</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Korrelationsmatrix</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

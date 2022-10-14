@@ -1,15 +1,6 @@
---- 
-title: "Stata: Erzeugen von Deskriptions- und Regressionstabellen"
-subtitle: "Eine Tour durch `esttab`"
-author: "[Andreas Filser](www.afilser.netlify.app/)"
-date: "`r Sys.Date()`"
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
----
+#### Herzlich Willkommen {-}
 
-```{r setup, echo = F, message=F, warning = F}
-# output: bookdown::pdf_document2
+```{r setup,include=FALSE, echo = F, message=F, warning = F}
 if(Sys.getenv("USERNAME") == "filse" ) .libPaths("D:/R-library4")  # set library
 list.of.packages <- c("tidyr","dplyr","readr","haven","rmarkdown","bookdown","devtools","tidyverse","knitr") # Pakete eintragen
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -26,10 +17,14 @@ library(tidyverse)
 library(ggthemes)
 ```
 
-# Herzlich Willkommen {-}
 
 
-Dies ist das Begleitskript für die Weiterbildung **Stata – Erzeugen von Deskriptions- und Regressionstabellen** am BIBB von [Andreas Filser](www.afilser.netlify.app/) am 21.10.2022
+<!-- # Stata: Erzeugen von Deskriptions- und Regressionstabellen {#index .unnumbered} -->
+
+
+Dies ist das Begleitskript zum Kurs **Erzeugen von Deskriptions- und Regressionstabellen mit Stata** am BIBB von [Andreas Filser](https://afilser.netlify.app/). Der Kurs gibt eine Tour durch die Möglichkeiten zum Tabellenexport mit [`esttab`](http://repec.sowi.unibe.ch/stata/estout/).
+
+Melden Sie sich gerne bei Fragen oder Wünschen unter andreas.filser[at]uol.de
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
 
