@@ -123,5 +123,5 @@ knitr::include_graphics("./pics/02_install.png")
 ## Übung {#init}
 
 + Generieren Sie einmal `BIBBBAuA_2018_suf1.0_clean.dta` mit Hilfe von `00_init.do` für die weiteren Aufgaben.
-+ Testen Sie einmal `return list` und `erturn list` nach `reg F518_SUF zpalter` bzw.  `su zpalter`
++ Testen Sie einmal `return list` und `ereturn list` nach `reg F518_SUF zpalter` bzw.  `su zpalter`
 

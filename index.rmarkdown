@@ -1,0 +1,67 @@
+#### Herzlich Willkommen {-}
+
+
+```{r setup,include=FALSE, echo = F, message=F, warning = F}
+if(Sys.getenv("USERNAME") == "filse" ) .libPaths("D:/R-library4")  # set library
+list.of.packages <- c("tidyr","dplyr","readr","haven","rmarkdown","bookdown","devtools","tidyverse","knitr") # Pakete eintragen
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(echo = T)
+# knitr::opts_chunk$set(dpi=400)
+# devtools::install_github("hemken/Statamarkdown")
+# stataexe <- "C:/Program Files (x86)/Stata13/StataSE-64.exe"
+stataexe <- "C:/Program Files/Stata16/StataSE-64.exe"
+knitr::opts_chunk$set(engine.path=list(stata=stataexe))
+library(Statamarkdown)
+library(tidyverse)
+library(ggthemes)
+```
+
+
+
+
+<!-- # Stata: Erzeugen von Deskriptions- und Regressionstabellen {#index .unnumbered} -->
+
+
+Dies ist das Begleitskript zum Kurs **Erzeugen von Deskriptions- und Regressionstabellen mit Stata** am BIBB von [Andreas Filser](https://afilser.netlify.app/). Der Kurs gibt eine Tour durch die Möglichkeiten zum Tabellenexport mit [`esttab`](http://repec.sowi.unibe.ch/stata/estout/).
+
+Melden Sie sich gerne bei Fragen oder Wünschen unter andreas.filser[at]uol.de
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+
+{{< fa calendar-alt >}} &nbsp; Freitag 21.10.2022
+
+{{< fa clock >}} &nbsp; 8:30 - 17:30 Uhr
+
+{{< fa location-dot >}} &nbsp; Webex
+
+:::
+
+
+```{r index_illustration, echo = F,out.width = "60%",fig.height= 3, fig.align="center"}
+knitr::include_graphics("pics/01_titel.png")
+```
+
+
+
+<!-- ```{r kapitel, ft.align = "center",message=F,warning=F, echo = F} -->
+<!-- library(kableExtra) -->
+<!-- opts <- options(knitr.kable.NA = "") -->
+
+<!-- readxl::read_xlsx("00_kapitel.xlsx",sheet = 1) %>%  -->
+<!--   kable() %>%  -->
+<!--   kable_styling(bootstrap_options = "condensed", full_width = F) %>%  -->
+<!--   column_spec(1,bold = T) -->
+<!-- ``` -->
+
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+

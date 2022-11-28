@@ -32,7 +32,7 @@
     "href": "01_basics.html#init",
     "title": "1  Tabellenexport mit Stata: Grundlagen & Pakete",
     "section": "1.3 Übung",
-    "text": "1.3 Übung\n\nGenerieren Sie einmal BIBBBAuA_2018_suf1.0_clean.dta mit Hilfe von 00_init.do für die weiteren Aufgaben.\nTesten Sie einmal return list und erturn list nach reg F518_SUF zpalter bzw. su zpalter"
+    "text": "1.3 Übung\n\nGenerieren Sie einmal BIBBBAuA_2018_suf1.0_clean.dta mit Hilfe von 00_init.do für die weiteren Aufgaben.\nTesten Sie einmal return list und ereturn list nach reg F518_SUF zpalter bzw. su zpalter"
   },
   {
     "objectID": "02_tabstat.html#summary",
