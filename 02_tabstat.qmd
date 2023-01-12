@@ -16,9 +16,9 @@ knitr::opts_chunk$set(engine.path=list(stata=stataexe))
 
 
 
-## `summary` {#summary}
+## `summarize` {#summarize}
 
-Hier ein Bespielbefehl für die Berechnung des arith. Mittels, des Medians, der Varianz und des Varianzkoeffizienten mit `tabstat`:
+Klassiker für die Erstellung einer deskriptiven Übersicht in Stata ist `summarize`:
 ```{stata suF, eval = F}
 summarize zpalter
 ```
@@ -28,6 +28,8 @@ set linesize 80
 qui use "./data/BIBBBAuA_2018_short.dta", clear
 summarize zpalter
 ```
+
+Flexibler und für unsere Zwecke passender ist `tabstat`:
 
 ## `tabstat` {#tabstat}
 
