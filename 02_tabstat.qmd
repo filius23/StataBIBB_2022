@@ -47,9 +47,9 @@ readxl::read_xlsx("03_tabstat.xlsx",sheet = 1) %>%
   column_spec(1,monospace = TRUE)
 ```
 
-Hier ein Bespielbefehl für die Berechnung des arith. Mittels, des Medians, der Varianz und des Varianzkoeffizienten mit `tabstat`:
+Hier ein Bespielbefehl für die Berechnung des arith. Mittels, der Standardabweichung, der Minimum und Maximum sowie der Fallzahl mit `tabstat`:
 ```{stata tabstatF, eval = F}
-tabstat zpalter, s(mean median var cv) c(stat)
+tabstat zpalter, s(mean sd min max n) c(stat)
 ```
 
 ```{stata tabstatT, echo = F}
